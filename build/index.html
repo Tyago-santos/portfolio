@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Portifolio de Tiago Santos, desenvolvedor Full Stack. Projetos em React, TypeScript, Firebase e Node.js, com foco em experiencias modernas e responsivas."
+    />
+    <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml" />
+    <title>Portfólio | Tiago</title>
+    <link rel="stylesheet" href="./css/style.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <header>
+      <nav class="nav">
+        <a class="logo" href="#">Tiago</a>
+        <ul class="nav_list">
+          <li class="nav_item"><a href="#hero">Home</a></li>
+          <li class="nav_item"><a href="#about">Sobre</a></li>
+
+          <li class="nav_item"><a href="#skills">Skills</a></li>
+          <li class="nav_item"><a href="#projects">Projetos</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section id="hero" class="hero">
+        <div class="container_infor">
+          <div class="infor">
+            <h1 class="infor_name">Olá, eu sou Tiago</h1>
+
+            <p>Desenvolvedor FullStack</p>
+            <div>
+              <span class="space"></span>
+            </div>
+          </div>
+
+          <a
+            href="./assets/curriculo_tiago_dev.pdf"
+            download="curriculo_tigo"
+            class="infor_button"
+            >Meu currículo</a
+          >
+
+          <div class="infor_container_button_social">
+            <a
+              class="infor_button_social"
+              href="https://www.linkedin.com/in/tiago-santos-b10165376/"
+            >
+              <i class="fa-brands fa-linkedin"></i>
+            </a>
+
+            <a
+              class="infor_button_social"
+              href="https://github.com/Tyago-santos"
+            >
+              <i class="fa-brands fa-git"></i>
+            </a>
+
+            <a
+              class="infor_button_social"
+              href="https://www.instagram.com/tiago_skywalker/"
+            >
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+
+            <a class="infor_button_social" href="mailto:xlzthyago@gmail.com">
+              <i class="fa-solid fa-envelope"></i>
+            </a>
+
+            <a
+              class="infor_button_social"
+              href="https://www.facebook.com/osmon.santos.9?locale=pt_BR"
+            >
+              <i class="fa-brands fa-facebook"></i>
+            </a>
+          </div>
+        </div>
+        <canvas id="matrix"></canvas>
+      </section>
+
+      <section id="about" class="about">
+        <h1 class="title_section">Sobre mim</h1>
+        <span style="margin: 20px auto" class="space"></span>
+
+        <div class="about_container">
+          <div class="container_img">
+            <img
+              class="about_img"
+              src="./assets/perfil.png"
+              alt="image de um desenho"
+            />
+          </div>
+
+          <div class="about_container_infor">
+            <h2 class="about_title">Minha Trajetória</h2>
+            <p class="about_text">
+              Sou Tiago Santos, estudante de Ciência da Computação pela Uninter,
+              atualmente no 3º semestre, e desenvolvedor web em formação
+              apaixonado por tecnologia e criação de soluções digitais. Tenho
+              foco no ecossistema JavaScript, com experiência em HTML, CSS,
+              TailwindCSS, React, Node.js e Express, desenvolvendo aplicações
+              web modernas, responsivas e bem estruturadas. Busco sempre
+              escrever código organizado, aplicar boas práticas de
+              desenvolvimento e evoluir constantemente minhas habilidades
+              técnicas. Atualmente estou focado em aprofundar meus conhecimentos
+              em desenvolvimento web full stack, explorando novas tecnologias e
+              aprimorando minha capacidade de construir aplicações eficientes.
+              Estou em busca de uma oportunidade de estágio ou posição como
+              desenvolvedor júnior, onde eu possa contribuir com projetos reais,
+              aprender com profissionais experientes e continuar evoluindo na
+              área de tecnologia. 🚀
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="skills" class="skills">
+        <h1 style="margin-top: 100px" class="title_section">Minhas Skills</h1>
+        <span style="margin: 20px auto" class="space"></span>
+        <div class="skills_container">
+          <ul class="skills_list">
+            <li class="skill_item">
+              <div class="icon">
+                <i class="fa-brands fa-html5"></i>
+              </div>
+              <span>HTML</span>
+            </li>
+            <li class="skill_item">
+              <div class="icon">
+                <i class="fa-brands fa-css3"></i>
+              </div>
+              React
+
+              <span>CSS</span>
+            </li>
+            <li class="skill_item">
+              <div class="icon">
+                <i class="fa-brands fa-js"></i>
+              </div>
+              <span>JavaScript</span>
+            </li>
+            <li class="skill_item">
+              <div class="icon">
+                <i class="fa-brands fa-react"></i>
+              </div>
+              <span>React</span>
+            </li>
+
+            <li class="skill_item">
+              <div class="icon_img">
+                <img src="./assets//icon/tailwindcss.png" alt="" />
+              </div>
+              <span>Tailwind CSS</span>
+            </li>
+
+            <li class="skill_item">
+              <div class="icon_img">
+                <img src="./assets//icon/typescript.png" alt="" />
+              </div>
+              <span>TypeScript</span>
+            </li>
+
+            <li class="skill_item">
+              <div class="icon_img">
+                <img src="./assets/icon/nextjs.png" alt="" />
+              </div>
+              <span>Nextjs</span>
+            </li>
+
+            <li class="skill_item">
+              <div class="icon">
+                <i class="fa-brands fa-node-js"></i>
+              </div>
+              <span>Node.js</span>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="projects" class="projects">
+        <h1 style="margin-top: 100px" class="title_section">Meus Projetos</h1>
+        <span style="margin: 20px auto" class="space"></span>
+        <div class="projects_container">
+          <div class="projects_list">
+            <div class="project_item">
+              <div
+                class="project_cover"
+                style="
+                  background-image: url(&quot;./assets/promis.jpg&quot;);
+                "
+              >
+                <span>Rede social</span>
+              </div>
+              <div class="project_body">
+                <div class="project_meta">
+                  <h3>Promise</h3>
+                  <p>
+                    Web App de relacionamento criado para ajudar pessoas a fazer
+                    novas amizades, conhecer novas pessoas e desenvolver
+                    relacionamentos saudáveis dentro de uma comunidade com
+                    valores e princípios cristãos. A aplicação permite que
+                    usuários criem perfis, explorem outras pessoas e se conectem
+                    com quem compartilha interesses e valores semelhantes.
+                  </p>
+                  <ul class="project_points">
+                    <li>Criação e gerenciamento de perfil de usuário</li>
+                    <li>Explorar e conhecer novas pessoas na plataforma</li>
+                    <li>Interface moderna e responsiva</li>
+                    <li>Upload e compressão de imagens de perfil</li>
+                    <li>Navegação fluida e otimizada</li>
+                    <li>Estrutura modular com componentes reutilizáveis</li>
+                  </ul>
+                </div>
+                <div class="project_tags">
+                  <span>React</span>
+                  <span>TypeScript</span>
+                  <span>Firebase</span>
+                </div>
+                <div class="project_links">
+                  <a href="https://promise-8s8f.onrender.com/">Demo</a>
+                  <a href="https://github.com/tiagomendesdev/promise">GitHub</a>
+                </div>
+              </div>
+            </div>
+            <div class="project_item">
+              <div
+                class="project_cover"
+                style="
+                  background-image: url(&quot;./assets/polearn.jpg&quot;);
+                "
+              >
+                <span>web app</span>
+              </div>
+              <div class="project_body">
+                <div class="project_meta">
+                  <h3>Polearn</h3>
+                  <p>
+                    O objetivo do Polearn e ajudar pessoas a aprender idiomas
+                    com consistencia, por meio de uma experiencia simples e
+                    objetiva. A proposta e transformar o estudo em uma rotina
+                    leve, com atividades praticas para leitura e escrita,
+                    permitindo evolucao continua no dia a dia.
+                  </p>
+                  <ul class="project_points">
+                    <li>Geracao de exercicios de idiomas utilizando IA</li>
+                    <li>Interface moderna e responsiva</li>
+                    <li>Estrutura organizada de rotas</li>
+                    <li>Protecao de paginas privadas da aplicacao</li>
+                    <li>Estrutura escalavel para evolucao do projeto</li>
+                  </ul>
+                </div>
+                <div class="project_tags">
+                  <div class="project_tags">
+                    <span>React</span>
+                    <span>TypeScript</span>
+                    <span>Firebase</span>
+                  </div>
+                </div>
+                <div class="project_links">
+                  <a href="https://polearn.onrender.com/">Demo</a>
+                  <a href="https://github.com/Tyago-santos/polearn">GitHub</a>
+                </div>
+              </div>
+            </div>
+            <div class="project_item">
+              <div
+                class="project_cover"
+                style="background-image: url(&quot;./assets/lma.jpg&quot;)"
+              >
+                <span>Dashboard</span>
+              </div>
+              <div class="project_body">
+                <div class="project_meta">
+                  <h3>Acompanhamento de Pessoas</h3>
+                  <p>
+                    Projeto desenvolvido para relatar e acompanhar o progresso
+                    das pessoas atendidas pelos missionários da Igreja de Jesus
+                    Cristo dos Santos dos Últimos Dias. A aplicação permite que
+                    colaboradores e membros:
+                  </p>
+                  <ul class="project_points">
+                    <li>Visualizem evolução pessoal</li>
+                    <li>Acompanhem metas e planos</li>
+                    <li>Confiram desempenho semanal</li>
+                    <li>Organizem visualizações por unidade da igreja</li>
+                    <li>Monitorem o trabalho missionário em tempo real</li>
+                  </ul>
+                </div>
+                <div class="project_tags">
+                  <div class="project_tags">
+                    <span>React</span>
+                    <span>TypeScript</span>
+                    <span>Firebase</span>
+                  </div>
+                </div>
+                <div class="project_links">
+                  <a href="https://project-lma-99.onrender.com/">Demo</a>
+                  <a href="https://github.com/Tyago-santos/project_lma"
+                    >GitHub</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <foooter class="footer">
+        <p>&copy; 2024 Tiago. Todos os direitos reservados.</p>
+      </foooter>
+    </main>
+
+    <script src="./js/script.js
+    "></script>
+  </body>
+</html>
