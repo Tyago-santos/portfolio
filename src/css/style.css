@@ -607,7 +607,12 @@ header {
   color: white;
 }
 
-.footer {
+footer {
+  background: red;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   text-align: center;
   padding: 20px;
   color: rgba(255, 255, 255, 0.5);
