@@ -7,6 +7,15 @@
       name="description"
       content="Portifolio de Tiago Santos, desenvolvedor Full Stack. Projetos em React, TypeScript, Firebase e Node.js, com foco em experiencias modernas e responsivas."
     />
+    <meta property="og:title" content="Portfólio | Tiago" />
+    <meta
+      property="og:description"
+      content="Portifolio de Tiago Santos, desenvolvedor Full Stack. Projetos em React, TypeScript, Firebase e Node.js, com foco em experiencias modernas e responsivas."
+    />
+    <meta property="og:image" content="./src/assets/favicon.svg" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="./src/assets/favicon.svg" />
     <link rel="icon" href="./src/assets/favicon.svg" type="image/svg+xml" />
     <title>Portfólio | Tiago</title>
     <link rel="stylesheet" href="./src/css/style.css" />
@@ -28,7 +37,7 @@
   </head>
   <body>
     <header>
-      <nav class="nav">
+      <nav class="nav" aria-label="Navegação principal">
         <a class="logo" href="#">Tiago</a>
         <ul class="nav_list">
           <li class="nav_item"><a href="#hero">Home</a></li>
@@ -41,7 +50,7 @@
     </header>
 
     <main>
-      <section id="hero" class="hero">
+      <section id="hero" class="hero" aria-label="Apresentação">
         <div class="container_infor">
           <div class="infor">
             <h1 class="infor_name">Olá, eu sou Tiago</h1>
@@ -59,10 +68,11 @@
             >Meu currículo</a
           >
 
-          <div class="infor_container_button_social">
+          <div class="infor_container_button_social" aria-label="Redes sociais">
             <a
               class="infor_button_social"
               href="https://www.linkedin.com/in/tiago-santos-b10165376/"
+              aria-label="LinkedIn"
             >
               <i class="fa-brands fa-linkedin"></i>
             </a>
@@ -70,6 +80,7 @@
             <a
               class="infor_button_social"
               href="https://github.com/Tyago-santos"
+              aria-label="GitHub"
             >
               <i class="fa-brands fa-git"></i>
             </a>
@@ -77,27 +88,33 @@
             <a
               class="infor_button_social"
               href="https://www.instagram.com/tiago_skywalker/"
+              aria-label="Instagram"
             >
               <i class="fa-brands fa-instagram"></i>
             </a>
 
-            <a class="infor_button_social" href="mailto:xlzthyago@gmail.com">
+            <a
+              class="infor_button_social"
+              href="mailto:xlzthyago@gmail.com"
+              aria-label="Email"
+            >
               <i class="fa-solid fa-envelope"></i>
             </a>
 
             <a
               class="infor_button_social"
               href="https://www.facebook.com/osmon.santos.9?locale=pt_BR"
+              aria-label="Facebook"
             >
               <i class="fa-brands fa-facebook"></i>
             </a>
           </div>
         </div>
-        <canvas id="matrix"></canvas>
+        <canvas id="matrix" aria-hidden="true"></canvas>
       </section>
 
       <section id="about" class="about">
-        <h1 class="title_section">Sobre mim</h1>
+        <h2 class="title_section">Sobre mim</h2>
         <span style="margin: 20px auto" class="space"></span>
 
         <div class="about_container">
@@ -105,7 +122,7 @@
             <img
               class="about_img"
               src="./src/assets/perfil.png"
-              alt="image de um desenho"
+              alt="Foto de perfil de Tiago Santos (ilustração)"
             />
           </div>
 
@@ -133,7 +150,7 @@
       </section>
 
       <section id="skills" class="skills">
-        <h1 style="margin-top: 100px" class="title_section">Minhas Skills</h1>
+        <h2 style="margin-top: 100px" class="title_section">Minhas Skills</h2>
         <span style="margin: 20px auto" class="space"></span>
         <div class="skills_container">
           <ul class="skills_list">
@@ -147,8 +164,6 @@
               <div class="icon">
                 <i class="fa-brands fa-css3"></i>
               </div>
-              React
-
               <span>CSS</span>
             </li>
             <li class="skill_item">
@@ -196,7 +211,7 @@
       </section>
 
       <section id="projects" class="projects">
-        <h1 style="margin-top: 100px" class="title_section">Meus Projetos</h1>
+        <h2 style="margin-top: 100px" class="title_section">Meus Projetos</h2>
         <span style="margin: 20px auto" class="space"></span>
         <div class="projects_container">
           <div class="projects_list">
