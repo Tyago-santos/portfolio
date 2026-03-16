@@ -450,6 +450,7 @@ header {
 
 .skills_track {
   display: flex;
+  gap: 20px;
   width: max-content;
   animation: skills-scroll 22s linear infinite;
   will-change: transform;
