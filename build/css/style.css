@@ -125,6 +125,7 @@ table {
 
 html {
   scroll-behavior: smooth;
+  scrollbar-color: rgba(0, 255, 0, 1) black;
 }
 
 body {
