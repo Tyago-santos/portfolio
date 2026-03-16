@@ -22,8 +22,10 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
       rel="stylesheet"
     />
 
@@ -38,12 +40,12 @@
   <body>
     <header>
       <nav class="nav" aria-label="Navegação principal">
-        <a class="logo" href="#">Tiago</a>
+        <a data-glitch="" class="logo" href="#">Tiago</a>
         <ul class="nav_list">
           <li class="nav_item"><a href="#hero">Home</a></li>
           <li class="nav_item"><a href="#about">Sobre</a></li>
 
-          <li class="nav_item"><a href="#skills">Skills</a></li>
+          <li class="nav_item"><a href="#skills">Tecnologias</a></li>
           <li class="nav_item"><a href="#projects">Projetos</a></li>
         </ul>
       </nav>
@@ -70,6 +72,7 @@
 
           <div class="infor_container_button_social" aria-label="Redes sociais">
             <a
+              target="_blank"
               class="infor_button_social"
               href="https://www.linkedin.com/in/tiago-santos-b10165376/"
               aria-label="LinkedIn"
@@ -78,6 +81,7 @@
             </a>
 
             <a
+              target="_blank"
               class="infor_button_social"
               href="https://github.com/Tyago-santos"
               aria-label="GitHub"
@@ -86,6 +90,7 @@
             </a>
 
             <a
+              target="_blank"
               class="infor_button_social"
               href="https://www.instagram.com/tiago_skywalker/"
               aria-label="Instagram"
@@ -94,6 +99,7 @@
             </a>
 
             <a
+              target="_blank"
               class="infor_button_social"
               href="mailto:xlzthyago@gmail.com"
               aria-label="Email"
@@ -102,6 +108,7 @@
             </a>
 
             <a
+              target="_blank"
               class="infor_button_social"
               href="https://www.facebook.com/osmon.santos.9?locale=pt_BR"
               aria-label="Facebook"
@@ -143,63 +150,121 @@
       </section>
 
       <section id="skills" class="skills">
-        <h2 style="margin-top: 100px" class="title_section">Minhas Skills</h2>
+        <h2 style="margin-top: 100px" class="title_section">Tecnologias</h2>
         <span style="margin: 20px auto" class="space"></span>
         <div class="skills_container">
-          <ul class="skills_list">
-            <li class="skill_item">
-              <div class="icon">
-                <i class="fa-brands fa-html5"></i>
-              </div>
-              <span>HTML</span>
-            </li>
-            <li class="skill_item">
-              <div class="icon">
-                <i class="fa-brands fa-css3"></i>
-              </div>
-              <span>CSS</span>
-            </li>
-            <li class="skill_item">
-              <div class="icon">
-                <i class="fa-brands fa-js"></i>
-              </div>
-              <span>JavaScript</span>
-            </li>
-            <li class="skill_item">
-              <div class="icon">
-                <i class="fa-brands fa-react"></i>
-              </div>
-              <span>React</span>
-            </li>
+          <div class="skills_slider" aria-label="Tecnologias em carrossel">
+            <div class="skills_track">
+              <ul class="skills_list">
+                <li class="skill_item">
+                  <div class="icon">
+                    <i class="fa-brands fa-html5"></i>
+                  </div>
+                  <span>HTML</span>
+                </li>
+                <li class="skill_item">
+                  <div class="icon">
+                    <i class="fa-brands fa-css3"></i>
+                  </div>
+                  <span>CSS</span>
+                </li>
+                <li class="skill_item">
+                  <div class="icon">
+                    <i class="fa-brands fa-js"></i>
+                  </div>
+                  <span>JavaScript</span>
+                </li>
+                <li class="skill_item">
+                  <div class="icon">
+                    <i class="fa-brands fa-react"></i>
+                  </div>
+                  <span>React</span>
+                </li>
 
-            <li class="skill_item">
-              <div class="icon_img">
-                <img src="./assets//icon/tailwindcss.png" alt="" />
-              </div>
-              <span>Tailwind CSS</span>
-            </li>
+                <li class="skill_item">
+                  <div class="icon_img">
+                    <img src="./assets//icon/tailwindcss.png" alt="" />
+                  </div>
+                  <span>Tailwind CSS</span>
+                </li>
 
-            <li class="skill_item">
-              <div class="icon_img">
-                <img src="./assets//icon/typescript.png" alt="" />
-              </div>
-              <span>TypeScript</span>
-            </li>
+                <li class="skill_item">
+                  <div class="icon_img">
+                    <img src="./assets//icon/typescript.png" alt="" />
+                  </div>
+                  <span>TypeScript</span>
+                </li>
 
-            <li class="skill_item">
-              <div class="icon_img">
-                <img src="./assets/icon/nextjs.png" alt="" />
-              </div>
-              <span>Nextjs</span>
-            </li>
+                <li class="skill_item">
+                  <div class="icon_img">
+                    <img src="./assets/icon/nextjs.png" alt="" />
+                  </div>
+                  <span>Nextjs</span>
+                </li>
 
-            <li class="skill_item">
-              <div class="icon">
-                <i class="fa-brands fa-node-js"></i>
-              </div>
-              <span>Node.js</span>
-            </li>
-          </ul>
+                <li class="skill_item">
+                  <div class="icon">
+                    <i class="fa-brands fa-node-js"></i>
+                  </div>
+                  <span>Node.js</span>
+                </li>
+              </ul>
+              <ul class="skills_list" aria-hidden="true">
+                <li class="skill_item">
+                  <div class="icon">
+                    <i class="fa-brands fa-html5"></i>
+                  </div>
+                  <span>HTML</span>
+                </li>
+                <li class="skill_item">
+                  <div class="icon">
+                    <i class="fa-brands fa-css3"></i>
+                  </div>
+                  <span>CSS</span>
+                </li>
+                <li class="skill_item">
+                  <div class="icon">
+                    <i class="fa-brands fa-js"></i>
+                  </div>
+                  <span>JavaScript</span>
+                </li>
+                <li class="skill_item">
+                  <div class="icon">
+                    <i class="fa-brands fa-react"></i>
+                  </div>
+                  <span>React</span>
+                </li>
+
+                <li class="skill_item">
+                  <div class="icon_img">
+                    <img src="./assets//icon/tailwindcss.png" alt="" />
+                  </div>
+                  <span>Tailwind CSS</span>
+                </li>
+
+                <li class="skill_item">
+                  <div class="icon_img">
+                    <img src="./assets//icon/typescript.png" alt="" />
+                  </div>
+                  <span>TypeScript</span>
+                </li>
+
+                <li class="skill_item">
+                  <div class="icon_img">
+                    <img src="./assets/icon/nextjs.png" alt="" />
+                  </div>
+                  <span>Nextjs</span>
+                </li>
+
+                <li class="skill_item">
+                  <div class="icon">
+                    <i class="fa-brands fa-node-js"></i>
+                  </div>
+                  <span>Node.js</span>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -246,8 +311,14 @@
                   <span>ESLint</span>
                 </div>
                 <div class="project_links">
-                  <a href="https://promise-8s8f.onrender.com/">Demo</a>
-                  <a href="hhttps://github.com/Tyago-santos/promise">GitHub</a>
+                  <a target="_blank" href="https://promise-8s8f.onrender.com/"
+                    >Demo</a
+                  >
+                  <a
+                    target="_blank"
+                    href="https://github.com/Tyago-santos/promise"
+                    >GitHub</a
+                  >
                 </div>
               </div>
             </div>
@@ -289,8 +360,14 @@
                   </div>
                 </div>
                 <div class="project_links">
-                  <a href="https://polearn.onrender.com/">Demo</a>
-                  <a href="https://github.com/Tyago-santos/polearn">GitHub</a>
+                  <a target="_blank" href="https://polearn.onrender.com/"
+                    >Demo</a
+                  >
+                  <a
+                    target="_blank"
+                    href="https://github.com/Tyago-santos/polearn"
+                    >GitHub</a
+                  >
                 </div>
               </div>
             </div>
@@ -327,8 +404,12 @@
                   </div>
                 </div>
                 <div class="project_links">
-                  <a href="https://project-lma-99.onrender.com/">Demo</a>
-                  <a href="https://github.com/Tyago-santos/project_lma"
+                  <a target="_blank" href="https://project-lma-99.onrender.com/"
+                    >Demo</a
+                  >
+                  <a
+                    target="_blank"
+                    href="https://github.com/Tyago-santos/project_lma"
                     >GitHub</a
                   >
                 </div>
@@ -345,28 +426,39 @@
 
         <div class="infor_container_button_social">
           <a
+            target="_blank"
             class="infor_button_social"
             href="https://www.linkedin.com/in/tiago-santos-b10165376/"
           >
             <i class="fa-brands fa-linkedin"></i>
           </a>
 
-          <a class="infor_button_social" href="https://github.com/Tyago-santos">
+          <a
+            target="_blank"
+            class="infor_button_social"
+            href="https://github.com/Tyago-santos"
+          >
             <i class="fa-brands fa-git"></i>
           </a>
 
           <a
+            target="_blank"
             class="infor_button_social"
             href="https://www.instagram.com/tiago_skywalker/"
           >
             <i class="fa-brands fa-instagram"></i>
           </a>
 
-          <a class="infor_button_social" href="mailto:xlzthyago@gmail.com">
+          <a
+            target="_blank"
+            class="infor_button_social"
+            href="mailto:xlzthyago@gmail.com"
+          >
             <i class="fa-solid fa-envelope"></i>
           </a>
 
           <a
+            target="_blank"
             class="infor_button_social"
             href="https://www.facebook.com/osmon.santos.9?locale=pt_BR"
           >
