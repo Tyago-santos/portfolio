@@ -127,3 +127,49 @@ glitchEl.forEach((el) => {
     glitch(el);
   });
 });
+
+// Header ganha fundo sólido após sair do topo,
+// e o link do menu correspondente à seção visível fica em destaque
+const header = document.querySelector("header");
+const navLinks = document.querySelectorAll(".nav_list a");
+const sections = document.querySelectorAll("main section[id]");
+const headerOffset = 120;
+
+function updateActiveNav() {
+  let current = sections[0];
+  sections.forEach((section) => {
+    if (section.getBoundingClientRect().top <= headerOffset) {
+      current = section;
+    }
+  });
+  navLinks.forEach((link) => {
+    link.classList.toggle(
+      "active",
+      link.getAttribute("href") === `#${current.id}`,
+    );
+  });
+}
+
+window.addEventListener("scroll", () => {
+  header.classList.toggle("header--scrolled", window.scrollY > 60);
+  updateActiveNav();
+});
+
+updateActiveNav();
+
+// Anima elementos ao entrarem na tela
+const revealObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("in-view");
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  },
+  { threshold: 0.15 },
+);
+
+document
+  .querySelectorAll(".reveal")
+  .forEach((el) => revealObserver.observe(el));
