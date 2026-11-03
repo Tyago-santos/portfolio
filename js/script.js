@@ -1,246 +1,482 @@
-/* ============================================================
-   Portfólio Tiago Santos — interações
-   HTML + JS puro · sem dependências
-   ============================================================ */
+/* ============================================================================
+   TIAGO SANTOS — interações
+   Vanilla JS, IIFE, sem dependências. Todo efeito é progressivo: o conteúdo
+   permanece legível e navegável se este arquivo falhar ou for desativado.
+   ========================================================================== */
 (function () {
   "use strict";
 
-  var prefersReducedMotion = window.matchMedia(
-    "(prefers-reduced-motion: reduce)"
-  ).matches;
+  var reduceQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+  var coarseQuery = window.matchMedia("(pointer: coarse)");
 
-  /* ---------------------------------------------------------
-     1. Header: estado "scrolled"
-     --------------------------------------------------------- */
-  var header = document.querySelector(".site-header");
-
-  function onScroll() {
-    if (!header) return;
-    header.classList.toggle("is_scrolled", window.scrollY > 24);
+  function qs(selector, scope) {
+    return (scope || document).querySelector(selector);
   }
 
-  onScroll();
-  window.addEventListener("scroll", onScroll, { passive: true });
-
-  /* ---------------------------------------------------------
-     2. Menu mobile
-     --------------------------------------------------------- */
-  var menuToggle = document.getElementById("menuToggle");
-  var nav = document.getElementById("nav");
-
-  function closeMenu() {
-    if (!nav || !menuToggle) return;
-    nav.classList.remove("is_open");
-    menuToggle.setAttribute("aria-expanded", "false");
-    menuToggle.setAttribute("aria-label", "Abrir menu");
+  function qsa(selector, scope) {
+    return Array.prototype.slice.call((scope || document).querySelectorAll(selector));
   }
 
-  if (menuToggle && nav) {
-    menuToggle.addEventListener("click", function () {
-      var open = nav.classList.toggle("is_open");
-      menuToggle.setAttribute("aria-expanded", String(open));
-      menuToggle.setAttribute("aria-label", open ? "Fechar menu" : "Abrir menu");
+  function clamp(value, min, max) {
+    return Math.min(max, Math.max(min, value));
+  }
+
+  function prefersReducedMotion() {
+    return reduceQuery.matches;
+  }
+
+  /* ── relógio de Vitória da Conquista (UTC-3) ───────────────────────────── */
+  function initClock() {
+    var targets = qsa("[data-clock]");
+    if (!targets.length) return;
+
+    var formatter;
+    try {
+      formatter = new Intl.DateTimeFormat("pt-BR", {
+        timeZone: "America/Bahia",
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+        hour12: false,
+      });
+    } catch (error) {
+      formatter = null;
+    }
+
+    function paint() {
+      var now = new Date();
+      var label = formatter
+        ? formatter.format(now)
+        : String(now.getHours()).padStart(2, "0") +
+          ":" +
+          String(now.getMinutes()).padStart(2, "0") +
+          ":" +
+          String(now.getSeconds()).padStart(2, "0");
+
+      targets.forEach(function (node) {
+        node.textContent = label;
+        node.setAttribute("datetime", now.toISOString());
+      });
+    }
+
+    paint();
+    window.setInterval(paint, 1000);
+  }
+
+  /* ── menu mobile ───────────────────────────────────────────────────────── */
+  function initMenu() {
+    var toggle = qs("[data-menu-toggle]");
+    var menu = qs("[data-menu]");
+    if (!toggle || !menu) return;
+
+    var lastFocused = null;
+
+    function open() {
+      lastFocused = document.activeElement;
+      menu.hidden = false;
+      toggle.setAttribute("aria-expanded", "true");
+      toggle.textContent = "Fechar";
+      document.body.style.overflow = "hidden";
+      var firstLink = qs("a", menu);
+      if (firstLink) firstLink.focus();
+    }
+
+    function close() {
+      menu.hidden = true;
+      toggle.setAttribute("aria-expanded", "false");
+      toggle.textContent = "Menu";
+      document.body.style.overflow = "";
+      if (lastFocused && typeof lastFocused.focus === "function") lastFocused.focus();
+    }
+
+    toggle.addEventListener("click", function () {
+      if (toggle.getAttribute("aria-expanded") === "true") close();
+      else open();
     });
 
-    // fecha ao clicar em um link
-    nav.addEventListener("click", function (event) {
-      if (event.target.closest("a")) closeMenu();
-    });
-
-    // fecha ao clicar fora e com Esc
-    document.addEventListener("click", function (event) {
-      if (!nav.classList.contains("is_open")) return;
-      if (nav.contains(event.target) || menuToggle.contains(event.target)) return;
-      closeMenu();
+    menu.addEventListener("click", function (event) {
+      if (event.target.closest("a")) close();
     });
 
     document.addEventListener("keydown", function (event) {
-      if (event.key === "Escape") closeMenu();
+      if (event.key === "Escape" && toggle.getAttribute("aria-expanded") === "true") close();
+    });
+
+    window.addEventListener("resize", function () {
+      if (window.innerWidth > 1100 && toggle.getAttribute("aria-expanded") === "true") close();
     });
   }
 
-  /* ---------------------------------------------------------
-     3. Scroll reveal (entrada suave ao rolar)
-     --------------------------------------------------------- */
-  var revealItems = document.querySelectorAll("[data-reveal]");
+  /* ── hero: parallax de ponteiro e holofote ─────────────────────────────── */
+  function initHero() {
+    var hero = qs(".hero");
+    var photo = qs(".hero__photo");
+    if (!hero || !photo) return;
 
-  if (prefersReducedMotion || !("IntersectionObserver" in window)) {
-    revealItems.forEach(function (el) {
-      el.classList.add("is-visible");
-    });
-  } else {
-    var revealObserver = new IntersectionObserver(
-      function (entries, observer) {
-        entries.forEach(function (entry) {
-          if (!entry.isIntersecting) return;
-          entry.target.classList.add("is-visible");
-          observer.unobserve(entry.target);
-        });
-      },
-      { threshold: 0.12, rootMargin: "0px 0px -60px 0px" }
-    );
+    var frame = null;
+    var targetX = 0;
+    var targetY = 0;
+    var currentX = 0;
+    var currentY = 0;
 
-    revealItems.forEach(function (el) {
-      revealObserver.observe(el);
-    });
-  }
+    function render() {
+      currentX += (targetX - currentX) * 0.08;
+      currentY += (targetY - currentY) * 0.08;
+      photo.style.transform =
+        "translate(-50%, -50%) translate3d(" +
+        (currentX * 18).toFixed(2) +
+        "px, " +
+        (currentY * 14).toFixed(2) +
+        "px, 0)";
 
-  /* ---------------------------------------------------------
-     4. Scroll-spy: destaca o link da seção visível
-     --------------------------------------------------------- */
-  var navLinks = Array.prototype.slice.call(
-    document.querySelectorAll('.nav a[href^="#"]')
-  );
-  var sections = navLinks
-    .map(function (link) {
-      return document.querySelector(link.getAttribute("href"));
-    })
-    .filter(Boolean);
-
-  if ("IntersectionObserver" in window && sections.length) {
-    var spyObserver = new IntersectionObserver(
-      function (entries) {
-        entries.forEach(function (entry) {
-          if (!entry.isIntersecting) return;
-          navLinks.forEach(function (link) {
-            var active = link.getAttribute("href") === "#" + entry.target.id;
-            link.classList.toggle("is_active", active);
-            if (active) {
-              link.setAttribute("aria-current", "true");
-            } else {
-              link.removeAttribute("aria-current");
-            }
-          });
-        });
-      },
-      { rootMargin: "-45% 0px -50% 0px" }
-    );
-
-    sections.forEach(function (section) {
-      spyObserver.observe(section);
-    });
-  }
-
-  /* ---------------------------------------------------------
-     5. Contadores do painel de métricas
-     --------------------------------------------------------- */
-  function animateCounter(el) {
-    var target = parseFloat(el.getAttribute("data-count")) || 0;
-    var suffix = el.getAttribute("data-suffix") || "";
-    var prefix = el.getAttribute("data-prefix") || "";
-
-    if (prefersReducedMotion) {
-      el.textContent = prefix + target + suffix;
-      return;
+      if (Math.abs(targetX - currentX) > 0.001 || Math.abs(targetY - currentY) > 0.001) {
+        frame = window.requestAnimationFrame(render);
+      } else {
+        frame = null;
+      }
     }
 
-    var duration = 1200;
-    var start = null;
-
-    function step(timestamp) {
-      if (start === null) start = timestamp;
-      var progress = Math.min((timestamp - start) / duration, 1);
-      // easing outCubic
-      var eased = 1 - Math.pow(1 - progress, 3);
-      el.textContent = prefix + Math.round(target * eased) + suffix;
-      if (progress < 1) requestAnimationFrame(step);
-    }
-
-    requestAnimationFrame(step);
-  }
-
-  var counters = document.querySelectorAll("[data-count]");
-
-  if (counters.length) {
-    if (!("IntersectionObserver" in window)) {
-      counters.forEach(animateCounter);
-    } else {
-      var counterObserver = new IntersectionObserver(
-        function (entries, observer) {
-          entries.forEach(function (entry) {
-            if (!entry.isIntersecting) return;
-            animateCounter(entry.target);
-            observer.unobserve(entry.target);
-          });
-        },
-        { threshold: 0.5 }
-      );
-
-      counters.forEach(function (el) {
-        counterObserver.observe(el);
-      });
-    }
-  }
-
-  /* ---------------------------------------------------------
-     6. Efeito de digitação no terminal
-     --------------------------------------------------------- */
-  var typedLine = document.querySelector("[data-terminal]");
-
-  if (typedLine && !prefersReducedMotion) {
-    var fullText = typedLine.textContent.trim();
-    var charIndex = 0;
-
-    typedLine.textContent = "";
-
-    var typing = window.setInterval(function () {
-      charIndex += 1;
-      typedLine.textContent = fullText.slice(0, charIndex);
-      if (charIndex >= fullText.length) window.clearInterval(typing);
-    }, 26);
-  }
-
-  /* ---------------------------------------------------------
-     7. Holofote que segue o mouse nos cards
-     --------------------------------------------------------- */
-  if (!prefersReducedMotion && window.matchMedia("(hover: hover)").matches) {
-    var spotlightCards = document.querySelectorAll(".card");
-    var pendingFrame = null;
-    var pointerX = 0;
-    var pointerY = 0;
-
-    function paintSpotlight() {
-      pendingFrame = null;
-      spotlightCards.forEach(function (card) {
-        var rect = card.getBoundingClientRect();
-        card.style.setProperty("--mx", pointerX - rect.left + "px");
-        card.style.setProperty("--my", pointerY - rect.top + "px");
-      });
-    }
-
-    document.addEventListener(
-      "mousemove",
+    hero.addEventListener(
+      "pointermove",
       function (event) {
-        pointerX = event.clientX;
-        pointerY = event.clientY;
-        if (pendingFrame === null) pendingFrame = requestAnimationFrame(paintSpotlight);
+        var spot = qs(".hero__spot");
+        if (spot) {
+          spot.style.setProperty("--mx", event.clientX + "px");
+          spot.style.setProperty("--my", event.clientY + "px");
+        }
+
+        if (prefersReducedMotion() || coarseQuery.matches) return;
+
+        targetX = event.clientX / window.innerWidth - 0.5;
+        targetY = event.clientY / window.innerHeight - 0.5;
+        if (!frame) frame = window.requestAnimationFrame(render);
       },
       { passive: true }
     );
+
+    reduceQuery.addEventListener("change", function () {
+      if (prefersReducedMotion()) {
+        if (frame) window.cancelAnimationFrame(frame);
+        frame = null;
+        photo.style.transform = "";
+      }
+    });
   }
 
-  /* ---------------------------------------------------------
-     8. Barra de progresso da rolagem (topo do header)
-     --------------------------------------------------------- */
-  var progress = document.createElement("div");
-  progress.className = "scroll_progress";
-  progress.setAttribute("aria-hidden", "true");
-  if (header) header.appendChild(progress);
+  /* ── reveal por IntersectionObserver ───────────────────────────────────── */
+  function initReveal() {
+    var items = qsa("[data-reveal], [data-wipe]");
+    if (!items.length) return;
 
-  function updateProgress() {
-    var doc = document.documentElement;
-    var max = doc.scrollHeight - window.innerHeight;
-    var ratio = max > 0 ? Math.min(window.scrollY / max, 1) : 0;
-    progress.style.transform = "scaleX(" + ratio + ")";
+    if (prefersReducedMotion() || !("IntersectionObserver" in window)) {
+      items.forEach(function (node) {
+        node.classList.add("is-in");
+      });
+      return;
+    }
+
+    var observer = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add("is-in");
+          observer.unobserve(entry.target);
+        });
+      },
+      { threshold: 0.12, rootMargin: "0px 0px -6% 0px" }
+    );
+
+    items.forEach(function (node) {
+      observer.observe(node);
+    });
   }
 
-  updateProgress();
-  window.addEventListener("scroll", updateProgress, { passive: true });
-  window.addEventListener("resize", updateProgress);
+  /* ── manifesto: palavras acendem conforme o scroll ─────────────────────── */
+  function initManifesto() {
+    var section = qs(".about");
+    var words = qsa("[data-manifesto] .w");
+    if (!section || !words.length) return;
 
-  /* ---------------------------------------------------------
-     9. Rodapé: ano dinâmico
-     --------------------------------------------------------- */
-  var yearSlot = document.getElementById("year");
-  if (yearSlot) yearSlot.textContent = String(new Date().getFullYear());
+    var lastCount = -1;
+    var ticking = false;
+
+    function paint() {
+      ticking = false;
+      var rect = section.getBoundingClientRect();
+      var progress = clamp((window.innerHeight * 0.82 - rect.top) / (rect.height * 0.85), 0, 1);
+      var count = Math.round(progress * words.length);
+
+      if (count === lastCount) return;
+      lastCount = count;
+
+      words.forEach(function (word, index) {
+        word.classList.toggle("is-on", index < count);
+      });
+    }
+
+    function request() {
+      if (ticking) return;
+      ticking = true;
+      window.requestAnimationFrame(paint);
+    }
+
+    if (prefersReducedMotion()) {
+      words.forEach(function (word) {
+        word.classList.add("is-on");
+      });
+      return;
+    }
+
+    paint();
+    window.addEventListener("scroll", request, { passive: true });
+    window.addEventListener("resize", request);
+  }
+
+  /* ── stack: travessia horizontal guiada pelo scroll vertical ───────────── */
+  function initStack() {
+    var section = qs("[data-stack]");
+    var track = qs("[data-stack-track]");
+    var viewport = qs(".st__viewport");
+    var progress = qs("[data-stack-progress]");
+    if (!section || !track || !viewport) return;
+
+    var maxShift = 0;
+    var enabled = false;
+    var ticking = false;
+
+    function update() {
+      ticking = false;
+      if (!enabled) return;
+
+      var rect = section.getBoundingClientRect();
+      var scrollable = section.offsetHeight - window.innerHeight;
+      if (scrollable <= 0) return;
+
+      var progressValue = clamp(-rect.top / scrollable, 0, 1);
+      track.style.transform = "translate3d(" + (-progressValue * maxShift).toFixed(2) + "px, 0, 0)";
+
+      if (progress) progress.style.width = (progressValue * 100).toFixed(1) + "%";
+    }
+
+    function request() {
+      if (ticking) return;
+      ticking = true;
+      window.requestAnimationFrame(update);
+    }
+
+    function measure() {
+      var isStacked = window.matchMedia("(max-width: 900px)").matches;
+      enabled = !isStacked && !prefersReducedMotion();
+
+      if (!enabled) {
+        section.style.height = "";
+        track.style.transform = "";
+        if (progress) progress.style.width = "0%";
+        return;
+      }
+
+      maxShift = Math.max(0, track.scrollWidth - viewport.clientWidth);
+      section.style.height = window.innerHeight + maxShift + "px";
+      update();
+    }
+
+    measure();
+    window.addEventListener("scroll", request, { passive: true });
+    window.addEventListener("resize", measure);
+    reduceQuery.addEventListener("change", measure);
+  }
+
+  /* ── revela a cor original das imagens somente sob o ponteiro ──────────── */
+  function initCursorImageReveal() {
+    if (!window.matchMedia("(hover: hover) and (pointer: fine)").matches) return;
+
+    var reveal = document.createElement("img");
+    reveal.className = "cursor-image-reveal";
+    reveal.alt = "";
+    reveal.setAttribute("aria-hidden", "true");
+    reveal.draggable = false;
+    document.body.appendChild(reveal);
+
+    var frame = null;
+    var activeImage = null;
+    var activeText = null;
+    var baseTextColor = "";
+    var pointerX = 0;
+    var pointerY = 0;
+
+    function textNodeAt(x, y) {
+      var range = typeof document.caretRangeFromPoint === "function"
+        ? document.caretRangeFromPoint(x, y)
+        : null;
+      var node = range && range.startContainer;
+      if (!node && typeof document.caretPositionFromPoint === "function") {
+        var position = document.caretPositionFromPoint(x, y);
+        node = position && position.offsetNode;
+      }
+      if (!node || node.nodeType !== Node.TEXT_NODE || !node.textContent.trim()) return null;
+      var parent = node.parentElement;
+      if (parent.closest("button, .btn")) return null;
+      return parent;
+    }
+
+    function clearText() {
+      if (!activeText) return;
+      activeText.classList.remove("cursor-text-color");
+      activeText.style.removeProperty("--cursor-text-x");
+      activeText.style.removeProperty("--cursor-text-y");
+      activeText.style.removeProperty("--cursor-text-base");
+      activeText = null;
+      baseTextColor = "";
+    }
+
+    function paint() {
+      frame = null;
+      if (activeImage) {
+        var rect = activeImage.getBoundingClientRect();
+        var imageStyle = window.getComputedStyle(activeImage);
+        var x = pointerX - rect.left;
+        var y = pointerY - rect.top;
+        var radius = 96;
+        var mask =
+          "radial-gradient(circle " +
+          radius +
+          "px at " +
+          x +
+          "px " +
+          y +
+          "px, #000 0, #000 58%, transparent 100%)";
+
+        reveal.style.left = rect.left + "px";
+        reveal.style.top = rect.top + "px";
+        reveal.style.width = rect.width + "px";
+        reveal.style.height = rect.height + "px";
+        reveal.style.objectFit = imageStyle.objectFit;
+        reveal.style.objectPosition = imageStyle.objectPosition;
+        reveal.style.borderRadius = imageStyle.borderRadius;
+        reveal.style.opacity = imageStyle.opacity;
+        reveal.style.maskImage = mask;
+        reveal.style.webkitMaskImage = mask;
+        reveal.classList.add("is-visible");
+      } else {
+        reveal.classList.remove("is-visible");
+      }
+
+      if (!activeText) return;
+      var textRect = activeText.getBoundingClientRect();
+      activeText.style.setProperty("--cursor-text-x", pointerX - textRect.left + "px");
+      activeText.style.setProperty("--cursor-text-y", pointerY - textRect.top + "px");
+      activeText.style.setProperty("--cursor-text-base", baseTextColor);
+    }
+
+    document.addEventListener(
+      "pointermove",
+      function (event) {
+        if (event.pointerType === "touch") return;
+        var overButton =
+          event.target.closest && event.target.closest("button, .btn");
+        var textTarget = overButton ? null : textNodeAt(event.clientX, event.clientY);
+        if (textTarget !== activeText) {
+          clearText();
+          activeText = textTarget;
+          if (activeText) {
+            baseTextColor = window.getComputedStyle(activeText).color;
+            activeText.classList.add("cursor-text-color");
+          }
+        }
+
+        var image = event.target && event.target.closest
+          ? event.target.closest("img")
+          : null;
+        var images = document.elementsFromPoint(event.clientX, event.clientY);
+        var imageUnderPointer = images.find(function (node) {
+          return node.tagName === "IMG";
+        });
+        image = image || imageUnderPointer || null;
+        activeImage = image;
+        if (activeImage && reveal.src !== (activeImage.currentSrc || activeImage.src)) {
+          reveal.src = activeImage.currentSrc || activeImage.src;
+        }
+
+        pointerX = event.clientX;
+        pointerY = event.clientY;
+        if (!frame) frame = window.requestAnimationFrame(paint);
+      },
+      { passive: true }
+    );
+
+    document.addEventListener("pointerout", function (event) {
+      if (event.relatedTarget) return;
+      activeImage = null;
+      reveal.classList.remove("is-visible");
+      clearText();
+    });
+
+    window.addEventListener("blur", function () {
+      activeImage = null;
+      reveal.classList.remove("is-visible");
+      clearText();
+    });
+  }
+
+  /* ── barra de progresso + deriva do texto gigante ──────────────────────── */
+  function initScrollFx() {
+    var bar = qs("[data-scroll-progress]");
+    var giant = qs(".xp__giant");
+    var xp = qs(".xp");
+    if (!bar && !giant) return;
+
+    var ticking = false;
+
+    function paint() {
+      ticking = false;
+
+      if (bar) {
+        var doc = document.documentElement;
+        var max = doc.scrollHeight - window.innerHeight;
+        var ratio = max > 0 ? clamp(window.scrollY / max, 0, 1) : 0;
+        bar.style.transform = "scaleX(" + ratio.toFixed(4) + ")";
+      }
+
+      if (!giant) return;
+
+      if (prefersReducedMotion() || !xp) {
+        giant.style.setProperty("--gx", "0px");
+        return;
+      }
+
+      var rect = xp.getBoundingClientRect();
+      var span = window.innerHeight + rect.height;
+      var progress = clamp((window.innerHeight - rect.top) / span, 0, 1);
+      giant.style.setProperty("--gx", ((progress - 0.5) * 110).toFixed(1) + "px");
+    }
+
+    function request() {
+      if (ticking) return;
+      ticking = true;
+      window.requestAnimationFrame(paint);
+    }
+
+    paint();
+    window.addEventListener("scroll", request, { passive: true });
+    window.addEventListener("resize", request);
+    reduceQuery.addEventListener("change", request);
+  }
+
+  /* ── inicialização ─────────────────────────────────────────────────────── */
+  function boot() {
+    initClock();
+    initMenu();
+    initHero();
+    initReveal();
+    initManifesto();
+    initStack();
+    initScrollFx();
+    initCursorImageReveal();
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", boot, { once: true });
+  } else {
+    boot();
+  }
 })();

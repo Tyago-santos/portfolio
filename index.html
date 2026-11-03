@@ -7,11 +7,12 @@
     <title>Tiago Santos — Desenvolvedor Full Stack | React, Node.js &amp; IA</title>
     <meta
       name="description"
-      content="Portfólio de Tiago Santos, desenvolvedor Full Stack na Vittal Web. Projetos em React, TypeScript, Node.js, Next.js e IA com deploy em produção."
+      content="Portfólio de Tiago Santos, desenvolvedor Full Stack na Vittal Web. Seis projetos em produção com React, TypeScript, Node.js, Prisma, Firebase e agentes de IA."
     />
     <meta name="author" content="Tiago Santos" />
     <meta name="robots" content="index, follow, max-image-preview:large" />
-    <meta name="theme-color" content="#070a0f" />
+    <meta name="theme-color" content="#f9f9f7" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
     <link rel="canonical" href="https://portfolio-tiago-kjf4.onrender.com/" />
 
     <!-- Open Graph / Social -->
@@ -21,7 +22,7 @@
     <meta property="og:title" content="Tiago Santos — Desenvolvedor Full Stack" />
     <meta
       property="og:description"
-      content="Portfólio de Tiago Santos, desenvolvedor Full Stack na Vittal Web. Projetos em React, TypeScript, Node.js, Next.js e IA com deploy em produção."
+      content="Seis projetos em produção com React, TypeScript, Node.js, Prisma, Firebase e agentes de IA."
     />
     <meta property="og:url" content="https://portfolio-tiago-kjf4.onrender.com/" />
     <meta
@@ -30,12 +31,12 @@
     />
     <meta property="og:image:width" content="640" />
     <meta property="og:image:height" content="960" />
-    <meta property="og:image:alt" content="Foto de Tiago Santos, desenvolvedor Full Stack" />
+    <meta property="og:image:alt" content="Retrato de Tiago Santos, desenvolvedor Full Stack" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Tiago Santos — Desenvolvedor Full Stack" />
     <meta
       name="twitter:description"
-      content="Projetos em React, TypeScript, Node.js, Next.js e IA com deploy em produção."
+      content="React, TypeScript, Node.js, Prisma e agentes de IA — seis projetos em produção."
     />
     <meta
       name="twitter:image"
@@ -45,14 +46,28 @@
     <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="./assets/favicon.svg" />
 
-    <!-- Fontes auto-hospedadas (variable, subset latin) — zero requisição externa -->
+    <link
+      rel="preload"
+      href="./assets/fonts/space-grotesk-latin.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="./assets/fonts/inter-latin.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+
     <style>
       @font-face {
-        font-family: "Plus Jakarta Sans";
+        font-family: "Space Grotesk";
         font-style: normal;
-        font-weight: 600 800;
+        font-weight: 300 700;
         font-display: swap;
-        src: url("./assets/fonts/plus-jakarta-sans-latin.woff2") format("woff2");
+        src: url("./assets/fonts/space-grotesk-latin.woff2") format("woff2");
         unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
           U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
           U+2212, U+2215, U+FEFF, U+FFFD;
@@ -79,7 +94,9 @@
       }
     </style>
 
-
+    <script>
+      document.documentElement.classList.add("js");
+    </script>
 
     <link rel="stylesheet" href="./css/style.css" />
 
@@ -94,13 +111,14 @@
         "email": "mailto:xlzthyago@gmail.com",
         "address": {
           "@type": "PostalAddress",
-          "addressLocality": "Salvador",
+          "addressLocality": "Vitória da Conquista",
           "addressRegion": "BA",
           "addressCountry": "BR"
         },
-        "affiliation": {
-          "@type": "Organization",
-          "name": "Vittal Web"
+        "affiliation": { "@type": "Organization", "name": "Vittal Web" },
+        "alumniOf": {
+          "@type": "CollegeOrUniversity",
+          "name": "Centro Universitário de Excelência (Unex)"
         },
         "knowsAbout": [
           "React",
@@ -108,6 +126,7 @@
           "Node.js",
           "Next.js",
           "React Native",
+          "Prisma",
           "PostgreSQL",
           "Inteligência Artificial"
         ],
@@ -122,791 +141,966 @@
   </head>
 
   <body>
-    <svg class="sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
-      <symbol id="i-github" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc. --><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></symbol>
-      <symbol id="i-linkedin" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc. --><path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"/></symbol>
-      <symbol id="i-instagram" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc. --><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></symbol>
-      <symbol id="i-facebook" viewBox="0 0 320 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc. --><path d="M80 299.3V512H196V299.3h86.5l18-97.8H196V166.9c0-51.7 20.3-71.5 72.7-71.5c16.3 0 29.4 .4 37 1.2V7.9C291.4 4 256.4 0 236.2 0C129.3 0 80 50.5 80 159.4v42.1H14v97.8H80z"/></symbol>
-      <symbol id="i-node" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc. --><path d="M224 508c-6.7 0-13.5-1.8-19.4-5.2l-61.7-36.5c-9.2-5.2-4.7-7-1.7-8 12.3-4.3 14.8-5.2 27.9-12.7 1.4-.8 3.2-.5 4.6.4l47.4 28.1c1.7 1 4.1 1 5.7 0l184.7-106.6c1.7-1 2.8-3 2.8-5V149.3c0-2.1-1.1-4-2.9-5.1L226.8 37.7c-1.7-1-4-1-5.7 0L36.6 144.3c-1.8 1-2.9 3-2.9 5.1v213.1c0 2 1.1 4 2.9 4.9l50.6 29.2c27.5 13.7 44.3-2.4 44.3-18.7V167.5c0-3 2.4-5.3 5.4-5.3h23.4c2.9 0 5.4 2.3 5.4 5.3V378c0 36.6-20 57.6-54.7 57.6-10.7 0-19.1 0-42.5-11.6l-48.4-27.9C8.1 389.2.7 376.3.7 362.4V149.3c0-13.8 7.4-26.8 19.4-33.7L204.6 9c11.7-6.6 27.2-6.6 38.8 0l184.7 106.7c12 6.9 19.4 19.8 19.4 33.7v213.1c0 13.8-7.4 26.7-19.4 33.7L243.4 502.8c-5.9 3.4-12.6 5.2-19.4 5.2zm149.1-210.1c0-39.9-27-50.5-83.7-58-57.4-7.6-63.2-11.5-63.2-24.9 0-11.1 4.9-25.9 47.4-25.9 37.9 0 51.9 8.2 57.7 33.8.5 2.4 2.7 4.2 5.2 4.2h24c1.5 0 2.9-.6 3.9-1.7s1.5-2.6 1.4-4.1c-3.7-44.1-33-64.6-92.2-64.6-52.7 0-84.1 22.2-84.1 59.5 0 40.4 31.3 51.6 81.8 56.6 60.5 5.9 65.2 14.8 65.2 26.7 0 20.6-16.6 29.4-55.5 29.4-48.9 0-59.6-12.3-63.2-36.6-.4-2.6-2.6-4.5-5.3-4.5h-23.9c-3 0-5.3 2.4-5.3 5.3 0 31.1 16.9 68.2 97.8 68.2 58.4-.1 92-23.2 92-63.4z"/></symbol>
-      <symbol id="i-envelope" viewBox="0 0 512 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc. --><path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/></symbol>
-      <symbol id="i-arrow-down" viewBox="0 0 384 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc. --><path d="M169.4 470.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 370.8 224 64c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 306.7L54.6 265.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"/></symbol>
-      <symbol id="i-arrow-out" viewBox="0 0 512 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc. --><path d="M320 0c-17.7 0-32 14.3-32 32s14.3 32 32 32h82.7L201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L448 109.3V192c0 17.7 14.3 32 32 32s32-14.3 32-32V32c0-17.7-14.3-32-32-32H320zM80 32C35.8 32 0 67.8 0 112V432c0 44.2 35.8 80 80 80H400c44.2 0 80-35.8 80-80V320c0-17.7-14.3-32-32-32s-32 14.3-32 32V432c0 8.8-7.2 16-16 16H80c-8.8 0-16-7.2-16-16V112c0-8.8 7.2-16 16-16H192c17.7 0 32-14.3 32-32s-14.3-32-32-32H80z"/></symbol>
-      <symbol id="i-code" viewBox="0 0 640 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc. --><path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3L562.7 256l-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"/></symbol>
-      <symbol id="i-arrow-right" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc. --><path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/></symbol>
-      <symbol id="i-arrow-up" viewBox="0 0 384 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc. --><path d="M214.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 141.2V448c0 17.7 14.3 32 32 32s32-14.3 32-32V141.2L329.4 246.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160z"/></symbol>
-      <symbol id="i-send" viewBox="0 0 512 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc. --><path d="M498.1 5.6c10.1 7 15.4 19.1 13.5 31.2l-64 416c-1.5 9.7-7.4 18.2-16 23s-18.9 5.4-28 1.6L284 427.7l-68.5 74.1c-8.9 9.7-22.9 12.9-35.2 8.1S160 493.2 160 480V396.4c0-4 1.5-7.8 4.2-10.7L331.8 202.8c5.8-6.3 5.6-16-.4-22s-15.7-6.4-22-.7L106 360.8 17.7 316.6C7.1 311.3 .3 300.7 0 288.9s5.9-22.8 16.1-28.7l448-256c10.7-6.1 23.9-5.5 34 1.4z"/></symbol>
-      <symbol id="i-lock" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc. --><path d="M144 144v48H304V144c0-44.2-35.8-80-80-80s-80 35.8-80 80zM80 192V144C80 64.5 144.5 0 224 0s144 64.5 144 144v48h16c35.3 0 64 28.7 64 64V448c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V256c0-35.3 28.7-64 64-64H80z"/></symbol>
-      <symbol id="i-check" viewBox="0 0 512 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc. --><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></symbol>
-      <symbol id="i-pin" viewBox="0 0 384 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc. --><path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z"/></symbol>
-      <symbol id="i-download" viewBox="0 0 512 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc. --><path d="M288 32c0-17.7-14.3-32-32-32s-32 14.3-32 32V274.7l-73.4-73.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l128 128c12.5 12.5 32.8 12.5 45.3 0l128-128c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L288 274.7V32zM64 352c-35.3 0-64 28.7-64 64v32c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V416c0-35.3-28.7-64-64-64H346.5l-45.3 45.3c-25 25-65.5 25-90.5 0L165.5 352H64zm368 56a24 24 0 1 1 0 48 24 24 0 1 1 0-48z"/></symbol>
-      <symbol id="i-desktop" viewBox="0 0 576 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc. --><path d="M64 0C28.7 0 0 28.7 0 64V352c0 35.3 28.7 64 64 64H240l-10.7 32H160c-17.7 0-32 14.3-32 32s14.3 32 32 32H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H346.7L336 416H512c35.3 0 64-28.7 64-64V64c0-35.3-28.7-64-64-64H64zM512 64V288H64V64H512z"/></symbol>
-      <symbol id="i-server" viewBox="0 0 512 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc. --><path d="M64 32C28.7 32 0 60.7 0 96v64c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zm280 72a24 24 0 1 1 0 48 24 24 0 1 1 0-48zm48 24a24 24 0 1 1 48 0 24 24 0 1 1 -48 0zM64 288c-35.3 0-64 28.7-64 64v64c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V352c0-35.3-28.7-64-64-64H64zm280 72a24 24 0 1 1 0 48 24 24 0 1 1 0-48zm56 24a24 24 0 1 1 48 0 24 24 0 1 1 -48 0z"/></symbol>
-      <symbol id="i-robot" viewBox="0 0 640 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc. --><path d="M320 0c17.7 0 32 14.3 32 32V96H472c39.8 0 72 32.2 72 72V440c0 39.8-32.2 72-72 72H168c-39.8 0-72-32.2-72-72V168c0-39.8 32.2-72 72-72H288V32c0-17.7 14.3-32 32-32zM208 384c-8.8 0-16 7.2-16 16s7.2 16 16 16h32c8.8 0 16-7.2 16-16s-7.2-16-16-16H208zm96 0c-8.8 0-16 7.2-16 16s7.2 16 16 16h32c8.8 0 16-7.2 16-16s-7.2-16-16-16H304zm96 0c-8.8 0-16 7.2-16 16s7.2 16 16 16h32c8.8 0 16-7.2 16-16s-7.2-16-16-16H400zM264 256a40 40 0 1 0 -80 0 40 40 0 1 0 80 0zm152 40a40 40 0 1 0 0-80 40 40 0 1 0 0 80zM48 224H64V416H48c-26.5 0-48-21.5-48-48V272c0-26.5 21.5-48 48-48zm544 0c26.5 0 48 21.5 48 48v96c0 26.5-21.5 48-48 48H576V224h16z"/></symbol>
-      <symbol id="i-database" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc. --><path d="M448 80v48c0 44.2-100.3 80-224 80S0 172.2 0 128V80C0 35.8 100.3 0 224 0S448 35.8 448 80zM393.2 214.7c20.8-7.4 39.9-16.9 54.8-28.6V288c0 44.2-100.3 80-224 80S0 332.2 0 288V186.1c14.9 11.8 34 21.2 54.8 28.6C99.7 230.7 159.5 240 224 240s124.3-9.3 169.2-25.3zM0 346.1c14.9 11.8 34 21.2 54.8 28.6C99.7 390.7 159.5 400 224 400s124.3-9.3 169.2-25.3c20.8-7.4 39.9-16.9 54.8-28.6V432c0 44.2-100.3 80-224 80S0 476.2 0 432V346.1z"/></symbol>
-      <symbol id="i-book" viewBox="0 0 576 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc. --><path d="M249.6 471.5c10.8 3.8 22.4-4.1 22.4-15.5V78.6c0-4.2-1.6-8.4-5-11C247.4 52 202.4 32 144 32C93.5 32 46.3 45.3 18.1 56.1C6.8 60.5 0 71.7 0 83.8V454.1c0 11.9 12.8 20.2 24.1 16.5C55.6 460.1 105.5 448 144 448c33.9 0 79 14 105.6 23.5zm76.8 0C353 462 398.1 448 432 448c38.5 0 88.4 12.1 119.9 22.6c11.3 3.8 24.1-4.6 24.1-16.5V83.8c0-12.1-6.8-23.3-18.1-27.6C529.7 45.3 482.5 32 432 32c-58.4 0-103.4 20-123 35.6c-3.3 2.6-5 6.8-5 11V456c0 11.4 11.7 19.3 22.4 15.5z"/></symbol>
-      <symbol id="i-clock" viewBox="0 0 512 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc. --><path d="M256 0a256 256 0 1 1 0 512A256 256 0 1 1 256 0zM232 120V256c0 8 4 15.5 10.7 20l96 64c11 7.4 25.9 4.4 33.3-6.7s4.4-25.9-6.7-33.3L280 243.2V120c0-13.3-10.7-24-24-24s-24 10.7-24 24z"/></symbol>
-      <symbol id="i-pdf" viewBox="0 0 512 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc. --><path d="M0 64C0 28.7 28.7 0 64 0L224 0l0 128c0 17.7 14.3 32 32 32l128 0 0 144-208 0c-35.3 0-64 28.7-64 64l0 144-48 0c-35.3 0-64-28.7-64-64L0 64zm384 64l-128 0L256 0 384 128zM176 352l32 0c30.9 0 56 25.1 56 56s-25.1 56-56 56l-16 0 0 32c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-48 0-80c0-8.8 7.2-16 16-16zm32 80c13.3 0 24-10.7 24-24s-10.7-24-24-24l-16 0 0 48 16 0zm96-80l32 0c26.5 0 48 21.5 48 48l0 64c0 26.5-21.5 48-48 48l-32 0c-8.8 0-16-7.2-16-16l0-128c0-8.8 7.2-16 16-16zm32 128c8.8 0 16-7.2 16-16l0-64c0-8.8-7.2-16-16-16l-16 0 0 96 16 0zm80-112c0-8.8 7.2-16 16-16l48 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 32 32 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 48c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-64 0-64z"/></symbol>
-      <symbol id="i-commit" viewBox="0 0 640 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc. --><path d="M320 336a80 80 0 1 0 0-160 80 80 0 1 0 0 160zm156.8-48C462 361 397.4 416 320 416s-142-55-156.8-128H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H163.2C178 151 242.6 96 320 96s142 55 156.8 128H608c17.7 0 32 14.3 32 32s-14.3 32-32 32H476.8z"/></symbol>
-      <symbol id="i-menu" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></symbol>
-    </svg>
     <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
 
-    <!-- Fundo ambiente: blobs emerald + grid (puro CSS, sem JS) -->
-    <div class="ambient" aria-hidden="true">
-      <span class="ambient_blob ambient_blob--1"></span>
-      <span class="ambient_blob ambient_blob--2"></span>
-      <span class="ambient_blob ambient_blob--3"></span>
-      <span class="ambient_grid"></span>
-      <span class="ambient_fade"></span>
-    </div>
+    <div class="grain" aria-hidden="true"></div>
 
-    <!-- ================= HEADER ================= -->
-    <header class="site-header" id="topo">
-      <div class="container header_inner">
-        <a class="brand" href="#topo">
-          <span class="brand_mark" aria-hidden="true">
-            <svg class="ico" aria-hidden="true"><use href="#i-code"></use></svg>
-          </span>
-          <span class="brand_text">
-            <strong>Tiago Santos</strong>
-            <span class="mono">Full Stack Engineer</span>
-          </span>
-        </a>
+    <header class="hud" data-hud>
+      <div class="hud__progress" aria-hidden="true"><span data-scroll-progress></span></div>
 
-        <span class="status_chip header_status">
-          <span class="pulse" aria-hidden="true"></span>
-          Disponível para oportunidades
+      <a class="hud__brand" href="#top" aria-label="Tiago Santos — voltar ao topo">
+        <span class="hud__mark" aria-hidden="true">TS</span>
+        <span class="hud__tag">// TIAGO SANTOS</span>
+      </a>
+
+      <nav class="hud__nav" aria-label="Navegação principal">
+        <a href="#sobre">Sobre</a>
+        <a href="#experiencia">Atuação</a>
+        <a href="#projetos">Projetos</a>
+        <a href="#stack">Stack</a>
+        <a href="#formacao">Formação</a>
+        <a href="#contato">Contato</a>
+      </nav>
+
+      <div class="hud__right">
+        <span class="hud__pill">DISPONÍVEL // 2026</span>
+        <span class="hud__clock" aria-label="Horário de Vitória da Conquista, UTC-3">
+          <span class="hud__label">VITÓRIA DA CONQUISTA</span>
+          <time data-clock datetime="">--:--:--</time>
         </span>
-
-        <nav class="nav" id="nav" aria-label="Navegação principal">
-          <a href="#sobre">Sobre</a>
-          <a href="#tecnologias">Tecnologias</a>
-          <a href="#projetos">Projetos</a>
-          <a href="#contato">Contato</a>
-        </nav>
-
-        <div class="header_actions">
-          <a
-            class="icon_btn"
-            href="https://github.com/Tyago-santos"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Perfil no GitHub"
-          >
-            <svg class="ico" aria-hidden="true"><use href="#i-github"></use></svg>
-          </a>
-          <a
-            class="icon_btn"
-            href="https://www.linkedin.com/in/tiago-santos-b10165376/"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Perfil no LinkedIn"
-          >
-            <svg class="ico" aria-hidden="true"><use href="#i-linkedin"></use></svg>
-          </a>
-          <a class="btn btn_primary btn_sm header_cta" href="#contato">
-            <svg class="ico" aria-hidden="true"><use href="#i-send"></use></svg>
-            Fale comigo
-          </a>
-          <button
-            class="menu_toggle"
-            id="menuToggle"
-            type="button"
-            aria-label="Abrir menu"
-            aria-expanded="false"
-            aria-controls="nav"
-          >
-            <svg class="ico" aria-hidden="true"><use href="#i-menu"></use></svg>
-          </button>
-        </div>
+        <button
+          class="hud__menu"
+          type="button"
+          data-menu-toggle
+          aria-expanded="false"
+          aria-controls="menu"
+        >
+          Menu
+        </button>
       </div>
     </header>
 
+    <div class="menu" id="menu" data-menu hidden>
+      <nav class="menu__nav" aria-label="Menu mobile">
+        <a href="#sobre"><span>01</span> Sobre</a>
+        <a href="#experiencia"><span>02</span> Atuação</a>
+        <a href="#projetos"><span>03</span> Projetos</a>
+        <a href="#stack"><span>04</span> Stack</a>
+        <a href="#formacao"><span>05</span> Formação</a>
+        <a href="#contato"><span>06</span> Contato</a>
+      </nav>
+      <p class="menu__foot">Vitória da Conquista, BA · Brasil<br />xlzthyago@gmail.com</p>
+    </div>
+
     <main id="conteudo">
-      <!-- ================= HERO ================= -->
-      <section class="hero" id="hero" aria-label="Apresentação">
-        <div class="container hero_grid">
-          <div class="hero_content">
-            <p class="hero_badge mono" data-reveal>&lt;fullstack_engineer.ts /&gt;</p>
+      <!-- ══════════════════════════════ 00 · HERO ══════════════════════════════ -->
+      <section class="hero" id="top" aria-label="Apresentação de Tiago Santos">
+        <div class="hero__grid" aria-hidden="true"></div>
+        <div class="hero__glow" aria-hidden="true"></div>
+        <div class="hero__spot" aria-hidden="true"></div>
 
-            <h1 class="hero_title" data-reveal style="--d: 60ms">
-              <span class="line">Construindo softwares modernos,</span>
-              <span class="line gradient">automações e soluções escaláveis.</span>
-            </h1>
+        <p class="hero__coord hero__coord--tl" aria-hidden="true">[ 14°50'48"S 40°50'28"W ]</p>
+        <p class="hero__coord hero__coord--br" aria-hidden="true">[ LATENCY: LOCAL ]</p>
 
-            <p class="hero_lead" data-reveal style="--d: 140ms">
-              <strong>Olá, eu sou Tiago Santos</strong> — Desenvolvedor Full Stack na
-              <b>Vittal Web</b> e graduando em Sistemas de Informação (Unex). Especialista no
-              ecossistema TypeScript, React, Node.js e integração profunda com inteligência
-              artificial generativa.
-            </p>
+        <div class="hero__stage">
+          <div class="hero__art" aria-hidden="true">
+            <span class="hero__reticle hero__reticle--tl"></span>
+            <span class="hero__reticle hero__reticle--tr"></span>
+            <span class="hero__reticle hero__reticle--bl"></span>
+            <span class="hero__reticle hero__reticle--br"></span>
+          </div>
 
-            <div class="hero_actions" data-reveal style="--d: 220ms">
-              <a class="btn btn_primary" href="#projetos">
-                Explorar Projetos em Produção
-                <svg class="ico" aria-hidden="true"><use href="#i-arrow-down"></use></svg>
+          <div class="hero__photo" data-parallax="0.06">
+            <img
+              src="./assets/perfil.webp"
+              alt="Retrato de Tiago Santos, desenvolvedor Full Stack, em preto e branco"
+              width="640"
+              height="960"
+              fetchpriority="high"
+              decoding="async"
+            />
+          </div>
+
+          <p class="hero__eyebrow" data-reveal>
+            <span class="tag">// DESENVOLVEDOR FULL STACK</span>
+            <span class="tag tag--muted">VITÓRIA DA CONQUISTA, BA · BRASIL</span>
+          </p>
+
+          <h1 class="hero__title" aria-label="Tiago Santos">
+            <span aria-hidden="true"><span class="ch" style="--i:0">T</span><span class="ch" style="--i:1">I</span><span class="ch" style="--i:2">A</span><span class="ch" style="--i:3">G</span><span class="ch" style="--i:4">O</span> <span class="ch" style="--i:5">S</span><span class="ch" style="--i:6">A</span><span class="ch" style="--i:7">N</span><span class="ch" style="--i:8">T</span><span class="ch" style="--i:9">O</span><span class="ch" style="--i:10">S</span></span>
+          </h1>
+
+          <div class="hero__bottom">
+            <div class="hero__intro" data-reveal>
+              <span class="tag tag--muted" aria-hidden="true">// O QUE EU FAÇO</span>
+              <p class="hero__lead">
+                Software, automações e agentes de IA.<br />
+                Do estudo ao deploy em produção.
+              </p>
+            </div>
+
+            <div class="hero__actions" data-reveal>
+              <a class="btn btn--solid" href="#projetos">Ver projetos em produção <span aria-hidden="true">↓</span></a>
+              <a class="btn" href="./assets/curriculo_tiago_dev.pdf" download>
+                Currículo PDF <span aria-hidden="true">↗</span>
               </a>
+            </div>
+
+            <a class="hero__scroll" href="#sobre" aria-label="Rolar para a seção sobre">
+              <span>Scroll</span>
+              <span class="hero__scroll-line" aria-hidden="true"></span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════ 01 · SOBRE ══════════════════════════════ -->
+      <section class="band about" id="sobre" data-section="sobre" aria-label="Sobre Tiago Santos">
+        <div class="art" aria-hidden="true">
+          <span class="art__glow"></span>
+          <span class="art__grid"></span>
+          <span class="art__reticle art__reticle--tl"></span>
+          <span class="art__reticle art__reticle--tr"></span>
+          <span class="art__reticle art__reticle--bl"></span>
+          <span class="art__reticle art__reticle--br"></span>
+        </div>
+
+        <div class="wrap about__inner">
+          <header class="sec-head">
+            <span class="tag">// 01</span>
+            <span class="tag tag--muted">SOBRE</span>
+            <span class="sec-head__meta">MANIFESTO</span>
+          </header>
+
+          <p class="manifesto" data-manifesto>
+            <span class="w">Construo</span> <span class="w">software</span> <span class="w">de</span>
+            <span class="w">ponta</span> <span class="w">a</span> <span class="w">ponta:</span>
+            <span class="w">interfaces</span> <span class="w">em</span> <span class="w">React</span>
+            <span class="w">e</span> <span class="w">TypeScript,</span> <span class="w">APIs</span>
+            <span class="w">seguras</span> <span class="w">em</span> <span class="w">Node.js,</span>
+            <span class="w">modelagem</span> <span class="w">relacional</span> <span class="w">e</span>
+            <span class="w">agentes</span> <span class="w">de</span> <span class="w">IA</span>
+            <span class="w">que</span> <span class="w">resolvem</span> <span class="w">problemas</span>
+            <span class="w">reais</span> <span class="w">de</span> <span class="w">negócio.</span>
+            <span class="w">Curso</span> <span class="w">Sistemas</span> <span class="w">de</span>
+            <span class="w">Informação</span> <span class="w">e</span> <span class="w">transformo</span>
+            <span class="w">estudo</span> <span class="w">em</span> <span class="w">produto</span>
+            <span class="w">em</span> <span class="w">produção.</span>
+          </p>
+
+          <footer class="about__foot">
+            <p class="tag tag--muted">
+              // 06 PROJETOS PUBLICADOS · 01 SISTEMA EM PRODUÇÃO NA VITTAL WEB
+            </p>
+            <a class="link-arrow" href="#experiencia">
+              Atuação <span aria-hidden="true">→</span>
+            </a>
+          </footer>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════ 02 · ATUAÇÃO ══════════════════════════════ -->
+      <section
+        class="band xp"
+        id="experiencia"
+        data-section="experiencia"
+        aria-label="Atuação profissional e competências"
+      >
+        <div class="art" aria-hidden="true">
+          <span class="art__glow"></span>
+          <span class="art__grid"></span>
+          <span class="art__reticle art__reticle--tl"></span>
+          <span class="art__reticle art__reticle--tr"></span>
+          <span class="art__reticle art__reticle--bl"></span>
+          <span class="art__reticle art__reticle--br"></span>
+        </div>
+
+        <div class="xp__giant" aria-hidden="true">
+          <span class="xp__giant-solid">ENGENHARIA</span>
+          <span class="xp__giant-stroke">ENGENHARIA</span>
+        </div>
+
+        <div class="wrap xp__inner">
+          <header class="sec-head">
+            <span class="tag">// 02 — ATUAÇÃO</span>
+            <span class="tag tag--muted">EXPERIÊNCIA</span>
+            <span class="sec-head__meta">CORE // 02</span>
+          </header>
+
+          <div class="xp__meta">
+            <div class="xp__role">
+              <span class="tag tag--muted">CARGO ATUAL</span>
+              <h2>Desenvolvedor<br />Full Stack</h2>
+              <p>na <strong>Vittal Web</strong></p>
+            </div>
+
+            <dl class="xp__specs">
+              <div class="xp__spec">
+                <dt class="tag tag--muted">PERÍODO</dt>
+                <dd>Atualmente</dd>
+              </div>
+              <div class="xp__spec">
+                <dt class="tag tag--muted">ESCOPO</dt>
+                <dd>Software · Automações · Web Scraping</dd>
+              </div>
+              <div class="xp__spec">
+                <dt class="tag tag--muted">LOCAL</dt>
+                <dd>Vitória da Conquista, BA · Brasil</dd>
+              </div>
+            </dl>
+          </div>
+
+          <div class="xp__grid">
+            <article class="xp-card" data-reveal style="--i:0">
+              <header class="xp-card__head">
+                <span class="xp-card__num">01</span>
+                <span class="tag tag--muted">FRONTEND &amp; MOBILE</span>
+              </header>
+              <h3>Interfaces reativas e apps offline-first</h3>
+              <p>
+                Interfaces declarativas em React, tipagem estrita com TypeScript e aplicações
+                móveis em Expo que continuam funcionando sem conexão.
+              </p>
+              <ul class="xp-card__stack">
+                <li>React</li>
+                <li>TypeScript</li>
+                <li>Next.js</li>
+                <li>React Native</li>
+                <li>Expo</li>
+                <li>Tailwind CSS</li>
+              </ul>
+            </article>
+
+            <article class="xp-card" data-reveal style="--i:1">
+              <header class="xp-card__head">
+                <span class="xp-card__num">02</span>
+                <span class="tag tag--muted">BACKEND &amp; APIS</span>
+              </header>
+              <h3>APIs seguras e regras de negócio</h3>
+              <p>
+                Serviços REST em Node.js com autenticação JWT, validação de contratos com Zod e
+                separação em camadas Controller → Service → Repository.
+              </p>
+              <ul class="xp-card__stack">
+                <li>Node.js</li>
+                <li>Express</li>
+                <li>Prisma</li>
+                <li>JWT</li>
+                <li>Zod</li>
+                <li>REST</li>
+              </ul>
+            </article>
+
+            <article class="xp-card" data-reveal style="--i:2">
+              <header class="xp-card__head">
+                <span class="xp-card__num">03</span>
+                <span class="tag tag--muted">IA &amp; DADOS</span>
+              </header>
+              <h3>Agentes de IA e persistência confiável</h3>
+              <p>
+                Integração de LLMs com tool-calling para operar dados reais do usuário, além de
+                modelagem relacional em PostgreSQL, MySQL e Firebase.
+              </p>
+              <ul class="xp-card__stack">
+                <li>Gemini</li>
+                <li>Tool-calling</li>
+                <li>PostgreSQL</li>
+                <li>MySQL</li>
+                <li>Firebase</li>
+              </ul>
+            </article>
+
+            <article class="xp-card" data-reveal style="--i:3">
+              <header class="xp-card__head">
+                <span class="xp-card__num">04</span>
+                <span class="tag tag--muted">INFRA &amp; AUTOMAÇÃO</span>
+              </header>
+              <h3>Entrega contínua e processos automatizados</h3>
+              <p>
+                Containers Docker, deploy em Vercel e Render, versionamento com Git/GitHub e
+                automações que eliminam trabalho manual em produção.
+              </p>
+              <ul class="xp-card__stack">
+                <li>Docker</li>
+                <li>Vercel</li>
+                <li>Render</li>
+                <li>Git</li>
+                <li>GitHub</li>
+                <li>Web Scraping</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════ 03 · PROJETOS ══════════════════════════════ -->
+      <section
+        class="band pj"
+        id="projetos"
+        data-section="projetos"
+        aria-label="Projetos em destaque e em produção"
+      >
+        <div class="art" aria-hidden="true">
+          <span class="art__glow"></span>
+          <span class="art__grid"></span>
+        </div>
+
+        <div class="pj__intro" aria-hidden="true">
+          <div class="marquee marquee--outline" data-marquee>
+            <div class="marquee__track">
+              <span>PROJETOS · PROJETOS · PROJETOS · PROJETOS · </span>
+              <span>PROJETOS · PROJETOS · PROJETOS · PROJETOS · </span>
+            </div>
+          </div>
+          <div class="marquee" data-marquee>
+            <div class="marquee__track">
+              <span>EM PRODUÇÃO · EM PRODUÇÃO · EM PRODUÇÃO · EM PRODUÇÃO · </span>
+              <span>EM PRODUÇÃO · EM PRODUÇÃO · EM PRODUÇÃO · EM PRODUÇÃO · </span>
+            </div>
+          </div>
+        </div>
+
+        <article class="case" data-project="featured" aria-labelledby="case-gnosis">
+          <div class="wrap case__inner">
+            <header class="case__top">
+              <span class="tag">// 03 — 01</span>
+              <span class="tag tag--muted">FULL STACK · IA · MOBILE</span>
+              <span class="tag tag--muted">DESTAQUE</span>
+            </header>
+
+            <h2 class="case__name" id="case-gnosis">Gnosis IA</h2>
+
+            <div class="case__body">
+              <div class="case__text">
+                <h3 class="case__headline">Plataforma Full Stack de estudos com IA</h3>
+                <p class="case__desc">
+                  API, web e mobile em um único ecossistema. O app móvel funciona offline com fila
+                  de sincronização, e um agente Gemini usa tool-calling para consultar os dados
+                  reais do usuário e gerar resumos e flashcards sob medida.
+                </p>
+
+                <ul class="case__points">
+                  <li>API REST em Node.js/TypeScript com PostgreSQL via Prisma</li>
+                  <li>App React Native/Expo offline-first com fila de sincronização</li>
+                  <li>Agente Gemini com tool-calling para resumos e flashcards</li>
+                </ul>
+
+                <div class="case__actions">
+                  <a
+                    class="btn btn--solid"
+                    href="https://ia-study-wheat.vercel.app/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Acessar projeto <span aria-hidden="true">↗</span>
+                  </a>
+                  <a
+                    class="btn"
+                    href="https://github.com/Tyago-santos/ia_study"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    GitHub <span aria-hidden="true">↗</span>
+                  </a>
+                </div>
+
+                <dl class="case__specs">
+                  <div class="case__spec">
+                    <dt class="tag tag--muted">ARQUITETURA</dt>
+                    <dd>API + Web + Mobile</dd>
+                  </div>
+                  <div class="case__spec">
+                    <dt class="tag tag--muted">FRONTEND</dt>
+                    <dd>React Native · Expo</dd>
+                  </div>
+                  <div class="case__spec">
+                    <dt class="tag tag--muted">BACKEND &amp; DB</dt>
+                    <dd>Node.js · Prisma · PostgreSQL</dd>
+                  </div>
+                  <div class="case__spec">
+                    <dt class="tag tag--muted">IA &amp; INFRA</dt>
+                    <dd>Gemini · Tool-calling · Docker</dd>
+                  </div>
+                </dl>
+              </div>
+
+              <div class="case__frame-wrap">
+                <div class="case__frame" data-wipe>
+                  <div class="case__chrome" aria-hidden="true">
+                    <span class="case__dots"><i></i><i></i><i></i></span>
+                    <span class="case__url">ia-study-wheat.vercel.app</span>
+                    <span class="case__dots case__dots--ghost"><i></i><i></i><i></i></span>
+                  </div>
+                  <a
+                    class="case__screen"
+                    href="https://ia-study-wheat.vercel.app/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Abrir Gnosis IA em nova aba"
+                  >
+                    <img
+                      src="./assets/gnosis.jpg"
+                      alt="Captura de tela da plataforma Gnosis IA, com painel de estudos e assistente de IA"
+                      width="900"
+                      height="506"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </a>
+                </div>
+                <p class="case__frame-note tag tag--muted">
+                  <span aria-hidden="true">●</span> LIVE · ia-study-wheat.vercel.app
+                </p>
+              </div>
+            </div>
+
+            <div class="case__tags" aria-label="Tecnologias do projeto">
+              <div class="marquee" data-marquee>
+                <div class="marquee__track">
+                  <span>
+                    React Native <b>✦</b> TypeScript <b>✦</b> Node.js <b>✦</b> Prisma <b>✦</b>
+                    PostgreSQL <b>✦</b> Gemini <b>✦</b> Expo <b>✦</b> Docker <b>✦</b>
+                  </span>
+                  <span aria-hidden="true">
+                    React Native <b>✦</b> TypeScript <b>✦</b> Node.js <b>✦</b> Prisma <b>✦</b>
+                    PostgreSQL <b>✦</b> Gemini <b>✦</b> Expo <b>✦</b> Docker <b>✦</b>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <div class="wrap projects">
+          <header class="projects__head">
+            <div>
+              <span class="tag tag--muted">// 03 — 02 A 06</span>
+              <h2>Outros projetos em produção</h2>
+            </div>
+            <p>
+              Cinco aplicações publicadas, com código no GitHub e deploy ativo — cada uma resolvendo
+              um problema diferente.
+            </p>
+          </header>
+
+          <div class="projects__grid">
+            <article class="project" data-project data-reveal style="--i:0" aria-labelledby="project-connect">
               <a
-                class="btn btn_ghost mono"
-                href="https://github.com/Tyago-santos"
+                class="project__cover"
+                href="https://connectdev.network/"
                 target="_blank"
                 rel="noopener noreferrer"
+                tabindex="-1"
+                aria-hidden="true"
               >
-                <svg class="ico" aria-hidden="true"><use href="#i-github"></use></svg>
-                github.com/Tyago-santos
-              </a>
-            </div>
-
-            <ul class="hero_channels" data-reveal style="--d: 300ms" aria-label="Canais">
-              <li class="mono">Canais:</li>
-              <li>
-                <a
-                  href="https://www.linkedin.com/in/tiago-santos-b10165376/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="LinkedIn"
-                  ><svg class="ico" aria-hidden="true"><use href="#i-linkedin"></use></svg></a>
-              </li>
-              <li>
-                <a
-                  href="https://github.com/Tyago-santos"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="GitHub"
-                  ><svg class="ico" aria-hidden="true"><use href="#i-github"></use></svg></a>
-              </li>
-              <li>
-                <a
-                  href="https://www.instagram.com/tiago_skywalker/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Instagram"
-                  ><svg class="ico" aria-hidden="true"><use href="#i-instagram"></use></svg></a>
-              </li>
-              <li>
-                <a href="mailto:xlzthyago@gmail.com" aria-label="E-mail"
-                  ><svg class="ico" aria-hidden="true"><use href="#i-envelope"></use></svg></a>
-              </li>
-              <li>
-                <a
-                  href="https://www.facebook.com/osmon.santos.9?locale=pt_BR"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Facebook"
-                  ><svg class="ico" aria-hidden="true"><use href="#i-facebook"></use></svg></a>
-              </li>
-            </ul>
-          </div>
-
-          <div class="hero_panel" data-reveal style="--d: 200ms">
-            <div class="terminal">
-              <div class="terminal_bar">
-                <span class="dot dot_r"></span>
-                <span class="dot dot_y"></span>
-                <span class="dot dot_g"></span>
-                <span class="terminal_title mono">tiago@vittal-node:~/runtime</span>
-                <span class="terminal_status mono">
-                  <span class="pulse" aria-hidden="true"></span>ONLINE 99.98%
-                </span>
-              </div>
-
-              <div class="terminal_body mono">
-                <p class="t_line"><span class="t_prompt">$</span> fetch_profile --engineer="Tiago Santos"</p>
-                <p class="t_line t_muted" data-terminal>&gt; Initializing cluster metrics &amp; stack registry...</p>
-
-                <dl class="t_grid">
-                  <dt>Current Role:</dt>
-                  <dd>Dev Full Stack @ Vittal Web</dd>
-                  <dt>Academic:</dt>
-                  <dd>Sistemas de Inf. (Unex)</dd>
-                  <dt>Primary Core:</dt>
-                  <dd>Node.js · React · TypeScript</dd>
-                  <dt>Specialty:</dt>
-                  <dd>Agentes IA · Offline-First · REST APIs</dd>
-                </dl>
-
-                <div class="t_stats">
-                  <div class="stat">
-                    <strong class="stat_num" data-count="6" data-suffix="+">0</strong>
-                    <span>Apps Live</span>
-                  </div>
-                  <div class="stat">
-                    <strong class="stat_num" data-count="100" data-suffix="%">0</strong>
-                    <span>Type Safe</span>
-                  </div>
-                  <div class="stat">
-                    <strong class="stat_num" data-prefix="&lt;" data-count="24" data-suffix="ms">0</strong>
-                    <span>API Latency</span>
-                  </div>
-                </div>
-
-                <div class="t_footer">
-                  <span class="t_ok"><svg class="ico" aria-hidden="true"><use href="#i-check"></use></svg> Docker container healthy</span>
-                  <span class="t_badge">ready:deploy</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ================= SOBRE ================= -->
-      <section class="section section_tinted" id="sobre">
-        <div class="container">
-          <header class="section_head" data-reveal>
-            <p class="eyebrow mono"><span>01</span> Histórico &amp; Perfil Profissional</p>
-            <h2>Sobre Mim &amp; Minha Trajetória</h2>
-            <span class="rule" aria-hidden="true"></span>
-          </header>
-
-          <div class="about_grid">
-            <article class="card profile_card" data-reveal>
-              <div class="profile_photo">
-                <img
-                  src="./assets/perfil.webp"
-                  alt="Foto de Tiago Santos, desenvolvedor Full Stack"
-                  width="640"
-                  height="960"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <span class="profile_badge mono">TS</span>
-              </div>
-
-              <div class="profile_info">
-                <h3>Tiago Santos</h3>
-                <p class="mono profile_role">Full Stack Developer</p>
-                <p class="profile_place mono">
-                  <svg class="ico" aria-hidden="true"><use href="#i-pin"></use></svg>
-                  Salvador, Bahia — Brasil
-                </p>
-              </div>
-
-              <div class="profile_block">
-                <p class="block_label mono">
-                  Experiência Atual
-                  <span class="tag_ok"><span class="pulse" aria-hidden="true"></span>Ativo</span>
-                </p>
-                <h4>Desenvolvedor na Vittal Web</h4>
-                <p>
-                  Criação de softwares customizados e pipelines de automação para acelerar entregas
-                  e otimizar processos operacionais de clientes corporativos.
-                </p>
-              </div>
-
-              <div class="profile_block">
-                <p class="block_label mono">Formação Acadêmica <span class="tag">1º Semestre</span></p>
-                <h4>Sistemas de Informação</h4>
-                <p>Centro Universitário de Excelência (Unex)</p>
-              </div>
-
-              <ul class="profile_tags">
-                <li>Aprendizado Contínuo</li>
-                <li>Trabalho em Equipe</li>
-                <li>Resolução Ágil</li>
-              </ul>
-            </article>
-
-            <article class="card philosophy" data-reveal style="--d: 120ms">
-              <span class="philosophy_icon" aria-hidden="true">
-                <svg class="ico" aria-hidden="true"><use href="#i-book"></use></svg>
-              </span>
-              <h3>Minha Filosofia de Desenvolvimento</h3>
-
-              <p>
-                Sou Tiago Santos, estudante de Sistemas de Informação (Unex, 1º semestre) e
-                apaixonado por desenvolvimento de software, com o objetivo de construir uma carreira
-                sólida como desenvolvedor Full Stack. Atuo na <b>Vittal Web</b> como desenvolvedor,
-                criando softwares e automações que tornam processos mais eficientes, unindo teoria e
-                prática no dia a dia.
-              </p>
-              <p>
-                Trabalho diariamente com
-                <b>React, TypeScript, Tailwind CSS, Node.js, Git e GitHub</b>, além de desenvolver
-                projetos pessoais e acadêmicos contínuos para colocar meus conhecimentos em prática
-                sob cenários de carga real.
-              </p>
-              <p>
-                Sou curioso, dedicado e valorizo intensamente o trabalho em equipe, encarando
-                desafios complexos de arquitetura como oportunidades diretas de evolução — sempre em
-                busca de crescer ao lado de equipes de alto nível que priorizem aprendizado contínuo,
-                colaboração transparente e qualidade técnica de código. 🚀
-              </p>
-
-              <ul class="philosophy_list">
-                <li>Automações em produção &amp; Web Scraping</li>
-                <li>Agentes com Tool-Calling &amp; LLMs</li>
-                <li>Arquitetura Mobile Offline-First</li>
-                <li>APIs RESTful seguras com JWT &amp; Prisma</li>
-              </ul>
-
-              <div class="philosophy_foot">
-                <p class="mono muted">Currículo completo em PDF disponível sob demanda</p>
-                <a
-                  class="link_arrow"
-                  href="https://github.com/Tyago-santos"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Ver Repositórios Abertos
-                  <svg class="ico" aria-hidden="true"><use href="#i-arrow-out"></use></svg>
-                </a>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- ================= TECNOLOGIAS ================= -->
-      <section class="section" id="tecnologias">
-        <div class="container">
-          <header class="section_head" data-reveal>
-            <p class="eyebrow mono"><span>02</span> Ferramentas &amp; Competências</p>
-            <h2>Stack Tecnológica &amp; Ecossistema</h2>
-            <p class="section_sub">
-              Ferramentas modernas selecionadas para confiabilidade técnica, tipagem estrita de
-              ponta a ponta e alta performance em ambiente de produção.
-            </p>
-            <span class="rule" aria-hidden="true"></span>
-          </header>
-
-          <div class="tech_grid">
-            <article class="card tech_card" data-reveal>
-              <div class="tech_top">
-                <span class="tech_icon" aria-hidden="true"><svg class="ico" aria-hidden="true"><use href="#i-desktop"></use></svg></span>
-                <span class="mono tech_code">01 // UI</span>
-              </div>
-              <h3>Frontend Core</h3>
-              <p>Interfaces declarativas e componentes modulares escaláveis.</p>
-              <ul class="chips">
-                <li><img src="./assets/icon/react-native.png" alt="" width="20" height="20" loading="lazy" />React</li>
-                <li><img src="./assets/icon/nextjs.png" alt="" width="20" height="20" loading="lazy" />Next.js 14</li>
-                <li><img src="./assets/icon/typescript.png" alt="" width="20" height="20" loading="lazy" />TypeScript</li>
-                <li><img src="./assets/icon/tailwindcss.png" alt="" width="20" height="20" loading="lazy" />Tailwind CSS</li>
-                <li>HTML5 / CSS3</li>
-                <li>Styled Comp.</li>
-              </ul>
-            </article>
-
-            <article class="card tech_card" data-reveal style="--d: 80ms">
-              <div class="tech_top">
-                <span class="tech_icon" aria-hidden="true"><svg class="ico" aria-hidden="true"><use href="#i-server"></use></svg></span>
-                <span class="mono tech_code">02 // API</span>
-              </div>
-              <h3>Backend &amp; APIs</h3>
-              <p>Serviços desacoplados, validação estrita e autenticação resiliente.</p>
-              <ul class="chips">
-                <li><svg class="ico" aria-hidden="true"><use href="#i-node"></use></svg>Node.js</li>
-                <li>Express</li>
-                <li>Prisma ORM</li>
-                <li>RESTful APIs</li>
-                <li>JWT Security</li>
-                <li>Zod Validation</li>
-              </ul>
-            </article>
-
-            <article class="card tech_card" data-reveal style="--d: 160ms">
-              <div class="tech_top">
-                <span class="tech_icon" aria-hidden="true"><svg class="ico" aria-hidden="true"><use href="#i-robot"></use></svg></span>
-                <span class="mono tech_code">03 // AI &amp; APP</span>
-              </div>
-              <h3>Mobile &amp; IA</h3>
-              <p>Aplicações nativas offline e integração direta de LLMs.</p>
-              <ul class="chips">
-                <li><img src="./assets/icon/react-native.png" alt="" width="20" height="20" loading="lazy" />React Native</li>
-                <li>Expo EAS</li>
-                <li>Google Gemini</li>
-                <li>Tool-calling</li>
-                <li>Offline-First</li>
-                <li>OCR Audio/PDF</li>
-              </ul>
-            </article>
-
-            <article class="card tech_card" data-reveal style="--d: 240ms">
-              <div class="tech_top">
-                <span class="tech_icon" aria-hidden="true"><svg class="ico" aria-hidden="true"><use href="#i-database"></use></svg></span>
-                <span class="mono tech_code">04 // INFRA</span>
-              </div>
-              <h3>Banco de Dados &amp; Ops</h3>
-              <p>Armazenamento estruturado, escalabilidade e cloud deploy.</p>
-              <ul class="chips">
-                <li>PostgreSQL</li>
-                <li><img src="./assets/icon/mysql.png" alt="" width="20" height="20" loading="lazy" />MySQL</li>
-                <li>Firebase</li>
-                <li>Docker</li>
-                <li>Git / GitHub</li>
-                <li>Vercel / Render</li>
-              </ul>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- ================= PROJETOS ================= -->
-      <section class="section section_tinted" id="projetos">
-        <div class="container">
-          <header class="section_head" data-reveal>
-            <p class="eyebrow mono"><span>03</span> Engenharia &amp; Soluções Reais</p>
-            <h2>Meus Projetos em Destaque</h2>
-            <p class="section_sub">6 aplicações com deploy ativo e código público.</p>
-            <span class="rule" aria-hidden="true"></span>
-          </header>
-
-          <div class="projects_grid">
-            <!-- 01 Gnosis -->
-            <article class="card project_card" data-reveal>
-              <div class="project_cover">
-                <img
-                  src="./assets/gnosis.jpg"
-                  alt="Tela de acesso do Gnosis IA, plataforma de estudos com inteligência artificial"
-                  width="900"
-                  height="506"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <span class="project_domain mono">ia-study-wheat.vercel.app</span>
-                <span class="project_arch mono"><svg class="ico" aria-hidden="true"><use href="#i-lock"></use></svg> Full Stack + Mobile</span>
-              </div>
-              <div class="project_body">
-                <h3>Gnosis IA (Estudy IA)</h3>
-                <p class="project_sub mono">Plataforma Full Stack de Estudos com IA</p>
-                <p class="project_desc">
-                  Aplicação completa (API + web + mobile) para gestão de estudos, com assistente de IA
-                  que usa tool-calling para consultar dados reais do usuário e gerar material sob
-                  medida.
-                </p>
-                <ul class="project_points">
-                  <li>API REST Node/TS + PostgreSQL via Prisma</li>
-                  <li>App React Native/Expo offline-first com fila</li>
-                  <li>Agente Gemini gerando resumos e flashcards</li>
-                </ul>
-                <ul class="tags">
-                  <li>Node.js</li><li>TypeScript</li><li>React Native</li><li>Gemini API</li><li>Docker</li>
-                </ul>
-                <div class="project_links">
-                  <a href="https://ia-study-wheat.vercel.app/" target="_blank" rel="noopener noreferrer">
-                    Live Demo <svg class="ico" aria-hidden="true"><use href="#i-arrow-out"></use></svg>
-                  </a>
-                  <a href="https://github.com/Tyago-santos/ia_study" target="_blank" rel="noopener noreferrer">
-                    <svg class="ico" aria-hidden="true"><use href="#i-code"></use></svg> GitHub
-                  </a>
-                </div>
-              </div>
-            </article>
-
-            <!-- 02 Connect Dev -->
-            <article class="card project_card" data-reveal style="--d: 80ms">
-              <div class="project_cover">
                 <img
                   src="./assets/print_connect-dev.jpg"
-                  alt="Feed da rede social Connect Dev para desenvolvedores"
-                  width="900"
-                  height="506"
+                  alt=""
+                  width="1364"
+                  height="709"
                   loading="lazy"
                   decoding="async"
                 />
-                <span class="project_domain mono">connectdev.network</span>
-                <span class="project_arch mono"><svg class="ico" aria-hidden="true"><use href="#i-lock"></use></svg> MVC Architecture</span>
-              </div>
-              <div class="project_body">
-                <h3>Connect Dev</h3>
-                <p class="project_sub mono">Rede Social para Desenvolvedores</p>
-                <p class="project_desc">
-                  Rede social de estudos completa para a comunidade DEV! Um espaço interativo para
-                  programadores compartilharem artigos, códigos e formarem conexões.
-                </p>
-                <ul class="project_points">
-                  <li>Auth por sessão segura &amp; cookies protegidos</li>
-                  <li>Sistema de seguir, curtidas e comentários</li>
-                  <li>Arquitetura Controller → Service → Repository</li>
-                </ul>
-                <ul class="tags">
-                  <li>Node.js</li><li>TypeScript</li><li>MySQL</li><li>Supabase</li><li>Helmet</li>
-                </ul>
-                <div class="project_links">
-                  <a href="https://connectdev.network/" target="_blank" rel="noopener noreferrer">
-                    Live Demo <svg class="ico" aria-hidden="true"><use href="#i-arrow-out"></use></svg>
-                  </a>
-                  <a href="https://lnkd.in/dzTNA2_x" target="_blank" rel="noopener noreferrer">
-                    <svg class="ico" aria-hidden="true"><use href="#i-code"></use></svg> GitHub
-                  </a>
-                </div>
-              </div>
+                <span class="project__open">Abrir <span aria-hidden="true">↗</span></span>
+              </a>
+              <header class="project__head">
+                <span class="project__num">02</span>
+                <span class="tag tag--muted">FULL STACK · MVC</span>
+              </header>
+              <h3 id="project-connect"><a href="https://connectdev.network/" target="_blank" rel="noopener noreferrer">Connect Dev</a></h3>
+              <p>Rede social para desenvolvedores com artigos, códigos e conexões.</p>
+              <ul class="project__stack">
+                <li>Node.js</li>
+                <li>TypeScript</li>
+                <li>MySQL</li>
+                <li>Supabase</li>
+              </ul>
+              <footer class="project__foot">
+                <a href="https://connectdev.network/" target="_blank" rel="noopener noreferrer">Site <span aria-hidden="true">↗</span></a>
+                <a href="https://lnkd.in/dzTNA2_x" target="_blank" rel="noopener noreferrer">Post <span aria-hidden="true">↗</span></a>
+              </footer>
             </article>
 
-            <!-- 03 Quiz SUD -->
-            <article class="card project_card" data-reveal style="--d: 160ms">
-              <div class="project_cover">
+            <article class="project" data-project data-reveal style="--i:1" aria-labelledby="project-quiz">
+              <a
+                class="project__cover"
+                href="https://projeto-quiz-sud.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                tabindex="-1"
+                aria-hidden="true"
+              >
                 <img
                   src="./assets/quiz.jpg"
-                  alt="Interface do quiz Pergunta da Igreja SUD com gamificação"
-                  width="900"
-                  height="506"
+                  alt=""
+                  width="1279"
+                  height="847"
                   loading="lazy"
                   decoding="async"
                 />
-                <span class="project_domain mono">projeto-quiz-sud.vercel.app</span>
-                <span class="project_arch mono"><svg class="ico" aria-hidden="true"><use href="#i-lock"></use></svg> Next.js 14 + Firebase</span>
-              </div>
-              <div class="project_body">
-                <h3>Pergunta da Igreja SUD</h3>
-                <p class="project_sub mono">Quiz IA com Gamificação</p>
-                <p class="project_desc">
-                  Plataforma interativa de quizzes com IA (Google Gemini) para estudar escrituras
-                  sagradas, acompanhamento de histórico em tempo real e rankings competitivos.
-                </p>
-                <ul class="project_points">
-                  <li>Geração de perguntas dinâmicas com Gemini IA</li>
-                  <li>Rankings globais por temas e gamificação</li>
-                  <li>Redux Reducers + Firebase Auth &amp; Firestore</li>
-                </ul>
-                <ul class="tags">
-                  <li>Next.js 14</li><li>React 18</li><li>Gemini API</li><li>Firestore</li><li>Tailwind</li>
-                </ul>
-                <div class="project_links">
-                  <a href="https://projeto-quiz-sud.vercel.app/" target="_blank" rel="noopener noreferrer">
-                    Live Demo <svg class="ico" aria-hidden="true"><use href="#i-arrow-out"></use></svg>
-                  </a>
-                  <a href="https://github.com/Tyago-santos/projeto-quiz-sud" target="_blank" rel="noopener noreferrer">
-                    <svg class="ico" aria-hidden="true"><use href="#i-code"></use></svg> GitHub
-                  </a>
-                </div>
-              </div>
+                <span class="project__open">Abrir <span aria-hidden="true">↗</span></span>
+              </a>
+              <header class="project__head">
+                <span class="project__num">03</span>
+                <span class="tag tag--muted">NEXT.JS · FIREBASE</span>
+              </header>
+              <h3 id="project-quiz"><a href="https://projeto-quiz-sud.vercel.app/" target="_blank" rel="noopener noreferrer">Pergunta da Igreja SUD</a></h3>
+              <p>Quiz de escrituras com IA, histórico em tempo real e rankings.</p>
+              <ul class="project__stack">
+                <li>Next.js 14</li>
+                <li>React 18</li>
+                <li>Gemini API</li>
+                <li>Firestore</li>
+              </ul>
+              <footer class="project__foot">
+                <a href="https://projeto-quiz-sud.vercel.app/" target="_blank" rel="noopener noreferrer">Site <span aria-hidden="true">↗</span></a>
+                <a href="https://github.com/Tyago-santos/projeto-quiz-sud" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+              </footer>
             </article>
 
-            <!-- 04 Promise -->
-            <article class="card project_card" data-reveal style="--d: 240ms">
-              <div class="project_cover">
+            <article class="project" data-project data-reveal style="--i:2" aria-labelledby="project-promise">
+              <a
+                class="project__cover"
+                href="https://promise-8s8f.onrender.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                tabindex="-1"
+                aria-hidden="true"
+              >
                 <img
                   src="./assets/promis.jpg"
-                  alt="Tela de perfis da rede social comunitária Promise"
-                  width="900"
-                  height="506"
+                  alt=""
+                  width="1280"
+                  height="997"
                   loading="lazy"
                   decoding="async"
                 />
-                <span class="project_domain mono">promise-8s8f.onrender.com</span>
-                <span class="project_arch mono"><svg class="ico" aria-hidden="true"><use href="#i-lock"></use></svg> Zustand + TanStack</span>
-              </div>
-              <div class="project_body">
-                <h3>Promise</h3>
-                <p class="project_sub mono">Rede Social Comunitária Full Stack</p>
-                <p class="project_desc">
-                  Ambiente seguro para formação de amizades e relacionamentos com base em valores e
-                  princípios compartilhados, com compressão client-side inteligente.
-                </p>
-                <ul class="project_points">
-                  <li>Gerenciamento modular e exploração de perfis</li>
-                  <li>Upload com compressão de imagem no browser</li>
-                  <li>Roteamento fluído com TanStack Router &amp; Zustand</li>
-                </ul>
-                <ul class="tags">
-                  <li>Node.js</li><li>React</li><li>TypeScript</li><li>Zustand</li><li>TanStack</li>
-                </ul>
-                <div class="project_links">
-                  <a href="https://promise-8s8f.onrender.com/" target="_blank" rel="noopener noreferrer">
-                    Live Demo <svg class="ico" aria-hidden="true"><use href="#i-arrow-out"></use></svg>
-                  </a>
-                  <a href="https://github.com/tiagomendesdev/promise" target="_blank" rel="noopener noreferrer">
-                    <svg class="ico" aria-hidden="true"><use href="#i-code"></use></svg> GitHub
-                  </a>
-                </div>
-              </div>
+                <span class="project__open">Abrir <span aria-hidden="true">↗</span></span>
+              </a>
+              <header class="project__head">
+                <span class="project__num">04</span>
+                <span class="tag tag--muted">REACT · ZUSTAND</span>
+              </header>
+              <h3 id="project-promise"><a href="https://promise-8s8f.onrender.com/" target="_blank" rel="noopener noreferrer">Promise</a></h3>
+              <p>Rede social comunitária full stack com compressão de imagem no browser.</p>
+              <ul class="project__stack">
+                <li>Node.js</li>
+                <li>React</li>
+                <li>TypeScript</li>
+                <li>TanStack</li>
+              </ul>
+              <footer class="project__foot">
+                <a href="https://promise-8s8f.onrender.com/" target="_blank" rel="noopener noreferrer">Site <span aria-hidden="true">↗</span></a>
+                <a href="https://github.com/tiagomendesdev/promise" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+              </footer>
             </article>
 
-            <!-- 05 Polearn -->
-            <article class="card project_card" data-reveal style="--d: 320ms">
-              <div class="project_cover">
+            <article class="project" data-project data-reveal style="--i:3" aria-labelledby="project-polearn">
+              <a
+                class="project__cover"
+                href="https://polearn.onrender.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                tabindex="-1"
+                aria-hidden="true"
+              >
                 <img
                   src="./assets/polearn.jpg"
-                  alt="Exercício de idiomas gerado por IA no Polearn"
-                  width="900"
-                  height="506"
+                  alt=""
+                  width="1280"
+                  height="997"
                   loading="lazy"
                   decoding="async"
                 />
-                <span class="project_domain mono">polearn.onrender.com</span>
-                <span class="project_arch mono"><svg class="ico" aria-hidden="true"><use href="#i-lock"></use></svg> Google Studio IA</span>
-              </div>
-              <div class="project_body">
-                <h3>Polearn</h3>
-                <p class="project_sub mono">Aprendizado de Idiomas com IA</p>
-                <p class="project_desc">
-                  Transformando o estudo de idiomas em rotina diária através de exercícios práticos
-                  instantâneos com IA para treinar leitura, escrita e fixação.
-                </p>
-                <ul class="project_points">
-                  <li>Geração de exercícios via Google Studio IA</li>
-                  <li>Rotas privadas protegidas com fallback</li>
-                  <li>Design System componentizado com Shadcn UI</li>
-                </ul>
-                <ul class="tags">
-                  <li>React</li><li>TypeScript</li><li>Google Studio IA</li><li>Shadcn UI</li><li>Zustand</li>
-                </ul>
-                <div class="project_links">
-                  <a href="https://polearn.onrender.com/" target="_blank" rel="noopener noreferrer">
-                    Live Demo <svg class="ico" aria-hidden="true"><use href="#i-arrow-out"></use></svg>
-                  </a>
-                  <a href="https://github.com/Tyago-santos/polearn" target="_blank" rel="noopener noreferrer">
-                    <svg class="ico" aria-hidden="true"><use href="#i-code"></use></svg> GitHub
-                  </a>
-                </div>
-              </div>
+                <span class="project__open">Abrir <span aria-hidden="true">↗</span></span>
+              </a>
+              <header class="project__head">
+                <span class="project__num">05</span>
+                <span class="tag tag--muted">REACT · IA</span>
+              </header>
+              <h3 id="project-polearn"><a href="https://polearn.onrender.com/" target="_blank" rel="noopener noreferrer">Polearn</a></h3>
+              <p>Aprendizado de idiomas com exercícios gerados por IA.</p>
+              <ul class="project__stack">
+                <li>React</li>
+                <li>TypeScript</li>
+                <li>Google Studio IA</li>
+                <li>Shadcn UI</li>
+              </ul>
+              <footer class="project__foot">
+                <a href="https://polearn.onrender.com/" target="_blank" rel="noopener noreferrer">Site <span aria-hidden="true">↗</span></a>
+                <a href="https://github.com/Tyago-santos/polearn" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+              </footer>
             </article>
 
-            <!-- 06 Acompanhamento -->
-            <article class="card project_card" data-reveal style="--d: 400ms">
-              <div class="project_cover">
+            <article class="project" data-project data-reveal style="--i:4" aria-labelledby="project-lma">
+              <a
+                class="project__cover"
+                href="https://project-lma-99.onrender.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                tabindex="-1"
+                aria-hidden="true"
+              >
                 <img
                   src="./assets/lma.jpg"
-                  alt="Dashboard do sistema de acompanhamento de pessoas"
-                  width="900"
-                  height="506"
+                  alt=""
+                  width="1280"
+                  height="997"
                   loading="lazy"
                   decoding="async"
                 />
-                <span class="project_domain mono">project-lma-99.onrender.com</span>
-                <span class="project_arch mono"><svg class="ico" aria-hidden="true"><use href="#i-lock"></use></svg> Firebase Realtime</span>
-              </div>
-              <div class="project_body">
-                <h3>Acompanhamento de Pessoas</h3>
-                <p class="project_sub mono">Gestão Missionária &amp; Metas Semanais</p>
-                <p class="project_desc">
-                  Sistema para relatar e acompanhar o progresso de metas, evolução individual e
-                  visualização por unidades da igreja em tempo real.
-                </p>
-                <ul class="project_points">
-                  <li>Acompanhamento e evolução de metas semanais</li>
-                  <li>Filtro por unidades com alta responsividade</li>
-                  <li>Carrossel integrado via Swiper &amp; Styled Comp.</li>
-                </ul>
-                <ul class="tags">
-                  <li>React</li><li>TypeScript</li><li>Firebase</li><li>Styled Comp.</li><li>Swiper</li>
-                </ul>
-                <div class="project_links">
-                  <a href="https://project-lma-99.onrender.com/" target="_blank" rel="noopener noreferrer">
-                    Live Demo <svg class="ico" aria-hidden="true"><use href="#i-arrow-out"></use></svg>
-                  </a>
-                  <a href="https://github.com/Tyago-santos/project_lma" target="_blank" rel="noopener noreferrer">
-                    <svg class="ico" aria-hidden="true"><use href="#i-code"></use></svg> GitHub
-                  </a>
-                </div>
-              </div>
+                <span class="project__open">Abrir <span aria-hidden="true">↗</span></span>
+              </a>
+              <header class="project__head">
+                <span class="project__num">06</span>
+                <span class="tag tag--muted">REACT · FIREBASE</span>
+              </header>
+              <h3 id="project-lma"><a href="https://project-lma-99.onrender.com/" target="_blank" rel="noopener noreferrer">Acompanhamento de Pessoas</a></h3>
+              <p>Gestão missionária com metas semanais e evolução por unidade.</p>
+              <ul class="project__stack">
+                <li>React</li>
+                <li>TypeScript</li>
+                <li>Firebase</li>
+                <li>Swiper</li>
+              </ul>
+              <footer class="project__foot">
+                <a href="https://project-lma-99.onrender.com/" target="_blank" rel="noopener noreferrer">Site <span aria-hidden="true">↗</span></a>
+                <a href="https://github.com/Tyago-santos/project_lma" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+              </footer>
             </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- ================= CONTATO ================= -->
-      <section class="section" id="contato">
-        <div class="container contact_grid">
-          <div class="contact_left" data-reveal>
-            <p class="eyebrow mono"><span>//</span> Conexão &amp; Oportunidades</p>
-            <h2>Vamos construir algo <span class="gradient">incrível juntos?</span></h2>
-            <p class="contact_lead">
-              Estou disponível para novas oportunidades, projetos freelance de impacto, consultoria
-              em automações de processos e posições como Desenvolvedor Full Stack (CLT ou PJ).
-            </p>
-
-            <ul class="contact_features">
-              <li>
-                <span class="feature_icon" aria-hidden="true"><svg class="ico" aria-hidden="true"><use href="#i-clock"></use></svg></span>
-                <span><strong>Resposta Rápida</strong> &lt; 24h</span>
-              </li>
-              <li>
-                <span class="feature_icon" aria-hidden="true"><svg class="ico" aria-hidden="true"><use href="#i-commit"></use></svg></span>
-                <span><strong>Código Testado</strong> &amp; Versionado</span>
-              </li>
-              <li>
-                <span class="feature_icon" aria-hidden="true"><svg class="ico" aria-hidden="true"><use href="#i-pdf"></use></svg></span>
-                <span><strong>Currículo</strong> em PDF sob demanda</span>
-              </li>
-            </ul>
-          </div>
-
-          <div class="contact_cards" data-reveal style="--d: 120ms">
-            <a
-              class="contact_card"
-              href="https://www.linkedin.com/in/tiago-santos-b10165376/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <span class="contact_icon" aria-hidden="true"><svg class="ico" aria-hidden="true"><use href="#i-linkedin"></use></svg></span>
-              <span class="contact_text">
-                <strong>Conectar no LinkedIn</strong>
-                <span class="mono">in/tiago-santos-b10165376</span>
-              </span>
-              <svg class="ico" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
-            </a>
 
             <a
-              class="contact_card"
+              class="project--cta"
+              data-reveal
+              style="--i:5"
               href="https://github.com/Tyago-santos"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <span class="contact_icon" aria-hidden="true"><svg class="ico" aria-hidden="true"><use href="#i-github"></use></svg></span>
-              <span class="contact_text">
-                <strong>Explorar no GitHub</strong>
-                <span class="mono">github.com/Tyago-santos</span>
-              </span>
-              <svg class="ico" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
+              <span class="project__num">+ 06 / 06</span>
+              <h3>Mais código<br />no GitHub</h3>
+              <p>Repositórios, experimentos e projetos acadêmicos publicados abertamente.</p>
             </a>
+          </div>
 
-            <a class="contact_card" href="mailto:xlzthyago@gmail.com">
-              <span class="contact_icon" aria-hidden="true"><svg class="ico" aria-hidden="true"><use href="#i-envelope"></use></svg></span>
-              <span class="contact_text">
-                <strong>Enviar Mensagem Direta</strong>
-                <span class="mono">xlzthyago@gmail.com</span>
-              </span>
-              <svg class="ico" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
-            </a>
-
+          <footer class="projects__foot">
+            <p class="tag tag--muted">
+              // CADA PROJETO PASSA POR DESIGN, API ISOLADA, MODELAGEM E DEPLOY
+            </p>
             <a
-              class="contact_card contact_card--primary"
-              href="./assets/curriculo_tiago_dev.pdf"
-              download="curriculo_tiago_santos.pdf"
+              class="btn"
+              href="https://github.com/Tyago-santos"
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              <span class="contact_icon" aria-hidden="true"><svg class="ico" aria-hidden="true"><use href="#i-download"></use></svg></span>
-              <span class="contact_text">
-                <strong>Baixar Currículo</strong>
-                <span class="mono">PDF · Desenvolvedor Full Stack</span>
-              </span>
-              <svg class="ico" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
+              Ver todos no GitHub <span aria-hidden="true">↗</span>
             </a>
+          </footer>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════ 04 · STACK ══════════════════════════════ -->
+      <section
+        class="band st"
+        id="stack"
+        data-section="stack"
+        data-stack
+        aria-label="Arsenal técnico"
+      >
+        <div class="art" aria-hidden="true">
+          <span class="art__glow"></span>
+          <span class="art__grid"></span>
+        </div>
+
+        <div class="st__viewport">
+          <div class="st__track" data-stack-track>
+            <div class="st-panel st-panel--intro">
+              <span class="tag tag--muted">// 04 — ARSENAL TÉCNICO</span>
+              <h2 class="st__title">Stack</h2>
+              <p class="st__lead">
+                Ferramentas escolhidas por confiabilidade, tipagem de ponta a ponta e desempenho em
+                produção. Role para atravessar <span aria-hidden="true">→</span>
+              </p>
+              <span class="tag tag--muted st__count">01 — 04</span>
+            </div>
+
+            <article class="st-panel">
+              <span class="st-panel__num" aria-hidden="true">01</span>
+              <div class="st-panel__body">
+                <span class="tag tag--muted">BACK-END</span>
+                <h3 class="st-panel__title">Back-End &amp; APIs</h3>
+                <p class="st-panel__desc">
+                  Serviços desacoplados, contratos estritos de API REST e autenticação resiliente.
+                </p>
+                <ul class="st-panel__techs">
+                  <li class="st-chip">Node.js</li>
+                  <li class="st-chip">Express</li>
+                  <li class="st-chip">Prisma</li>
+                  <li class="st-chip">JWT</li>
+                  <li class="st-chip">Zod</li>
+                  <li class="st-chip">REST</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="st-panel">
+              <span class="st-panel__num" aria-hidden="true">02</span>
+              <div class="st-panel__body">
+                <span class="tag tag--muted">FRONT-END</span>
+                <h3 class="st-panel__title">Interfaces &amp; Web</h3>
+                <p class="st-panel__desc">
+                  SPAs com componentes modulares, tipagem estrita e micro-interações fluidas.
+                </p>
+                <ul class="st-panel__techs">
+                  <li class="st-chip">React</li>
+                  <li class="st-chip">TypeScript</li>
+                  <li class="st-chip">Next.js</li>
+                  <li class="st-chip">Tailwind CSS</li>
+                  <li class="st-chip">JavaScript</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="st-panel">
+              <span class="st-panel__num" aria-hidden="true">03</span>
+              <div class="st-panel__body">
+                <span class="tag tag--muted">MOBILE &amp; IA</span>
+                <h3 class="st-panel__title">Mobile &amp; Inteligência Artificial</h3>
+                <p class="st-panel__desc">
+                  Apps nativos offline-first e integração de LLMs com tool-calling sobre dados reais.
+                </p>
+                <ul class="st-panel__techs">
+                  <li class="st-chip">React Native</li>
+                  <li class="st-chip">Expo</li>
+                  <li class="st-chip">Gemini</li>
+                  <li class="st-chip">Tool-calling</li>
+                  <li class="st-chip">Offline-First</li>
+                  <li class="st-chip">OCR</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="st-panel">
+              <span class="st-panel__num" aria-hidden="true">04</span>
+              <div class="st-panel__body">
+                <span class="tag tag--muted">DADOS &amp; INFRA</span>
+                <h3 class="st-panel__title">Dados &amp; Infraestrutura</h3>
+                <p class="st-panel__desc">
+                  Persistência confiável, containers e deploy contínuo com versionamento rigoroso.
+                </p>
+                <ul class="st-panel__techs">
+                  <li class="st-chip">PostgreSQL</li>
+                  <li class="st-chip">MySQL</li>
+                  <li class="st-chip">Firebase</li>
+                  <li class="st-chip">Docker</li>
+                  <li class="st-chip">Git</li>
+                  <li class="st-chip">GitHub</li>
+                  <li class="st-chip">Vercel</li>
+                  <li class="st-chip">Render</li>
+                </ul>
+              </div>
+            </article>
+
+            <div class="st-panel st-panel--outro">
+              <span class="tag tag--muted">// PRÓXIMO PASSO</span>
+              <h3 class="st-panel__title">Sempre<br />aprendendo.</h3>
+              <p class="st-panel__desc">
+                Estudante de Sistemas de Informação, em busca de estágio ou posição júnior para
+                construir software com impacto real.
+              </p>
+              <a class="btn" href="#contato">Falar comigo <span aria-hidden="true">↗</span></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="st__progress" aria-hidden="true"><span data-stack-progress></span></div>
+      </section>
+
+      <!-- ══════════════════════════════ 05 · FORMAÇÃO ══════════════════════════════ -->
+      <section
+        class="cr"
+        id="formacao"
+        data-section="formacao"
+        aria-label="Formação acadêmica e foco atual"
+      >
+        <div class="wrap cr__sheet">
+          <header class="sec-head sec-head--light">
+            <span class="tag">// 05</span>
+            <span class="tag tag--muted">FORMAÇÃO &amp; FOCO</span>
+            <span class="sec-head__meta">DOSSIER</span>
+          </header>
+
+          <div class="cr__grid">
+            <div class="cr__edu">
+              <span class="tag tag--muted">// FORMAÇÃO ACADÊMICA</span>
+
+              <div class="edu">
+                <div class="edu__brand" aria-hidden="true">UNEX</div>
+                <div class="edu__main">
+                  <span class="tag tag--muted">EM ANDAMENTO · 1º SEMESTRE</span>
+                  <h2>Sistemas de<br />Informação</h2>
+                  <p>Centro Universitário de Excelência (Unex)</p>
+                  <p class="edu__local">Vitória da Conquista, BA · Brasil</p>
+                </div>
+              </div>
+
+              <div class="cr__resume">
+                <div>
+                  <span class="tag tag--muted">// CURRÍCULO</span>
+                  <h3>Versão completa em PDF</h3>
+                  <p>Formação, experiência, stack e projetos detalhados em uma página.</p>
+                </div>
+                <a class="btn btn--dark" href="./assets/curriculo_tiago_dev.pdf" download>
+                  Baixar PDF <span aria-hidden="true">↗</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="cr__focus">
+              <span class="tag tag--muted">// FOCO ATUAL DE ESTUDO</span>
+              <ul class="focus">
+                <li data-reveal style="--i:0">
+                  <span class="focus__num">01</span>
+                  <div>
+                    <h3>Front-end &amp; Mobile</h3>
+                    <p>React, TypeScript, Next.js e React Native/Expo</p>
+                  </div>
+                </li>
+                <li data-reveal style="--i:1">
+                  <span class="focus__num">02</span>
+                  <div>
+                    <h3>Back-end &amp; Dados</h3>
+                    <p>Node.js, Express, Prisma, PostgreSQL e MySQL</p>
+                  </div>
+                </li>
+                <li data-reveal style="--i:2">
+                  <span class="focus__num">03</span>
+                  <div>
+                    <h3>IA aplicada</h3>
+                    <p>Agentes com tool-calling e geração de conteúdo com Gemini</p>
+                  </div>
+                </li>
+                <li data-reveal style="--i:3">
+                  <span class="focus__num">04</span>
+                  <div>
+                    <h3>Entrega</h3>
+                    <p>Docker, deploy contínuo, Git/GitHub e automações</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </section>
+
+      <!-- ══════════════════════════════ 06 · CONTATO ══════════════════════════════ -->
+      <footer
+        class="band ct"
+        id="contato"
+        data-section="contato"
+        aria-label="Redes, contato e encerramento"
+      >
+        <div class="art" aria-hidden="true">
+          <span class="art__glow"></span>
+          <span class="art__grid"></span>
+          <span class="art__reticle art__reticle--tl"></span>
+          <span class="art__reticle art__reticle--tr"></span>
+          <span class="art__reticle art__reticle--bl"></span>
+          <span class="art__reticle art__reticle--br"></span>
+        </div>
+
+        <div class="wrap ct__inner">
+          <header class="sec-head">
+            <span class="tag">// 06</span>
+            <span class="tag tag--muted">CONEXÃO &amp; REDES</span>
+            <span class="sec-head__meta">VITÓRIA DA CONQUISTA · BA</span>
+          </header>
+
+          <p class="ct__lead" data-reveal>Vamos construir<br />algo juntos?</p>
+
+          <nav class="ct__links" aria-label="Redes e contato">
+            <a
+              class="ct-link"
+              data-reveal
+              style="--i:0"
+              href="https://www.linkedin.com/in/tiago-santos-b10165376/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span class="ct-link__fill" aria-hidden="true"></span>
+              <span class="tag tag--muted ct-link__meta">01 // REDE PROFISSIONAL</span>
+              <span class="ct-link__name">LinkedIn</span>
+              <span class="ct-link__arrow" aria-hidden="true">↗</span>
+            </a>
+
+            <a
+              class="ct-link"
+              data-reveal
+              style="--i:1"
+              href="https://github.com/Tyago-santos"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span class="ct-link__fill" aria-hidden="true"></span>
+              <span class="tag tag--muted ct-link__meta">02 // REPOSITÓRIOS &amp; CÓDIGO</span>
+              <span class="ct-link__name">GitHub</span>
+              <span class="ct-link__arrow" aria-hidden="true">↗</span>
+            </a>
+
+            <a
+              class="ct-link"
+              data-reveal
+              style="--i:2"
+              href="https://www.instagram.com/tiago_skywalker/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span class="ct-link__fill" aria-hidden="true"></span>
+              <span class="tag tag--muted ct-link__meta">03 // CANAL SOCIAL</span>
+              <span class="ct-link__name">Instagram</span>
+              <span class="ct-link__arrow" aria-hidden="true">↗</span>
+            </a>
+
+            <a class="ct-link" href="mailto:xlzthyago@gmail.com" data-reveal style="--i:3">
+              <span class="ct-link__fill" aria-hidden="true"></span>
+              <span class="tag tag--muted ct-link__meta">04 // MENSAGEM DIRETA</span>
+              <span class="ct-link__name">E-mail</span>
+              <span class="ct-link__arrow" aria-hidden="true">↗</span>
+            </a>
+          </nav>
+
+          <div class="ct__bottom">
+            <div class="ct__col">
+              <span class="tag tag--muted">VITÓRIA DA CONQUISTA, BA · BRASIL</span>
+              <span class="tag tag--muted"><time data-clock datetime="">--:--:--</time> [UTC-3]</span>
+            </div>
+
+            <div class="ct__col ct__col--center">
+              <p class="ct__sign">TIAGO SANTOS</p>
+              <p class="tag tag--muted">DESENVOLVEDOR FULL STACK · 2026</p>
+            </div>
+
+            <div class="ct__col ct__col--end">
+              <a class="ct__top" href="#top">
+                Voltar ao topo <span aria-hidden="true">↑</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="ct__fine">
+            <span class="tag tag--muted">HTML · CSS · JAVASCRIPT VANILLA</span>
+            <a
+              class="tag tag--muted"
+              href="https://www.facebook.com/osmon.santos.9"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              FACEBOOK ↗
+            </a>
+          </div>
+        </div>
+      </footer>
     </main>
-
-    <!-- ================= FOOTER ================= -->
-    <footer class="site_footer">
-      <div class="container footer_inner">
-        <p class="footer_brand mono">&lt;tiago.santos /&gt; <span>|</span> v3.0.0-high-tech</p>
-        <nav class="footer_nav" aria-label="Rodapé">
-          <a href="#sobre">Sobre</a>
-          <a href="#tecnologias">Tecnologias</a>
-          <a href="#projetos">Projetos</a>
-          <a href="#contato">Contato</a>
-        </nav>
-        <p class="footer_copy">
-          © <span id="year">2026</span> Tiago Santos. Crafted with high-precision engineering &amp;
-          clean aesthetics.
-        </p>
-      </div>
-      <a class="to_top" href="#topo" aria-label="Voltar ao topo">
-        <svg class="ico" aria-hidden="true"><use href="#i-arrow-up"></use></svg>
-      </a>
-    </footer>
-
-    <noscript>
-      <style>
-        [data-reveal] {
-          opacity: 1 !important;
-          transform: none !important;
-        }
-      </style>
-    </noscript>
 
     <script src="./js/script.js" defer></script>
   </body>
