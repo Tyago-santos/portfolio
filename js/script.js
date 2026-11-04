@@ -299,35 +299,8 @@
 
     var frame = null;
     var activeImage = null;
-    var activeText = null;
-    var baseTextColor = "";
     var pointerX = 0;
     var pointerY = 0;
-
-    function textNodeAt(x, y) {
-      var range = typeof document.caretRangeFromPoint === "function"
-        ? document.caretRangeFromPoint(x, y)
-        : null;
-      var node = range && range.startContainer;
-      if (!node && typeof document.caretPositionFromPoint === "function") {
-        var position = document.caretPositionFromPoint(x, y);
-        node = position && position.offsetNode;
-      }
-      if (!node || node.nodeType !== Node.TEXT_NODE || !node.textContent.trim()) return null;
-      var parent = node.parentElement;
-      if (parent.closest("button, .btn")) return null;
-      return parent;
-    }
-
-    function clearText() {
-      if (!activeText) return;
-      activeText.classList.remove("cursor-text-color");
-      activeText.style.removeProperty("--cursor-text-x");
-      activeText.style.removeProperty("--cursor-text-y");
-      activeText.style.removeProperty("--cursor-text-base");
-      activeText = null;
-      baseTextColor = "";
-    }
 
     function paint() {
       frame = null;
@@ -360,29 +333,12 @@
       } else {
         reveal.classList.remove("is-visible");
       }
-
-      if (!activeText) return;
-      var textRect = activeText.getBoundingClientRect();
-      activeText.style.setProperty("--cursor-text-x", pointerX - textRect.left + "px");
-      activeText.style.setProperty("--cursor-text-y", pointerY - textRect.top + "px");
-      activeText.style.setProperty("--cursor-text-base", baseTextColor);
     }
 
     document.addEventListener(
       "pointermove",
       function (event) {
         if (event.pointerType === "touch") return;
-        var overButton =
-          event.target.closest && event.target.closest("button, .btn");
-        var textTarget = overButton ? null : textNodeAt(event.clientX, event.clientY);
-        if (textTarget !== activeText) {
-          clearText();
-          activeText = textTarget;
-          if (activeText) {
-            baseTextColor = window.getComputedStyle(activeText).color;
-            activeText.classList.add("cursor-text-color");
-          }
-        }
 
         var image = event.target && event.target.closest
           ? event.target.closest("img")
@@ -408,13 +364,11 @@
       if (event.relatedTarget) return;
       activeImage = null;
       reveal.classList.remove("is-visible");
-      clearText();
     });
 
     window.addEventListener("blur", function () {
       activeImage = null;
       reveal.classList.remove("is-visible");
-      clearText();
     });
   }
 
