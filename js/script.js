@@ -165,7 +165,7 @@
 
   /* ── reveal por IntersectionObserver ───────────────────────────────────── */
   function initReveal() {
-    var items = qsa("[data-reveal], [data-wipe]");
+    var items = qsa("[data-reveal]");
     if (!items.length) return;
 
     if (prefersReducedMotion() || !("IntersectionObserver" in window)) {
@@ -416,6 +416,177 @@
     reduceQuery.addEventListener("change", request);
   }
 
+  /* ── destaque de texto preso ao cursor ─────────────────────────────────── */
+  function textNodeAt(x, y) {
+    var node = document.elementFromPoint(x, y);
+    if (!node) return null;
+
+    var parent = node.parentElement;
+    if (parent && parent.closest("button, .btn")) return null;
+    if (node.closest("button, .btn")) return null;
+
+    while (node && node !== document.body) {
+      if (node.nodeType === 1 && node.classList && node.classList.contains("cursor-text-color")) {
+        return node;
+      }
+
+      if (node.parentElement && node.parentElement.closest("button, .btn")) {
+        return null;
+      }
+      node = node.parentElement;
+    }
+
+    return null;
+  }
+
+  function initCursorTextColor() {
+    if (!window.matchMedia("(hover: hover) and (pointer: fine)").matches) return;
+
+    var activeText = null;
+    var frame = null;
+
+    function paint() {
+      frame = null;
+      if (!activeText) return;
+
+      var rect = activeText.getBoundingClientRect();
+      var x = rect.left + rect.width / 2;
+      var y = rect.top + rect.height / 2;
+      activeText.style.setProperty("--cursor-text-x", x + "px");
+      activeText.style.setProperty("--cursor-text-y", y + "px");
+      activeText.classList.add("cursor-text-color");
+    }
+
+    document.addEventListener(
+      "pointermove",
+      function (event) {
+        if (event.pointerType === "touch") return;
+
+        if (event.target && event.target.closest && event.target.closest("button, .btn")) {
+          if (activeText) {
+            activeText.classList.remove("cursor-text-color");
+            activeText.style.removeProperty("--cursor-text-x");
+            activeText.style.removeProperty("--cursor-text-y");
+            activeText = null;
+          }
+          return;
+        }
+
+        var next = textNodeAt(event.clientX, event.clientY);
+        if (next === activeText) return;
+
+        if (activeText) {
+          activeText.classList.remove("cursor-text-color");
+          activeText.style.removeProperty("--cursor-text-x");
+          activeText.style.removeProperty("--cursor-text-y");
+        }
+
+        activeText = next;
+        if (activeText && !frame) {
+          frame = window.requestAnimationFrame(paint);
+        }
+      },
+      { passive: true }
+    );
+
+    document.addEventListener("pointerleave", function () {
+      if (activeText) {
+        activeText.classList.remove("cursor-text-color");
+        activeText.style.removeProperty("--cursor-text-x");
+        activeText.style.removeProperty("--cursor-text-y");
+        activeText = null;
+      }
+    });
+  }
+
+  function initProjectMarquees() {
+    var marquees = qsa(".case__tags .marquee");
+    if (!marquees.length || prefersReducedMotion()) return;
+
+    var tracks = marquees.map(function (marquee) {
+      var track = qs(".marquee__track", marquee);
+      var first = track && track.children[0];
+      var second = track && track.children[1];
+      if (!first || !second) return null;
+
+      return {
+        marquee: marquee,
+        first: first,
+        second: second,
+        content: Array.prototype.map.call(first.childNodes, function (node) {
+          return node.cloneNode(true);
+        }),
+      };
+    }).filter(Boolean);
+
+    function fillTracks() {
+      tracks.forEach(function (item) {
+        item.first.replaceChildren.apply(item.first, item.content.map(function (node) {
+          return node.cloneNode(true);
+        }));
+        item.second.replaceChildren.apply(item.second, item.content.map(function (node) {
+          return node.cloneNode(true);
+        }));
+
+        var baseWidth = item.first.getBoundingClientRect().width;
+        if (!baseWidth) return;
+
+        var repeats = Math.max(1, Math.ceil(item.marquee.clientWidth / baseWidth));
+        for (var index = 1; index < repeats; index += 1) {
+          item.content.forEach(function (node) {
+            item.first.appendChild(node.cloneNode(true));
+            item.second.appendChild(node.cloneNode(true));
+          });
+        }
+      });
+    }
+
+    fillTracks();
+    var resizeTimer = null;
+    window.addEventListener(
+      "resize",
+      function () {
+        window.clearTimeout(resizeTimer);
+        resizeTimer = window.setTimeout(fillTracks, 120);
+      },
+      { passive: true }
+    );
+  }
+
+  /* ── entrada das seções ao entrar na viewport ─────────────────────────── */
+  function initSectionReveal() {
+    var sections = qsa("[data-section]");
+    if (!sections.length) return;
+
+    if (prefersReducedMotion() || !("IntersectionObserver" in window)) return;
+
+    var targets = [];
+    var observer = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        });
+      },
+      { threshold: 0.12, rootMargin: "0px 0px -6% 0px" }
+    );
+
+    sections.forEach(function (section) {
+      qsa(
+        ".about__inner, .xp__inner, .case__inner, .st__viewport, .cr__sheet, .ct__inner",
+        section
+      ).forEach(function (target) {
+        target.setAttribute("data-scroll-reveal", "");
+        targets.push(target);
+      });
+    });
+
+    targets.forEach(function (target) {
+      observer.observe(target);
+    });
+  }
+
   /* ── inicialização ─────────────────────────────────────────────────────── */
   function boot() {
     initClock();
@@ -426,6 +597,9 @@
     initStack();
     initScrollFx();
     initCursorImageReveal();
+    initCursorTextColor();
+    initProjectMarquees();
+    initSectionReveal();
   }
 
   if (document.readyState === "loading") {

@@ -35,12 +35,14 @@ test("barra de progresso do scroll existe e é decorativa", () => {
 test("listas de cards entram em cascata", () => {
   const doc = html();
   const cssSource = css();
-  for (const grid of ["xp__grid", "projects__grid", "ct__links", "focus"]) {
+  for (const grid of ["projects__grid", "ct__links", "focus"]) {
     assert.ok(
       new RegExp(`class="[^"]*${grid}[^"]*"`).test(doc),
       `container ${grid} ausente`
     );
   }
+  assert.doesNotMatch(doc, /xp__grid|xp-card/, "cards de competências ainda aparecem");
+  assert.doesNotMatch(doc, /Software, automações e agentes de IA|Do estudo ao deploy em produção/);
   const staggered = [...doc.matchAll(/--i:(\d+)/g)].map((m) => Number(m[1]));
   assert.ok(
     staggered.length >= 20,
@@ -53,17 +55,87 @@ test("listas de cards entram em cascata", () => {
   );
 });
 
-test("revelação por recorte (wipe) fica visível sem JavaScript", () => {
+test("hero não exibe mais os botões de projeto e currículo", () => {
+  const doc = html();
+  const sheet = css();
+  const start = doc.indexOf('<section class="hero"');
+  const end = doc.indexOf("</section>", start);
+  const hero = doc.slice(start, end);
+
+  assert.notEqual(start, -1, "seção hero ausente");
+  assert.doesNotMatch(hero, /hero__actions|Ver projetos em produção|Currículo PDF/);
+  assert.doesNotMatch(sheet, /\.hero__actions/);
+});
+
+test("projetos são exibidos em sequência sem transição horizontal", () => {
   const doc = html();
   const cssSource = css();
-  assert.ok(/class="case__frame" data-wipe/.test(doc), "case__frame sem data-wipe");
-  assert.equal(
-    /(^|})\s*\[data-wipe\]\s*\{/m.test(cssSource),
-    false,
-    "regra [data-wipe] sem o prefixo .js esconderia conteúdo sem JS"
-  );
-  assert.match(cssSource, /\.js\s+\[data-wipe\]\s*\{[^}]*clip-path:\s*inset\(0\s+0\s+100%\s+0\)/);
-  assert.match(cssSource, /\.js\s+\[data-wipe\]\.is-in\s*\{[^}]*clip-path:\s*inset\(0/);
+  const source = js();
+
+  const start = doc.indexOf('id="projetos"');
+  const end = doc.indexOf('id="stack"', start);
+  const projects = doc.slice(start, end);
+
+  assert.notEqual(start, -1, "seção de projetos ausente");
+  assert.notEqual(end, -1, "seção seguinte aos projetos ausente");
+  assert.equal((projects.match(/<article class="case"/g) || []).length, 6);
+  assert.doesNotMatch(projects, /pj__scroll|pj__viewport|pj__track|pj__progress|data-projects/);
+  assert.doesNotMatch(cssSource, /\.pj__track|\.pj__viewport|\.pj__progress/);
+  assert.doesNotMatch(source, /initProjects|data-projects-track|data-projects-progress/);
+});
+
+test("tecnologias de cada projeto rolam em loop contínuo", () => {
+  const doc = html();
+  const source = js();
+  const sheet = css();
+  const projectTags = [...doc.matchAll(/<div class="case__tags"[\s\S]*?<\/div>\s*<\/div>\s*<\/div>/g)];
+
+  assert.equal(projectTags.length, 6, "cada projeto deve manter seu letreiro de tecnologias");
+  projectTags.forEach(([markup], index) => {
+    assert.equal(
+      (markup.match(/<span(?:\s+aria-hidden="true")?>/g) || []).length,
+      2,
+      `o letreiro do projeto ${index + 1} deve ter cópias para o loop`
+    );
+  });
+  assert.match(sheet, /\.marquee__track\s*\{[^}]*animation:[^;]*linear infinite/s);
+  assert.match(sheet, /@keyframes marquee\s*\{[\s\S]*?translateX\(-50%\)/);
+  assert.match(sheet, /\.marquee:hover \.marquee__track\s*\{[^}]*animation-play-state:\s*paused/);
+  assert.match(source, /function initProjectMarquees\(\)/);
+  assert.match(source, /item\.marquee\.clientWidth/);
+  assert.match(source, /prefersReducedMotion\(\)\) return/);
+  assert.match(source, /window\.setTimeout\(fillTracks, 120\)/);
+});
+
+test("projetos não exibem capturas de tela", () => {
+  const doc = html();
+  const start = doc.indexOf('id="projetos"');
+  const end = doc.indexOf('id="stack"', start);
+  assert.notEqual(start, -1, "seção de projetos ausente");
+  assert.notEqual(end, -1, "seção seguinte aos projetos ausente");
+  assert.doesNotMatch(doc.slice(start, end), /<img\b/i, "projeto ainda contém uma imagem");
+  assert.doesNotMatch(doc.slice(start, end), /data-wipe|case__frame/, "frame de imagem ainda existe");
+});
+
+test("descrição e informações técnicas ficam lado a lado", () => {
+  const cssSource = css();
+  assert.match(cssSource, /\.case__body\s*\{[^}]*display:\s*grid;[^}]*grid-template-columns:\s*minmax\(0,\s*1fr\)\s+minmax\(0,\s*1fr\)/s);
+  assert.match(cssSource, /\.case__body\s*\{[^}]*width:\s*min\(100%,\s*70rem\)/s);
+  assert.match(cssSource, /\.case__body\s*\{[^}]*gap:\s*clamp\(1rem,\s*1\.5vw,\s*1\.5rem\)/s);
+  assert.match(cssSource, /\.case__text\s*\{[^}]*display:\s*contents/);
+  assert.match(cssSource, /\.case__specs\s*\{[^}]*grid-column:\s*2;[^}]*grid-row:\s*1\s*\/\s*span 4/s);
+  assert.match(cssSource, /@media \(max-width: 900px\)\s*\{[\s\S]*?\.case__body\s*\{[^}]*grid-template-columns:\s*1fr/);
+});
+
+test("todas as seções compartilham o destaque tipográfico", () => {
+  const doc = html();
+  const sectionWords = [...doc.matchAll(/class="[^"]*\bsection-word\b[^"]*"[^>]*>[\s\S]*?<\/div>/g)];
+  assert.equal(sectionWords.length, 6);
+  for (const word of ["SOBRE", "EXPERIÊNCIA", "PROJETOS", "STACK", "FORMAÇÃO", "CONTATO"]) {
+    assert.ok(sectionWords.some(([markup]) => markup.includes(word)), `destaque ausente: ${word}`);
+  }
+  assert.match(css(), /\.section-word__solid\s*\{[^}]*color:\s*rgba\(255,\s*255,\s*255,\s*0\.055\)/);
+  assert.match(css(), /\.section-word--light \.section-word__solid\s*\{/);
 });
 
 test("movimento reduzido neutraliza atrasos e animações novas", () => {
@@ -81,7 +153,7 @@ test("movimento reduzido neutraliza atrasos e animações novas", () => {
   assert.match(cssSource, /\.hero__photo img\s*\{[^}]*animation:[^}]*photo-float/s);
 
   // giant text da seção de atuação deriva com o scroll
-  assert.match(cssSource, /\.xp__giant\s*\{[^}]*--gx/s);
+  assert.match(cssSource, /\.section-word\s*\{[^}]*var\(--gx/s);
   assert.match(js(), /--gx/);
 });
 

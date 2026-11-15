@@ -163,7 +163,6 @@
       </nav>
 
       <div class="hud__right">
-        <span class="hud__pill">DISPONÍVEL // 2026</span>
         <span class="hud__clock" aria-label="Horário de Vitória da Conquista, UTC-3">
           <span class="hud__label">VITÓRIA DA CONQUISTA</span>
           <time data-clock datetime="">--:--:--</time>
@@ -231,20 +230,6 @@
           </h1>
 
           <div class="hero__bottom">
-            <div class="hero__intro" data-reveal>
-              <p class="hero__lead">
-                Software, automações e agentes de IA.<br />
-                Do estudo ao deploy em produção.
-              </p>
-            </div>
-
-            <div class="hero__actions" data-reveal>
-              <a class="btn btn--solid" href="#projetos">Ver projetos em produção <span aria-hidden="true">↓</span></a>
-              <a class="btn" href="./assets/curriculo_tiago_dev.pdf" download>
-                Currículo PDF <span aria-hidden="true">↗</span>
-              </a>
-            </div>
-
             <a class="hero__scroll" href="#sobre" aria-label="Rolar para a seção sobre">
               <span>Scroll</span>
               <span class="hero__scroll-line" aria-hidden="true"></span>
@@ -262,6 +247,11 @@
           <span class="art__reticle art__reticle--tr"></span>
           <span class="art__reticle art__reticle--bl"></span>
           <span class="art__reticle art__reticle--br"></span>
+        </div>
+
+        <div class="section-word" aria-hidden="true">
+          <span class="section-word__solid">SOBRE</span>
+          <span class="section-word__stroke">SOBRE</span>
         </div>
 
         <div class="wrap about__inner">
@@ -314,9 +304,9 @@
           <span class="art__reticle art__reticle--br"></span>
         </div>
 
-        <div class="xp__giant" aria-hidden="true">
-          <span class="xp__giant-solid">ENGENHARIA</span>
-          <span class="xp__giant-stroke">ENGENHARIA</span>
+        <div class="section-word xp__giant" aria-hidden="true">
+          <span class="section-word__solid">EXPERIÊNCIA</span>
+          <span class="section-word__stroke">EXPERIÊNCIA</span>
         </div>
 
         <div class="wrap xp__inner">
@@ -327,20 +317,35 @@
           </header>
 
           <div class="xp__meta">
-            <div class="xp__role">
-              <span class="tag tag--muted">CARGO ATUAL</span>
-              <h2>Desenvolvedor<br />Full Stack</h2>
-              <p>na <strong>Vittal Web</strong></p>
+            <div class="xp__roles">
+              <div class="xp__role">
+                <span class="tag tag--muted">CARGO ATUAL</span>
+                <h2>Estagiário de<br />Desenvolvimento</h2>
+                <p>
+                  <strong>Vittal Web</strong> · Setor de Inteligência Artificial, Sistemas e
+                  Automação
+                </p>
+              </div>
+
+              <div class="xp__role">
+                <span class="tag tag--muted">ANTERIOR</span>
+                <h2>Desenvolvedor<br />Freelancer</h2>
+                <p><strong>Vittal Web</strong> · entrega full stack em um mês</p>
+              </div>
             </div>
 
             <dl class="xp__specs">
               <div class="xp__spec">
-                <dt class="tag tag--muted">PERÍODO</dt>
-                <dd>Atualmente</dd>
+                <dt class="tag tag--muted">ESTÁGIO</dt>
+                <dd>Jun/2026 – Nov/2026</dd>
+              </div>
+              <div class="xp__spec">
+                <dt class="tag tag--muted">FREELANCE</dt>
+                <dd>Jun/2026 – Jul/2026</dd>
               </div>
               <div class="xp__spec">
                 <dt class="tag tag--muted">ESCOPO</dt>
-                <dd>Software · Automações · Web Scraping</dd>
+                <dd>IA · Automações</dd>
               </div>
               <div class="xp__spec">
                 <dt class="tag tag--muted">LOCAL</dt>
@@ -349,85 +354,48 @@
             </dl>
           </div>
 
-          <div class="xp__grid">
-            <article class="xp-card" data-reveal style="--i:0">
-              <header class="xp-card__head">
-                <span class="xp-card__num">01</span>
-                <span class="tag tag--muted">FRONTEND &amp; MOBILE</span>
-              </header>
-              <h3>Interfaces reativas e apps offline-first</h3>
-              <p>
-                Interfaces declarativas em React, tipagem estrita com TypeScript e aplicações
-                móveis em Expo que continuam funcionando sem conexão.
-              </p>
-              <ul class="xp-card__stack">
-                <li>React</li>
-                <li>TypeScript</li>
-                <li>Next.js</li>
-                <li>React Native</li>
-                <li>Expo</li>
-                <li>Tailwind CSS</li>
+          <div class="xp__duty">
+            <div class="xp__duty-col">
+              <span class="tag tag--muted">// NO ESTÁGIO — O QUE EU FAZIA</span>
+              <ul class="xp__duty-list">
+                <li>
+                  Desenvolvimento de softwares Full Stack utilizando Node.js, Express e React, desde o
+                  planejamento e construção de interfaces web até a criação de APIs REST e entrega em
+                  produção.
+                </li>
+                <li>
+                  Desenvolvimento de agentes de Inteligência Artificial e automações para otimizar
+                  processos internos, integrar fluxos de trabalho e eliminar tarefas manuais.
+                </li>
+                <li>
+                  Atuação no setor de Inteligência Artificial, Sistemas e Automação sob supervisão
+                  direta, participando da construção, evolução e manutenção de sistemas e soluções
+                  com IA da empresa.
+                </li>
+                <li>
+                  Levantamento de requisitos junto às áreas envolvidas, definição de soluções
+                  técnicas, modelagem de bancos de dados e integração com serviços externos.
+                </li>
+                <li>
+                  Correção de bugs, execução de testes, versionamento em Git/GitHub e acompanhamento
+                  contínuo das demandas junto à equipe.
+                </li>
               </ul>
-            </article>
+            </div>
 
-            <article class="xp-card" data-reveal style="--i:1">
-              <header class="xp-card__head">
-                <span class="xp-card__num">02</span>
-                <span class="tag tag--muted">BACKEND &amp; APIS</span>
-              </header>
-              <h3>APIs seguras e regras de negócio</h3>
-              <p>
-                Serviços REST em Node.js com autenticação JWT, validação de contratos com Zod e
-                separação em camadas Controller → Service → Repository.
-              </p>
-              <ul class="xp-card__stack">
-                <li>Node.js</li>
-                <li>Express</li>
-                <li>Prisma</li>
-                <li>JWT</li>
-                <li>Zod</li>
-                <li>REST</li>
+            <div class="xp__duty-col">
+              <span class="tag tag--muted">// FREELANCE — O QUE EU FAZIA</span>
+              <ul class="xp__duty-list">
+                <li>
+                  Desenvolvimento Full Stack e entrega de projeto web com Node.js, Express e React em
+                  um mês.
+                </li>
+                <li>
+                  Atuação no ciclo completo de implementação, antes da efetivação no programa de
+                  estágio da equipe.
+                </li>
               </ul>
-            </article>
-
-            <article class="xp-card" data-reveal style="--i:2">
-              <header class="xp-card__head">
-                <span class="xp-card__num">03</span>
-                <span class="tag tag--muted">IA &amp; DADOS</span>
-              </header>
-              <h3>Agentes de IA e persistência confiável</h3>
-              <p>
-                Integração de LLMs com tool-calling para operar dados reais do usuário, além de
-                modelagem relacional em PostgreSQL, MySQL e Firebase.
-              </p>
-              <ul class="xp-card__stack">
-                <li>Gemini</li>
-                <li>Tool-calling</li>
-                <li>PostgreSQL</li>
-                <li>MySQL</li>
-                <li>Firebase</li>
-              </ul>
-            </article>
-
-            <article class="xp-card" data-reveal style="--i:3">
-              <header class="xp-card__head">
-                <span class="xp-card__num">04</span>
-                <span class="tag tag--muted">INFRA &amp; AUTOMAÇÃO</span>
-              </header>
-              <h3>Entrega contínua e processos automatizados</h3>
-              <p>
-                Containers Docker, deploy em Vercel e Render, versionamento com Git/GitHub e
-                automações que eliminam trabalho manual em produção.
-              </p>
-              <ul class="xp-card__stack">
-                <li>Docker</li>
-                <li>Vercel</li>
-                <li>Render</li>
-                <li>Git</li>
-                <li>GitHub</li>
-                <li>Web Scraping</li>
-              </ul>
-            </article>
+            </div>
           </div>
         </div>
       </section>
@@ -442,6 +410,11 @@
         <div class="art" aria-hidden="true">
           <span class="art__glow"></span>
           <span class="art__grid"></span>
+        </div>
+
+        <div class="section-word" aria-hidden="true">
+          <span class="section-word__solid">PROJETOS</span>
+          <span class="section-word__stroke">PROJETOS</span>
         </div>
 
         <div class="pj__intro" aria-hidden="true">
@@ -523,34 +496,6 @@
                 </dl>
               </div>
 
-              <div class="case__frame-wrap">
-                <div class="case__frame" data-wipe>
-                  <div class="case__chrome" aria-hidden="true">
-                    <span class="case__dots"><i></i><i></i><i></i></span>
-                    <span class="case__url">ia-study-wheat.vercel.app</span>
-                    <span class="case__dots case__dots--ghost"><i></i><i></i><i></i></span>
-                  </div>
-                  <a
-                    class="case__screen"
-                    href="https://ia-study-wheat.vercel.app/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Abrir Gnosis IA em nova aba"
-                  >
-                    <img
-                      src="./assets/gnosis.jpg"
-                      alt="Captura de tela da plataforma Gnosis IA, com painel de estudos e assistente de IA"
-                      width="900"
-                      height="506"
-                      loading="lazy"
-                      decoding="async"
-                    />
-                  </a>
-                </div>
-                <p class="case__frame-note tag tag--muted">
-                  <span aria-hidden="true">●</span> LIVE · ia-study-wheat.vercel.app
-                </p>
-              </div>
             </div>
 
             <div class="case__tags" aria-label="Tecnologias do projeto">
@@ -570,204 +515,420 @@
           </div>
         </article>
 
-        <div class="wrap projects">
-          <header class="projects__head">
-            <div>
-              <span class="tag tag--muted">// 03 — 02 A 06</span>
-              <h2>Outros projetos em produção</h2>
+        <article class="case" data-project aria-labelledby="case-connect">
+          <div class="wrap case__inner">
+            <header class="case__top">
+              <span class="tag">// 03 — 02</span>
+              <span class="tag tag--muted">FULL STACK · MVC</span>
+              <span class="tag tag--muted">EM PRODUÇÃO</span>
+            </header>
+
+            <h2 class="case__name" id="case-connect">Connect Dev</h2>
+
+            <div class="case__body">
+              <div class="case__text">
+                <h3 class="case__headline">Rede social para quem escreve e compartilha código</h3>
+                <p class="case__desc">
+                  Comunidade de desenvolvedores com publicação de artigos, blocos de código,
+                  comentários e sistema de seguidores. Interface em React sobre uma API em Node.js
+                  separada em camadas.
+                </p>
+
+                <ul class="case__points">
+                  <li>API em Node.js/TypeScript com arquitetura Controller → Service → Repository</li>
+                  <li>Persistência em MySQL com recursos do Supabase e segurança com Helmet</li>
+                  <li>Artigos, comentários, curtidas e sistema de seguidores</li>
+                </ul>
+
+                <div class="case__actions">
+                  <a
+                    class="btn btn--solid"
+                    href="https://connectdev.network/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Acessar projeto <span aria-hidden="true">↗</span>
+                  </a>
+                  <a
+                    class="btn"
+                    href="https://lnkd.in/dzTNA2_x"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Post <span aria-hidden="true">↗</span>
+                  </a>
+                </div>
+
+                <dl class="case__specs">
+                  <div class="case__spec">
+                    <dt class="tag tag--muted">ARQUITETURA</dt>
+                    <dd>API + Web · MVC</dd>
+                  </div>
+                  <div class="case__spec">
+                    <dt class="tag tag--muted">FRONTEND</dt>
+                    <dd>React · TypeScript</dd>
+                  </div>
+                  <div class="case__spec">
+                    <dt class="tag tag--muted">BACKEND &amp; DB</dt>
+                    <dd>Node.js · Express · MySQL · Supabase</dd>
+                  </div>
+                  <div class="case__spec">
+                    <dt class="tag tag--muted">SEGURANÇA</dt>
+                    <dd>Helmet · Camadas isoladas</dd>
+                  </div>
+                </dl>
+              </div>
+
             </div>
-            <p>
-              Cinco aplicações publicadas, com código no GitHub e deploy ativo — cada uma resolvendo
-              um problema diferente.
-            </p>
-          </header>
 
+            <div class="case__tags" aria-label="Tecnologias do projeto">
+              <div class="marquee" data-marquee>
+                <div class="marquee__track">
+                  <span>
+                    React <b>✦</b> TypeScript <b>✦</b> Node.js <b>✦</b> Express <b>✦</b>
+                    MySQL <b>✦</b> Supabase <b>✦</b> Helmet <b>✦</b> MVC <b>✦</b>
+                  </span>
+                  <span aria-hidden="true">
+                    React <b>✦</b> TypeScript <b>✦</b> Node.js <b>✦</b> Express <b>✦</b>
+                    MySQL <b>✦</b> Supabase <b>✦</b> Helmet <b>✦</b> MVC <b>✦</b>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="case" data-project aria-labelledby="case-quiz">
+          <div class="wrap case__inner">
+            <header class="case__top">
+              <span class="tag">// 03 — 03</span>
+              <span class="tag tag--muted">NEXT.JS · IA</span>
+              <span class="tag tag--muted">EM PRODUÇÃO</span>
+            </header>
+
+            <h2 class="case__name" id="case-quiz">Pergunta da Igreja SUD</h2>
+
+            <div class="case__body">
+              <div class="case__text">
+                <h3 class="case__headline">Quiz de escrituras com perguntas geradas por IA</h3>
+                <p class="case__desc">
+                  Aplicação de perguntas sobre as escrituras em que o conteúdo é gerado pelo Gemini,
+                  com histórico de respostas em tempo real e rankings gamificados por desempenho.
+                </p>
+
+                <ul class="case__points">
+                  <li>Next.js 14 com React 18 e interface em Tailwind CSS</li>
+                  <li>Gemini API para gerar as perguntas do quiz</li>
+                  <li>Firestore para histórico em tempo real e rankings</li>
+                </ul>
+
+                <div class="case__actions">
+                  <a
+                    class="btn btn--solid"
+                    href="https://projeto-quiz-sud.vercel.app/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Acessar projeto <span aria-hidden="true">↗</span>
+                  </a>
+                  <a
+                    class="btn"
+                    href="https://github.com/Tyago-santos/projeto-quiz-sud"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    GitHub <span aria-hidden="true">↗</span>
+                  </a>
+                </div>
+
+                <dl class="case__specs">
+                  <div class="case__spec">
+                    <dt class="tag tag--muted">ARQUITETURA</dt>
+                    <dd>SPA + API de IA</dd>
+                  </div>
+                  <div class="case__spec">
+                    <dt class="tag tag--muted">FRONTEND</dt>
+                    <dd>Next.js 14 · React 18 · Tailwind</dd>
+                  </div>
+                  <div class="case__spec">
+                    <dt class="tag tag--muted">IA</dt>
+                    <dd>Gemini API</dd>
+                  </div>
+                  <div class="case__spec">
+                    <dt class="tag tag--muted">DADOS</dt>
+                    <dd>Firebase · Firestore</dd>
+                  </div>
+                </dl>
+              </div>
+
+            </div>
+
+            <div class="case__tags" aria-label="Tecnologias do projeto">
+              <div class="marquee" data-marquee>
+                <div class="marquee__track">
+                  <span>
+                    Next.js 14 <b>✦</b> React 18 <b>✦</b> Gemini API <b>✦</b> Firestore
+                    <b>✦</b> Tailwind CSS <b>✦</b> TypeScript <b>✦</b>
+                  </span>
+                  <span aria-hidden="true">
+                    Next.js 14 <b>✦</b> React 18 <b>✦</b> Gemini API <b>✦</b> Firestore
+                    <b>✦</b> Tailwind CSS <b>✦</b> TypeScript <b>✦</b>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="case" data-project aria-labelledby="case-promise">
+          <div class="wrap case__inner">
+            <header class="case__top">
+              <span class="tag">// 03 — 04</span>
+              <span class="tag tag--muted">REACT · NODE.JS</span>
+              <span class="tag tag--muted">EM PRODUÇÃO</span>
+            </header>
+
+            <h2 class="case__name" id="case-promise">Promise</h2>
+
+            <div class="case__body">
+              <div class="case__text">
+                <h3 class="case__headline">Rede social para conectar pessoas da comunidade cristã</h3>
+                <p class="case__desc">
+                  Plataforma social para fazer novas amizades dentro da comunidade cristã, com perfis,
+                  conexões e compressão de imagem feita no próprio navegador antes do envio.
+                </p>
+
+                <ul class="case__points">
+                  <li>API em Node.js/TypeScript com PostgreSQL e Supabase</li>
+                  <li>Estado em Zustand e dados em TanStack Query</li>
+                  <li>Compressão de imagem no browser antes do upload</li>
+                </ul>
+
+                <div class="case__actions">
+                  <a
+                    class="btn btn--solid"
+                    href="https://promise-8s8f.onrender.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Acessar projeto <span aria-hidden="true">↗</span>
+                  </a>
+                  <a
+                    class="btn"
+                    href="https://github.com/tiagomendesdev/promise"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    GitHub <span aria-hidden="true">↗</span>
+                  </a>
+                </div>
+
+                <dl class="case__specs">
+                  <div class="case__spec">
+                    <dt class="tag tag--muted">ARQUITETURA</dt>
+                    <dd>API + Web</dd>
+                  </div>
+                  <div class="case__spec">
+                    <dt class="tag tag--muted">FRONTEND</dt>
+                    <dd>React · TypeScript · Zustand</dd>
+                  </div>
+                  <div class="case__spec">
+                    <dt class="tag tag--muted">BACKEND &amp; DB</dt>
+                    <dd>Node.js · PostgreSQL · Supabase</dd>
+                  </div>
+                  <div class="case__spec">
+                    <dt class="tag tag--muted">ENTREGA</dt>
+                    <dd>TanStack · Deploy no Render</dd>
+                  </div>
+                </dl>
+              </div>
+
+            </div>
+
+            <div class="case__tags" aria-label="Tecnologias do projeto">
+              <div class="marquee" data-marquee>
+                <div class="marquee__track">
+                  <span>
+                    React <b>✦</b> TypeScript <b>✦</b> Node.js <b>✦</b> PostgreSQL <b>✦</b>
+                    Supabase <b>✦</b> Zustand <b>✦</b> TanStack <b>✦</b>
+                  </span>
+                  <span aria-hidden="true">
+                    React <b>✦</b> TypeScript <b>✦</b> Node.js <b>✦</b> PostgreSQL <b>✦</b>
+                    Supabase <b>✦</b> Zustand <b>✦</b> TanStack <b>✦</b>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="case" data-project aria-labelledby="case-polearn">
+          <div class="wrap case__inner">
+            <header class="case__top">
+              <span class="tag">// 03 — 05</span>
+              <span class="tag tag--muted">REACT · IA</span>
+              <span class="tag tag--muted">EM PRODUÇÃO</span>
+            </header>
+
+            <h2 class="case__name" id="case-polearn">Polearn</h2>
+
+            <div class="case__body">
+              <div class="case__text">
+                <h3 class="case__headline">Aprender idiomas com exercícios gerados por IA</h3>
+                <p class="case__desc">
+                  Aplicação interativa para prática de idiomas em que as questões são geradas por
+                  Inteligência Artificial, com interface em Shadcn UI e estado gerenciado no cliente.
+                </p>
+
+                <ul class="case__points">
+                  <li>Geração de questões com Google Studio AI</li>
+                  <li>Interface em React e TypeScript com Shadcn UI</li>
+                  <li>Estado local com Zustand e navegação por painéis</li>
+                </ul>
+
+                <div class="case__actions">
+                  <a
+                    class="btn btn--solid"
+                    href="https://polearn.onrender.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Acessar projeto <span aria-hidden="true">↗</span>
+                  </a>
+                  <a
+                    class="btn"
+                    href="https://github.com/Tyago-santos/polearn"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    GitHub <span aria-hidden="true">↗</span>
+                  </a>
+                </div>
+
+                <dl class="case__specs">
+                  <div class="case__spec">
+                    <dt class="tag tag--muted">ARQUITETURA</dt>
+                    <dd>SPA</dd>
+                  </div>
+                  <div class="case__spec">
+                    <dt class="tag tag--muted">FRONTEND</dt>
+                    <dd>React · TypeScript · Shadcn UI</dd>
+                  </div>
+                  <div class="case__spec">
+                    <dt class="tag tag--muted">IA</dt>
+                    <dd>Google Studio AI</dd>
+                  </div>
+                  <div class="case__spec">
+                    <dt class="tag tag--muted">ESTADO</dt>
+                    <dd>Zustand</dd>
+                  </div>
+                </dl>
+              </div>
+
+            </div>
+
+            <div class="case__tags" aria-label="Tecnologias do projeto">
+              <div class="marquee" data-marquee>
+                <div class="marquee__track">
+                  <span>
+                    React <b>✦</b> TypeScript <b>✦</b> Google Studio AI <b>✦</b>
+                    Shadcn UI <b>✦</b> Zustand <b>✦</b> Tailwind CSS <b>✦</b>
+                  </span>
+                  <span aria-hidden="true">
+                    React <b>✦</b> TypeScript <b>✦</b> Google Studio AI <b>✦</b>
+                    Shadcn UI <b>✦</b> Zustand <b>✦</b> Tailwind CSS <b>✦</b>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="case" data-project aria-labelledby="case-lma">
+          <div class="wrap case__inner">
+            <header class="case__top">
+              <span class="tag">// 03 — 06</span>
+              <span class="tag tag--muted">REACT · FIREBASE</span>
+              <span class="tag tag--muted">EM PRODUÇÃO</span>
+            </header>
+
+            <h2 class="case__name" id="case-lma">Acompanhamento de Pessoas</h2>
+
+            <div class="case__body">
+              <div class="case__text">
+                <h3 class="case__headline">Painel de acompanhamento para missões da Igreja</h3>
+                <p class="case__desc">
+                  Painel usado por missionários de A Igreja de Jesus Cristo dos Santos dos Últimos
+                  Dias para registrar contatos, acompanhar metas semanais e ver a evolução de cada
+                  unidade.
+                </p>
+
+                <ul class="case__points">
+                  <li>Painel em React e TypeScript com Styled Components</li>
+                  <li>Firebase para dados, autenticação e tempo real</li>
+                  <li>Metas semanais e evolução por unidade com Swiper</li>
+                </ul>
+
+                <div class="case__actions">
+                  <a
+                    class="btn btn--solid"
+                    href="https://project-lma-99.onrender.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Acessar projeto <span aria-hidden="true">↗</span>
+                  </a>
+                  <a
+                    class="btn"
+                    href="https://github.com/Tyago-santos/project_lma"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    GitHub <span aria-hidden="true">↗</span>
+                  </a>
+                </div>
+
+                <dl class="case__specs">
+                  <div class="case__spec">
+                    <dt class="tag tag--muted">ARQUITETURA</dt>
+                    <dd>SPA + BaaS</dd>
+                  </div>
+                  <div class="case__spec">
+                    <dt class="tag tag--muted">FRONTEND</dt>
+                    <dd>React · TypeScript · Styled Components</dd>
+                  </div>
+                  <div class="case__spec">
+                    <dt class="tag tag--muted">DADOS</dt>
+                    <dd>Firebase</dd>
+                  </div>
+                  <div class="case__spec">
+                    <dt class="tag tag--muted">RECURSOS</dt>
+                    <dd>Metas semanais · Swiper</dd>
+                  </div>
+                </dl>
+              </div>
+
+            </div>
+
+            <div class="case__tags" aria-label="Tecnologias do projeto">
+              <div class="marquee" data-marquee>
+                <div class="marquee__track">
+                  <span>
+                    React <b>✦</b> TypeScript <b>✦</b> Firebase <b>✦</b> Styled Components
+                    <b>✦</b> Swiper <b>✦</b>
+                  </span>
+                  <span aria-hidden="true">
+                    React <b>✦</b> TypeScript <b>✦</b> Firebase <b>✦</b> Styled Components
+                    <b>✦</b> Swiper <b>✦</b>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <div class="wrap projects">
           <div class="projects__grid">
-            <article class="project" data-project data-reveal style="--i:0" aria-labelledby="project-connect">
-              <a
-                class="project__cover"
-                href="https://connectdev.network/"
-                target="_blank"
-                rel="noopener noreferrer"
-                tabindex="-1"
-                aria-hidden="true"
-              >
-                <img
-                  src="./assets/print_connect-dev.jpg"
-                  alt=""
-                  width="1364"
-                  height="709"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <span class="project__open">Abrir <span aria-hidden="true">↗</span></span>
-              </a>
-              <header class="project__head">
-                <span class="project__num">02</span>
-                <span class="tag tag--muted">FULL STACK · MVC</span>
-              </header>
-              <h3 id="project-connect"><a href="https://connectdev.network/" target="_blank" rel="noopener noreferrer">Connect Dev</a></h3>
-              <p>Rede social para desenvolvedores com artigos, códigos e conexões.</p>
-              <ul class="project__stack">
-                <li>Node.js</li>
-                <li>TypeScript</li>
-                <li>MySQL</li>
-                <li>Supabase</li>
-              </ul>
-              <footer class="project__foot">
-                <a href="https://connectdev.network/" target="_blank" rel="noopener noreferrer">Site <span aria-hidden="true">↗</span></a>
-                <a href="https://lnkd.in/dzTNA2_x" target="_blank" rel="noopener noreferrer">Post <span aria-hidden="true">↗</span></a>
-              </footer>
-            </article>
-
-            <article class="project" data-project data-reveal style="--i:1" aria-labelledby="project-quiz">
-              <a
-                class="project__cover"
-                href="https://projeto-quiz-sud.vercel.app/"
-                target="_blank"
-                rel="noopener noreferrer"
-                tabindex="-1"
-                aria-hidden="true"
-              >
-                <img
-                  src="./assets/quiz.jpg"
-                  alt=""
-                  width="1279"
-                  height="847"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <span class="project__open">Abrir <span aria-hidden="true">↗</span></span>
-              </a>
-              <header class="project__head">
-                <span class="project__num">03</span>
-                <span class="tag tag--muted">NEXT.JS · FIREBASE</span>
-              </header>
-              <h3 id="project-quiz"><a href="https://projeto-quiz-sud.vercel.app/" target="_blank" rel="noopener noreferrer">Pergunta da Igreja SUD</a></h3>
-              <p>Quiz de escrituras com IA, histórico em tempo real e rankings.</p>
-              <ul class="project__stack">
-                <li>Next.js 14</li>
-                <li>React 18</li>
-                <li>Gemini API</li>
-                <li>Firestore</li>
-              </ul>
-              <footer class="project__foot">
-                <a href="https://projeto-quiz-sud.vercel.app/" target="_blank" rel="noopener noreferrer">Site <span aria-hidden="true">↗</span></a>
-                <a href="https://github.com/Tyago-santos/projeto-quiz-sud" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
-              </footer>
-            </article>
-
-            <article class="project" data-project data-reveal style="--i:2" aria-labelledby="project-promise">
-              <a
-                class="project__cover"
-                href="https://promise-8s8f.onrender.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                tabindex="-1"
-                aria-hidden="true"
-              >
-                <img
-                  src="./assets/promis.jpg"
-                  alt=""
-                  width="1280"
-                  height="997"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <span class="project__open">Abrir <span aria-hidden="true">↗</span></span>
-              </a>
-              <header class="project__head">
-                <span class="project__num">04</span>
-                <span class="tag tag--muted">REACT · ZUSTAND</span>
-              </header>
-              <h3 id="project-promise"><a href="https://promise-8s8f.onrender.com/" target="_blank" rel="noopener noreferrer">Promise</a></h3>
-              <p>Rede social comunitária full stack com compressão de imagem no browser.</p>
-              <ul class="project__stack">
-                <li>Node.js</li>
-                <li>React</li>
-                <li>TypeScript</li>
-                <li>TanStack</li>
-              </ul>
-              <footer class="project__foot">
-                <a href="https://promise-8s8f.onrender.com/" target="_blank" rel="noopener noreferrer">Site <span aria-hidden="true">↗</span></a>
-                <a href="https://github.com/tiagomendesdev/promise" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
-              </footer>
-            </article>
-
-            <article class="project" data-project data-reveal style="--i:3" aria-labelledby="project-polearn">
-              <a
-                class="project__cover"
-                href="https://polearn.onrender.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                tabindex="-1"
-                aria-hidden="true"
-              >
-                <img
-                  src="./assets/polearn.jpg"
-                  alt=""
-                  width="1280"
-                  height="997"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <span class="project__open">Abrir <span aria-hidden="true">↗</span></span>
-              </a>
-              <header class="project__head">
-                <span class="project__num">05</span>
-                <span class="tag tag--muted">REACT · IA</span>
-              </header>
-              <h3 id="project-polearn"><a href="https://polearn.onrender.com/" target="_blank" rel="noopener noreferrer">Polearn</a></h3>
-              <p>Aprendizado de idiomas com exercícios gerados por IA.</p>
-              <ul class="project__stack">
-                <li>React</li>
-                <li>TypeScript</li>
-                <li>Google Studio IA</li>
-                <li>Shadcn UI</li>
-              </ul>
-              <footer class="project__foot">
-                <a href="https://polearn.onrender.com/" target="_blank" rel="noopener noreferrer">Site <span aria-hidden="true">↗</span></a>
-                <a href="https://github.com/Tyago-santos/polearn" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
-              </footer>
-            </article>
-
-            <article class="project" data-project data-reveal style="--i:4" aria-labelledby="project-lma">
-              <a
-                class="project__cover"
-                href="https://project-lma-99.onrender.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                tabindex="-1"
-                aria-hidden="true"
-              >
-                <img
-                  src="./assets/lma.jpg"
-                  alt=""
-                  width="1280"
-                  height="997"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <span class="project__open">Abrir <span aria-hidden="true">↗</span></span>
-              </a>
-              <header class="project__head">
-                <span class="project__num">06</span>
-                <span class="tag tag--muted">REACT · FIREBASE</span>
-              </header>
-              <h3 id="project-lma"><a href="https://project-lma-99.onrender.com/" target="_blank" rel="noopener noreferrer">Acompanhamento de Pessoas</a></h3>
-              <p>Gestão missionária com metas semanais e evolução por unidade.</p>
-              <ul class="project__stack">
-                <li>React</li>
-                <li>TypeScript</li>
-                <li>Firebase</li>
-                <li>Swiper</li>
-              </ul>
-              <footer class="project__foot">
-                <a href="https://project-lma-99.onrender.com/" target="_blank" rel="noopener noreferrer">Site <span aria-hidden="true">↗</span></a>
-                <a href="https://github.com/Tyago-santos/project_lma" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
-              </footer>
-            </article>
-
             <a
               class="project--cta"
               data-reveal
@@ -811,6 +972,11 @@
           <span class="art__grid"></span>
         </div>
 
+        <div class="section-word" aria-hidden="true">
+          <span class="section-word__solid">STACK</span>
+          <span class="section-word__stroke">STACK</span>
+        </div>
+
         <div class="st__viewport">
           <div class="st__track" data-stack-track>
             <div class="st-panel st-panel--intro">
@@ -820,7 +986,7 @@
                 Ferramentas escolhidas por confiabilidade, tipagem de ponta a ponta e desempenho em
                 produção. Role para atravessar <span aria-hidden="true">→</span>
               </p>
-              <span class="tag tag--muted st__count">01 — 04</span>
+              <span class="tag tag--muted st__count">01 — 05</span>
             </div>
 
             <article class="st-panel">
@@ -873,6 +1039,9 @@
                   <li class="st-chip">Expo</li>
                   <li class="st-chip">Gemini</li>
                   <li class="st-chip">Tool-calling</li>
+                  <li class="st-chip">LangChain</li>
+                  <li class="st-chip">RAG</li>
+                  <li class="st-chip">Prompt Engineering</li>
                   <li class="st-chip">Offline-First</li>
                   <li class="st-chip">OCR</li>
                 </ul>
@@ -890,12 +1059,37 @@
                 <ul class="st-panel__techs">
                   <li class="st-chip">PostgreSQL</li>
                   <li class="st-chip">MySQL</li>
+                  <li class="st-chip">Redis</li>
+                  <li class="st-chip">Supabase</li>
                   <li class="st-chip">Firebase</li>
                   <li class="st-chip">Docker</li>
+                  <li class="st-chip">Dokploy</li>
+                  <li class="st-chip">Cloudflare</li>
                   <li class="st-chip">Git</li>
                   <li class="st-chip">GitHub</li>
                   <li class="st-chip">Vercel</li>
                   <li class="st-chip">Render</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="st-panel">
+              <span class="st-panel__num" aria-hidden="true">05</span>
+              <div class="st-panel__body">
+                <span class="tag tag--muted">AGENTES DE IA</span>
+                <h3 class="st-panel__title">Agentes &amp; Automação</h3>
+                <p class="st-panel__desc">
+                  Agentes de código e protocolos de contexto para construir, revisar e automatizar
+                  com IA dentro do fluxo real de trabalho.
+                </p>
+                <ul class="st-panel__techs">
+                  <li class="st-chip">OpenCode</li>
+                  <li class="st-chip">Claude Code</li>
+                  <li class="st-chip">Codex</li>
+                  <li class="st-chip">MCP</li>
+                  <li class="st-chip">Skills</li>
+                  <li class="st-chip">Hooks</li>
+                  <li class="st-chip">Plugins</li>
                 </ul>
               </div>
             </article>
@@ -922,6 +1116,11 @@
         data-section="formacao"
         aria-label="Formação acadêmica e foco atual"
       >
+        <div class="section-word section-word--light" aria-hidden="true">
+          <span class="section-word__solid">FORMAÇÃO</span>
+          <span class="section-word__stroke">FORMAÇÃO</span>
+        </div>
+
         <div class="wrap cr__sheet">
           <header class="sec-head sec-head--light">
             <span class="tag">// 05</span>
@@ -1008,6 +1207,11 @@
           <span class="art__reticle art__reticle--br"></span>
         </div>
 
+        <div class="section-word" aria-hidden="true">
+          <span class="section-word__solid">CONTATO</span>
+          <span class="section-word__stroke">CONTATO</span>
+        </div>
+
         <div class="wrap ct__inner">
           <header class="sec-head">
             <span class="tag">// 06</span>
@@ -1064,6 +1268,13 @@
               <span class="ct-link__fill" aria-hidden="true"></span>
               <span class="tag tag--muted ct-link__meta">04 // MENSAGEM DIRETA</span>
               <span class="ct-link__name">E-mail</span>
+              <span class="ct-link__arrow" aria-hidden="true">↗</span>
+            </a>
+
+            <a class="ct-link" href="tel:+5577981583269" data-reveal style="--i:4">
+              <span class="ct-link__fill" aria-hidden="true"></span>
+              <span class="tag tag--muted ct-link__meta">05 // TELEFONE DIRETO</span>
+              <span class="ct-link__name">(77) 98158-3269</span>
               <span class="ct-link__arrow" aria-hidden="true">↗</span>
             </a>
           </nav>
