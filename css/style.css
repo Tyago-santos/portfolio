@@ -822,7 +822,7 @@ ol {
 
 .section-word {
   position: absolute;
-  top: clamp(4rem, 9vw, 8rem);
+  top: 50%;
   left: 0;
   z-index: 0;
   width: 100%;
@@ -835,7 +835,8 @@ ol {
   text-transform: uppercase;
   pointer-events: none;
   user-select: none;
-  transform: translate3d(var(--gx, 0px), 0, 0);
+  /* Centralizado na seção; o JS move o título em relação ao viewport. */
+  transform: translate3d(var(--gx, 0px), calc(-50% + var(--gy, 0px)), 0);
 }
 
 .section-word__solid {
@@ -858,10 +859,6 @@ ol {
 
 .section-word--light .section-word__stroke {
   -webkit-text-stroke-color: rgba(19, 19, 24, 0.16);
-}
-
-.pj > .section-word {
-  top: clamp(14rem, 18vw, 17rem);
 }
 
 .cr__sheet {
@@ -1578,6 +1575,7 @@ ol {
 .cr__grid {
   display: grid;
   grid-template-columns: 1.05fr 0.95fr;
+  align-items: center;
   gap: clamp(2.5rem, 6vw, 6rem);
   margin-top: clamp(2rem, 4vw, 3.25rem);
 }
@@ -1654,37 +1652,18 @@ ol {
   color: var(--ink-500);
 }
 
-.focus {
-  border-top: 1px solid var(--edge);
+.cr__summary {
+  max-width: 38rem;
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+  border-left: 1px solid var(--edge);
 }
 
-.focus li {
-  display: grid;
-  grid-template-columns: 2.5rem 1fr;
-  gap: 1rem;
-  padding: 1.1rem 0;
-  border-bottom: 1px solid var(--edge);
-}
-
-.focus__num {
-  font-family: var(--font-mono);
-  font-size: 0.6rem;
-  letter-spacing: 0.1em;
-  color: var(--ink-500);
-}
-
-.focus h3 {
+.cr__summary p {
+  margin-top: 1.25rem;
   font-family: var(--font-display);
-  font-size: 1.05rem;
-  font-weight: 600;
-  letter-spacing: -0.02em;
-}
-
-.focus p {
-  margin-top: 0.2rem;
-  font-size: 0.8rem;
-  line-height: 1.55;
-  color: var(--ink-500);
+  font-size: clamp(1.15rem, 2vw, 1.65rem);
+  line-height: 1.45;
+  letter-spacing: -0.025em;
 }
 
 /* ─────────────────────────────  14. CONTATO  ───────────────────────────── */
@@ -2138,6 +2117,7 @@ ol {
   }
 
   .section-word {
+    top: clamp(4rem, 9vw, 8rem);
     transform: none;
   }
 

@@ -2,8 +2,8 @@
 
 ![Retrato de Tiago Santos](assets/perfil.webp)
 
-Site pessoal de **Tiago Santos** — desenvolvedor Full Stack na Vittal Web e estudante de
-Sistemas de Informação (Unex, 1º semestre), em Vitória da Conquista/BA.
+Site pessoal de **Tiago Santos** — desenvolvedor Full Stack com experiência na Vittal Web e
+estudante de Sistemas de Informação (Unex, 1º semestre), em Vitória da Conquista/BA.
 
 Uma página única que apresenta quem ele é, o que constrói e os seis projetos publicados
 com link ao vivo e repositório.
@@ -33,7 +33,7 @@ Todo o efeito é progressivo: o conteúdo aparece sem JavaScript e toda animaç�
 desligada em `prefers-reduced-motion: reduce`. Entrada em cascata dos cards, letras do
 título em stagger, barra de progresso da leitura, revelação por recorte das imagens,
 revelação localizada da cor natural das fotos e degradê colorido nos textos sob o ponteiro,
-além da deriva do texto gigante conforme o scroll — tudo em JS vanilla, com
+além do parallax contínuo dos títulos decorativos das seções — tudo em JS vanilla, com
 `requestAnimationFrame` e listeners `passive`.
 
 ## Rodando localmente

@@ -372,36 +372,59 @@
     });
   }
 
-  /* ── barra de progresso + deriva do texto gigante ──────────────────────── */
+  /* ── barra de progresso + parallax dos títulos por seção ──────────────── */
+  var SECTION_PARALLAX_RANGE = 600;
+
   function initScrollFx() {
     var bar = qs("[data-scroll-progress]");
     var giant = qs(".xp__giant");
     var xp = qs(".xp");
-    if (!bar && !giant) return;
+    var words = qsa(".section-word");
+    if (!bar && !giant && !words.length) return;
 
     var ticking = false;
 
     function paint() {
       ticking = false;
 
+      var view = window.innerHeight;
+      var still = prefersReducedMotion();
+
+      /* leituras agrupadas — nenhuma escrita entre os getBoundingClientRect */
+      var ratio = 0;
       if (bar) {
         var doc = document.documentElement;
-        var max = doc.scrollHeight - window.innerHeight;
-        var ratio = max > 0 ? clamp(window.scrollY / max, 0, 1) : 0;
-        bar.style.transform = "scaleX(" + ratio.toFixed(4) + ")";
+        var max = doc.scrollHeight - view;
+        ratio = max > 0 ? clamp(window.scrollY / max, 0, 1) : 0;
       }
 
-      if (!giant) return;
-
-      if (prefersReducedMotion() || !xp) {
-        giant.style.setProperty("--gx", "0px");
-        return;
+      var gx = "0px";
+      if (giant && xp && !still) {
+        var rect = xp.getBoundingClientRect();
+        var span = view + rect.height;
+        var progress = span > 0 ? clamp((view - rect.top) / span, 0, 1) : 0;
+        gx = ((progress - 0.5) * 110).toFixed(1) + "px";
       }
 
-      var rect = xp.getBoundingClientRect();
-      var span = window.innerHeight + rect.height;
-      var progress = clamp((window.innerHeight - rect.top) / span, 0, 1);
-      giant.style.setProperty("--gx", ((progress - 0.5) * 110).toFixed(1) + "px");
+      var gy = [];
+      for (var i = 0; i < words.length; i++) {
+        gy[i] = "0px";
+        if (still) continue;
+        var host = words[i].parentElement;
+        if (!host) continue;
+        var rect = host.getBoundingClientRect();
+        var sectionProgress = clamp((view - rect.top) / (view + rect.height), 0, 1);
+        var targetCenter = view / 2 + (sectionProgress - 0.5) * SECTION_PARALLAX_RANGE;
+        var offset = targetCenter - (rect.top + rect.height / 2);
+        gy[i] = offset.toFixed(1) + "px";
+      }
+
+      /* escritas */
+      if (bar) bar.style.transform = "scaleX(" + ratio.toFixed(4) + ")";
+      if (giant) giant.style.setProperty("--gx", gx);
+      for (var j = 0; j < words.length; j++) {
+        words[j].style.setProperty("--gy", gy[j]);
+      }
     }
 
     function request() {

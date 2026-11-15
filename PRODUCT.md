@@ -16,7 +16,7 @@ A personal portfolio site for Tiago Santos: a single-page presentation of who he
 
 ## Positioning
 
-Full-stack breadth with an AI-and-mobile edge: proficiency across React, TypeScript, Next.js, React Native, Node.js, Prisma, and MySQL/PostgreSQL/Firebase while still a 1st-semester Information Systems student (Unex), already working professionally as a developer at Vittal Web. The declared differentiators are AI/LLM agents (Gemini tool-calling), offline-first mobile architecture, and secure REST APIs (JWT, Zod, Docker).
+Full-stack breadth with an AI-and-mobile edge: proficiency across React, TypeScript, Next.js, React Native, Node.js, Prisma, and MySQL/PostgreSQL/Firebase while still a 1st-semester Information Systems student (Unex), with completed professional internship experience at Vittal Web. The declared differentiators are AI/LLM agents (Gemini tool-calling), offline-first mobile architecture, and secure REST APIs (JWT, Zod, Docker).
 
 ## Operating Context
 
@@ -25,7 +25,7 @@ Static single-page site (plain HTML/CSS/JS, no framework) with sections in edito
 ## Capabilities and Constraints
 
 - The live site is the repo root: `index.html`, `css/style.css`, `js/script.js`, `assets/`. There is no build tooling; everything is authored directly as static HTML/CSS/JS.
-- Currently works professionally as a developer at Vittal Web, building software, automations, and web scraping in production. Studies Information Systems at Unex (1st semester, confirmed 2026-10-20).
+- Completed an internship at Vittal Web in November 2026, building software, automations, and web scraping solutions. No longer works at the company. Studies Information Systems at Unex (1st semester, confirmed 2026-10-20).
 - Dependencies are local/self-hosted: fonts (Space Grotesk for display, Inter for body, JetBrains Mono for labels) are woff2 files in `assets/fonts/`, declared with `@font-face` and preloaded in `<head>`. There are no icon sprites and no external icon library — the interface uses typographic glyphs. No CDN dependencies.
 - Tests live in `tests/*.test.mjs` and run with the built-in Node runner (`node --test tests/*.test.mjs`, zero dependencies, no `package.json`). They cover integrity, structure, factual content, and motion/accessibility guards.
 - Six shipped projects are featured, each with a live demo link and a GitHub link (Connect Dev links to a LinkedIn post instead of a repo): Gnosis IA / Estudy IA (AI study platform — Node.js/TypeScript API with Prisma/PostgreSQL, React Native/Expo offline-first app, Gemini agent, Docker), Connect Dev (social network — Node.js/TypeScript, MySQL, Supabase, Helmet, Controller→Service→Repository), Pergunta da Igreja SUD (scripture quiz — Next.js 14, React 18, Gemini API, Firestore, Tailwind, gamified rankings), Promise (social/relationship app for a faith-based community — Node.js/React/TypeScript, Zustand, TanStack), Polearn (AI-assisted language learning — React/TypeScript, Google Studio AI, Shadcn UI, Zustand), and Acompanhamento de Pessoas/LMA (people-tracking dashboard for missionaries of The Church of Jesus Christ of Latter-day Saints — React/TypeScript/Firebase, Styled Components, Swiper).

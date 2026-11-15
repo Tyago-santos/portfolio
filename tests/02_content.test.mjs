@@ -15,6 +15,19 @@ test("identidade e formação verdadeiras", () => {
   }
 });
 
+test("estágio na Vittal Web está marcado como concluído", () => {
+  const doc = html();
+  const experienceStart = doc.indexOf('id="experiencia"');
+  const projectsStart = doc.indexOf('id="projetos"', experienceStart);
+  const experience = doc.slice(experienceStart, projectsStart);
+
+  assert.match(experience, /ESTÁGIO CONCLUÍDO/);
+  assert.doesNotMatch(experience, /CARGO ATUAL/);
+  assert.match(experience, /Jun\/2026 – Nov\/2026/);
+  assert.doesNotMatch(doc, /desenvolvedor Full Stack na Vittal Web/i);
+  assert.doesNotMatch(doc, /"affiliation":\s*\{\s*"@type":\s*"Organization",\s*"name":\s*"Vittal Web"/);
+});
+
 test("localização verdadeira: Vitória da Conquista, BA", () => {
   const doc = html().toLowerCase();
   assert.ok(doc.includes("vitória da conquista"), "cidade ausente");

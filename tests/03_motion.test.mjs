@@ -35,7 +35,7 @@ test("barra de progresso do scroll existe e é decorativa", () => {
 test("listas de cards entram em cascata", () => {
   const doc = html();
   const cssSource = css();
-  for (const grid of ["projects__grid", "ct__links", "focus"]) {
+  for (const grid of ["projects__grid", "ct__links"]) {
     assert.ok(
       new RegExp(`class="[^"]*${grid}[^"]*"`).test(doc),
       `container ${grid} ausente`
@@ -45,8 +45,8 @@ test("listas de cards entram em cascata", () => {
   assert.doesNotMatch(doc, /Software, automações e agentes de IA|Do estudo ao deploy em produção/);
   const staggered = [...doc.matchAll(/--i:(\d+)/g)].map((m) => Number(m[1]));
   assert.ok(
-    staggered.length >= 20,
-    `esperava ao menos 20 elementos escalonados, achei ${staggered.length}`
+    staggered.length >= 16,
+    `esperava ao menos 16 elementos escalonados, achei ${staggered.length}`
   );
   assert.match(
     cssSource,
@@ -127,13 +127,24 @@ test("descrição e informações técnicas ficam lado a lado", () => {
   assert.match(cssSource, /@media \(max-width: 900px\)\s*\{[\s\S]*?\.case__body\s*\{[^}]*grid-template-columns:\s*1fr/);
 });
 
-test("todas as seções compartilham o destaque tipográfico", () => {
+test("seções mantêm destaques tipográficos decorativos", () => {
   const doc = html();
   const sectionWords = [...doc.matchAll(/class="[^"]*\bsection-word\b[^"]*"[^>]*>[\s\S]*?<\/div>/g)];
   assert.equal(sectionWords.length, 6);
   for (const word of ["SOBRE", "EXPERIÊNCIA", "PROJETOS", "STACK", "FORMAÇÃO", "CONTATO"]) {
     assert.ok(sectionWords.some(([markup]) => markup.includes(word)), `destaque ausente: ${word}`);
   }
+  const educationStart = doc.indexOf('id="formacao"');
+  const contactStart = doc.indexOf('id="contato"', educationStart);
+  const education = doc.slice(educationStart, contactStart);
+  assert.match(education, /class="section-word section-word--light"/);
+  assert.doesNotMatch(education, /cr__focus|FOCO ATUAL DE ESTUDO|Front-end &amp; Mobile|Back-end &amp; Dados/);
+  assert.match(education, /class="cr__summary"/);
+  assert.match(education, /RESUMO PROFISSIONAL/);
+  assert.match(education, /APIs REST/);
+  assert.match(education, /Inteligência Artificial e automação/);
+  assert.match(css(), /\.cr__grid\s*\{[^}]*grid-template-columns:\s*1\.05fr 0\.95fr/);
+  assert.match(css(), /\.cr__summary\s*\{[^}]*border-left:\s*1px solid var\(--edge\)/);
   assert.match(css(), /\.section-word__solid\s*\{[^}]*color:\s*rgba\(255,\s*255,\s*255,\s*0\.055\)/);
   assert.match(css(), /\.section-word--light \.section-word__solid\s*\{/);
 });
@@ -155,6 +166,21 @@ test("movimento reduzido neutraliza atrasos e animações novas", () => {
   // giant text da seção de atuação deriva com o scroll
   assert.match(cssSource, /\.section-word\s*\{[^}]*var\(--gx/s);
   assert.match(js(), /--gx/);
+});
+
+test("títulos de todas as seções percorrem a seção inteira com parallax", () => {
+  const source = js();
+  const doc = html();
+
+  assert.equal((doc.match(/class="section-word(?:\s[^"]*)?"/g) || []).length, 6);
+  assert.match(source, /SECTION_PARALLAX_RANGE = 600/);
+  assert.match(source, /sectionProgress = clamp\(\(view - rect\.top\) \/ \(view \+ rect\.height\), 0, 1\)/);
+  assert.match(source, /targetCenter = view \/ 2 \+ \(sectionProgress - 0\.5\) \* SECTION_PARALLAX_RANGE/);
+  assert.match(source, /offset = targetCenter - \(rect\.top \+ rect\.height \/ 2\)/);
+  assert.match(source, /words\[j\]\.style\.setProperty\("--gy", gy\[j\]\)/);
+  assert.match(source, /if \(still\) continue/);
+  assert.match(css(), /\.section-word\s*\{[^}]*position:\s*absolute;[^}]*top:\s*50%;[^}]*calc\(-50% \+ var\(--gy/s);
+  assert.match(css(), /prefers-reduced-motion:\s*reduce\)[\s\S]*?\.section-word\s*\{[^}]*top:\s*clamp\(/);
 });
 
 test("mix-blend-mode do título não é isolado por stacking context", () => {
