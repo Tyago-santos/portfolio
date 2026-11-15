@@ -62,8 +62,11 @@ test("projetos: 1 destaque + 5 cards = 6 projetos reais", () => {
 
 test("navegação mobile usa botão com estado acessível", () => {
   const doc = html();
+  const css = stripComments(read("css/style.css"));
   assert.match(doc, /data-menu-toggle[^>]+aria-expanded=["']false["']/i);
   assert.match(doc, /data-menu-toggle[^>]+aria-controls=["'][^"']+["']/i);
+  assert.match(css, /\.hud\s*\{[^}]*z-index:\s*800/);
+  assert.match(css, /\.menu\s*\{[^}]*z-index:\s*700/);
 });
 
 test("conteúdo visível sem JavaScript", () => {
