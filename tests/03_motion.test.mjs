@@ -32,6 +32,47 @@ test("barra de progresso do scroll existe e é decorativa", () => {
   assert.match(js(), /scaleX\(/);
 });
 
+test("preloader é progressivo, acessível e não bloqueia a página", () => {
+  const doc = html();
+  const sheet = css();
+  const source = js();
+  const preloader = /<div class="preloader"[^>]*>[\s\S]*?<\/div>/.exec(doc);
+
+  assert.ok(preloader, "preloader ausente");
+  assert.match(preloader[0], /\bhidden\b/);
+  assert.match(preloader[0], /role=["']status["']/);
+  assert.match(preloader[0], /aria-live=["']polite["']/);
+  assert.match(preloader[0], /class=["']preloader__mark["'][^>]*>TS<\/span>/);
+  assert.match(preloader[0], /class=["']preloader__letter is-anchor["']>T<\/span>/);
+  assert.match(preloader[0], /class=["']preloader__letter is-anchor["']>S<\/span>/);
+  assert.match(preloader[0], /class=["']preloader__letter["'] style=["']--i: 8["']>S<\/span>/);
+  assert.doesNotMatch(preloader[0], /\shidden(?:\s|>|=)/);
+  assert.match(sheet, /\.preloader\s*\{[^}]*position:\s*fixed/);
+  assert.match(sheet, /\.preloader\s*\{[^}]*display:\s*none/);
+  assert.match(sheet, /html\.js \.preloader\s*\{[^}]*display:\s*grid/);
+  assert.match(sheet, /\.preloader\s*\{[^}]*pointer-events:\s*none/);
+  assert.match(sheet, /\.preloader__mark\s*\{[^}]*animation:\s*preloader-mark-in/);
+  assert.match(sheet, /\.preloader__letter\s*\{[^}]*animation:\s*preloader-letter-in/);
+  assert.match(sheet, /preloader-letter-in 520ms/);
+  assert.match(sheet, /calc\(1450ms \+ var\(--i, 0\) \* 180ms\)/);
+  assert.match(sheet, /\.preloader__letter\.is-anchor\s*\{[^}]*animation-delay:\s*900ms/);
+  assert.match(sheet, /@keyframes preloader-mark-in/);
+  assert.match(sheet, /@keyframes preloader-letter-in/);
+  assert.match(sheet, /\.preloader__spinner\s*\{[^}]*animation:\s*preloader-spin/);
+  assert.match(
+    sheet,
+    /@media \(prefers-reduced-motion: reduce\)[\s\S]*?\.preloader__letter,\s*\.preloader__letter\.is-anchor\s*\{[^}]*animation:\s*none/
+  );
+  assert.match(source, /function initPreloader\(\)/);
+  assert.match(source, /preloader\.hidden = false/);
+  assert.match(source, /document\.readyState === "complete"/);
+  assert.match(source, /window\.addEventListener\(\s*"load"/);
+  assert.match(source, /window\.setTimeout\(function \(\) \{\s*minimumElapsed = true;/);
+  assert.match(source, /if \(pageLoaded && minimumElapsed\) dismiss\(\)/);
+  assert.match(source, /window\.setTimeout\(dismiss, 8000\)/);
+  assert.match(source, /initPreloader\(\);/);
+});
+
 test("listas de cards entram em cascata", () => {
   const doc = html();
   const cssSource = css();

@@ -25,6 +25,46 @@
     return reduceQuery.matches;
   }
 
+  /* ── preloader: estado de carregamento inicial ─────────────────────────── */
+  function initPreloader() {
+    var preloader = qs("[data-preloader]");
+    if (!preloader) return;
+
+    var dismissed = false;
+    var pageLoaded = document.readyState === "complete";
+    var minimumElapsed = false;
+    preloader.hidden = false;
+
+    function dismiss() {
+      if (dismissed) return;
+      dismissed = true;
+      preloader.classList.add("is-leaving");
+      window.setTimeout(function () {
+        preloader.hidden = true;
+      }, 400);
+    }
+
+    function dismissWhenReady() {
+      if (pageLoaded && minimumElapsed) dismiss();
+    }
+
+    if (!pageLoaded) {
+      window.addEventListener(
+        "load",
+        function () {
+          pageLoaded = true;
+          dismissWhenReady();
+        },
+        { once: true }
+      );
+    }
+    window.setTimeout(function () {
+      minimumElapsed = true;
+      dismissWhenReady();
+    }, 4000);
+    window.setTimeout(dismiss, 8000);
+  }
+
   /* ── relógio de Vitória da Conquista (UTC-3) ───────────────────────────── */
   function initClock() {
     var targets = qsa("[data-clock]");
@@ -612,6 +652,7 @@
 
   /* ── inicialização ─────────────────────────────────────────────────────── */
   function boot() {
+    initPreloader();
     initClock();
     initMenu();
     initHero();
