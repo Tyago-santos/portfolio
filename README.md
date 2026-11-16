@@ -35,10 +35,11 @@ título em stagger, barra de progresso da leitura, revelação por recorte das i
 revelação localizada da cor natural das fotos e degradê colorido nos textos sob o ponteiro,
 além do parallax contínuo dos títulos decorativos das seções — tudo em JS vanilla, com
 `requestAnimationFrame` e listeners `passive`. A preloader da primeira visita é ativada
-apenas com JavaScript e aparece antes do conteúdo; o TS surge primeiro, se dissolve
-suavemente e dá lugar às demais letras de TIAGO SANTOS em sequência. Permanece por pelo
-menos quatro segundos, desaparece após o carregamento da página e tem um limite de
-segurança de oito segundos; sem JavaScript, o conteúdo continua disponível normalmente.
+apenas com JavaScript e aparece antes do conteúdo; começa mostrando apenas "TS", as duas
+letras se separam suavemente e, em seguida, o nome se completa até "TIAGO SANTOS".
+Permanece por pelo menos quatro segundos, desaparece após o carregamento da página e tem
+um limite de segurança de oito segundos; sem JavaScript, o conteúdo continua disponível
+normalmente.
 
 ## Rodando localmente
 

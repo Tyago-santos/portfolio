@@ -42,29 +42,50 @@ test("preloader é progressivo, acessível e não bloqueia a página", () => {
   assert.match(preloader[0], /\bhidden\b/);
   assert.match(preloader[0], /role=["']status["']/);
   assert.match(preloader[0], /aria-live=["']polite["']/);
-  assert.match(preloader[0], /class=["']preloader__mark["'][^>]*>TS<\/span>/);
-  assert.match(preloader[0], /class=["']preloader__letter is-anchor["']>T<\/span>/);
-  assert.match(preloader[0], /class=["']preloader__letter is-anchor["']>S<\/span>/);
+  // começa com as iniciais TS; a separação abre espaço e o nome se completa
+  assert.match(preloader[0], /class=["']preloader__initial["']>T<\/span>/);
+  assert.match(preloader[0], /class=["']preloader__initial["']>S<\/span>/);
+  assert.match(preloader[0], /class=["']preloader__mid["']/);
+  assert.match(preloader[0], /class=["']preloader__tail["']/);
   assert.match(preloader[0], /class=["']preloader__letter["'] style=["']--i: 8["']>S<\/span>/);
+  assert.doesNotMatch(preloader[0], /\bpreloader__mark\b/);
   assert.doesNotMatch(preloader[0], /\shidden(?:\s|>|=)/);
+
   assert.match(sheet, /\.preloader\s*\{[^}]*position:\s*fixed/);
   assert.match(sheet, /\.preloader\s*\{[^}]*display:\s*none/);
   assert.match(sheet, /html\.js \.preloader\s*\{[^}]*display:\s*grid/);
   assert.match(sheet, /\.preloader\s*\{[^}]*pointer-events:\s*none/);
-  assert.match(sheet, /\.preloader__mark\s*\{[^}]*animation:\s*preloader-mark-in/);
-  assert.match(sheet, /\.preloader__letter\s*\{[^}]*animation:\s*preloader-letter-in/);
-  assert.match(sheet, /preloader-letter-in 520ms/);
-  assert.match(sheet, /calc\(1450ms \+ var\(--i, 0\) \* 180ms\)/);
-  assert.match(sheet, /\.preloader__letter\.is-anchor\s*\{[^}]*animation-delay:\s*900ms/);
-  assert.match(sheet, /@keyframes preloader-mark-in/);
+
+  // suavidade: só transform/opacity, sem animar largura (reflow por frame)
+  assert.doesNotMatch(sheet, /preloader-expand|preloader__expand|preloader-mark-out/);
+  assert.match(sheet, /\.preloader__tail\s*\{[^}]*translate3d\(calc\(var\(--shift/);
+  assert.match(sheet, /\.preloader\.is-animating \.preloader__tail\s*\{[^}]*animation:\s*preloader-split/);
+  assert.match(sheet, /preloader-split 1800ms var\(--ease-in-out\) 1100ms forwards/);
+  // token usado pelo split precisa existir: var indefinida invalida a declaração
+  // inteira e a separação simplesmente nunca roda (bug real vivido)
+  assert.match(sheet, /--ease-in-out:\s*cubic-bezier\(/);
+  assert.match(sheet, /\.preloader\.is-animating \.preloader__initial\s*\{[^}]*animation:\s*preloader-initial-in/);
+  assert.match(sheet, /\.preloader\.is-animating \.preloader__letter\s*\{[^}]*animation:\s*preloader-letter-in/);
+  assert.match(sheet, /calc\(3100ms \+ var\(--i, 0\) \* 180ms\)/);
+  assert.match(sheet, /@keyframes preloader-initial-in/);
+  assert.match(sheet, /@keyframes preloader-split/);
   assert.match(sheet, /@keyframes preloader-letter-in/);
   assert.match(sheet, /\.preloader__spinner\s*\{[^}]*animation:\s*preloader-spin/);
+  // movimento reduzido: nome completo e estático, sem transform residual
   assert.match(
     sheet,
-    /@media \(prefers-reduced-motion: reduce\)[\s\S]*?\.preloader__letter,\s*\.preloader__letter\.is-anchor\s*\{[^}]*animation:\s*none/
+    /@media \(prefers-reduced-motion: reduce\)[\s\S]*?\.preloader__tail\s*\{[^}]*transform:\s*none/
   );
+  assert.match(sheet, /\.preloader__initial,\s*\.preloader__letter\s*\{[^}]*opacity:\s*1/);
+
   assert.match(source, /function initPreloader\(\)/);
   assert.match(source, /preloader\.hidden = false/);
+  // mede o miolo depois das fontes (evita medida com fonte fallback)
+  assert.match(source, /document\.fonts &&\s*document\.fonts\.ready/);
+  assert.match(source, /mid\.getBoundingClientRect\(\)\.width/);
+  assert.match(source, /"--shift"/);
+  assert.match(source, /window\.requestAnimationFrame\(function \(\) \{\s*window\.requestAnimationFrame/);
+  assert.match(source, /preloader\.classList\.add\("is-animating"\)/);
   assert.match(source, /document\.readyState === "complete"/);
   assert.match(source, /window\.addEventListener\(\s*"load"/);
   assert.match(source, /window\.setTimeout\(function \(\) \{\s*minimumElapsed = true;/);
@@ -218,11 +239,13 @@ test("títulos de todas as seções percorrem a seção inteira com parallax", (
   assert.match(source, /sectionProgress = clamp\(\(view - rect\.top\) \/ \(view \+ rect\.height\), 0, 1\)/);
   assert.match(source, /targetCenter = view \/ 2 \+ \(sectionProgress - 0\.5\) \* SECTION_PARALLAX_RANGE/);
   assert.match(source, /offset = targetCenter - \(rect\.top \+ rect\.height \/ 2\)/);
-  assert.match(source, /gx\[i\] = \(\(sectionProgress - 0\.5\) \* 110\)\.toFixed\(1\) \+ "px"/);
+  assert.match(source, /gx\[i\] = \(\(sectionProgress - 0\.5\) \* 120\)\.toFixed\(1\) \+ "px"/);
   assert.match(source, /words\[j\]\.style\.setProperty\("--gx", gx\[j\]\)/);
   assert.match(source, /words\[j\]\.style\.setProperty\("--gy", gy\[j\]\)/);
+  assert.match(source, /words\[j\]\.style\.setProperty\("--tilt", tilt\[j\]\)/);
   assert.match(source, /if \(still\) continue/);
   assert.match(css(), /\.section-word\s*\{[^}]*position:\s*absolute;[^}]*top:\s*50%;[^}]*calc\(-50% \+ var\(--gy/s);
+  assert.match(css(), /\.section-word\s*\{[^}]*rotate\(var\(--tilt, 0deg\)\)/);
   assert.match(css(), /prefers-reduced-motion:\s*reduce\)[\s\S]*?\.section-word\s*\{[^}]*top:\s*clamp\(/);
 });
 

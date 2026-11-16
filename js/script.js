@@ -31,6 +31,7 @@
     if (!preloader) return;
 
     var dismissed = false;
+    var began = false;
     var pageLoaded = document.readyState === "complete";
     var minimumElapsed = false;
     preloader.hidden = false;
@@ -48,6 +49,38 @@
       if (pageLoaded && minimumElapsed) dismiss();
     }
 
+    /* Mede o miolo ("IAGO ") uma única vez e só então inicia a timeline:
+       a cauda (SANTOS) nasce colada no T via --shift e desliza em
+       transform puro até a posição final — nenhum reflow durante a animação. */
+    function begin() {
+      if (began || dismissed) return;
+      began = true;
+      var mid = qs(".preloader__mid", preloader);
+      if (mid) {
+        preloader.style.setProperty("--shift", mid.getBoundingClientRect().width + "px");
+      }
+      window.requestAnimationFrame(function () {
+        window.requestAnimationFrame(function () {
+          if (!dismissed) preloader.classList.add("is-animating");
+        });
+      });
+    }
+
+    if (!prefersReducedMotion()) {
+      if (
+        document.fonts &&
+        document.fonts.ready &&
+        typeof document.fonts.ready.then === "function"
+      ) {
+        document.fonts.ready.then(begin);
+        window.setTimeout(begin, 600);
+      } else {
+        window.requestAnimationFrame(function () {
+          window.requestAnimationFrame(begin);
+        });
+      }
+    }
+
     if (!pageLoaded) {
       window.addEventListener(
         "load",
@@ -61,7 +94,7 @@
     window.setTimeout(function () {
       minimumElapsed = true;
       dismissWhenReady();
-    }, 4000);
+    }, 6000);
     window.setTimeout(dismiss, 8000);
   }
 
@@ -438,18 +471,21 @@
 
       var gx = [];
       var gy = [];
+      var tilt = [];
       for (var i = 0; i < words.length; i++) {
         gx[i] = "0px";
         gy[i] = "0px";
+        tilt[i] = "0deg";
         if (still) continue;
         var host = words[i].parentElement;
         if (!host) continue;
         var rect = host.getBoundingClientRect();
         var sectionProgress = clamp((view - rect.top) / (view + rect.height), 0, 1);
-        gx[i] = ((sectionProgress - 0.5) * 110).toFixed(1) + "px";
+        gx[i] = ((sectionProgress - 0.5) * 120).toFixed(1) + "px";
         var targetCenter = view / 2 + (sectionProgress - 0.5) * SECTION_PARALLAX_RANGE;
         var offset = targetCenter - (rect.top + rect.height / 2);
         gy[i] = offset.toFixed(1) + "px";
+        tilt[i] = ((sectionProgress - 0.5) * 8).toFixed(2) + "deg";
       }
 
       /* escritas */
@@ -457,6 +493,7 @@
       for (var j = 0; j < words.length; j++) {
         words[j].style.setProperty("--gx", gx[j]);
         words[j].style.setProperty("--gy", gy[j]);
+        words[j].style.setProperty("--tilt", tilt[j]);
       }
     }
 
