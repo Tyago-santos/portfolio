@@ -204,7 +204,7 @@ test("movimento reduzido neutraliza atrasos e animações novas", () => {
   assert.match(cssSource, /@keyframes\s+photo-float/);
   assert.match(cssSource, /\.hero__photo img\s*\{[^}]*animation:[^}]*photo-float/s);
 
-  // giant text da seção de atuação deriva com o scroll
+  // os títulos decorativos das seções derivam com o scroll
   assert.match(cssSource, /\.section-word\s*\{[^}]*var\(--gx/s);
   assert.match(js(), /--gx/);
 });
@@ -218,6 +218,8 @@ test("títulos de todas as seções percorrem a seção inteira com parallax", (
   assert.match(source, /sectionProgress = clamp\(\(view - rect\.top\) \/ \(view \+ rect\.height\), 0, 1\)/);
   assert.match(source, /targetCenter = view \/ 2 \+ \(sectionProgress - 0\.5\) \* SECTION_PARALLAX_RANGE/);
   assert.match(source, /offset = targetCenter - \(rect\.top \+ rect\.height \/ 2\)/);
+  assert.match(source, /gx\[i\] = \(\(sectionProgress - 0\.5\) \* 110\)\.toFixed\(1\) \+ "px"/);
+  assert.match(source, /words\[j\]\.style\.setProperty\("--gx", gx\[j\]\)/);
   assert.match(source, /words\[j\]\.style\.setProperty\("--gy", gy\[j\]\)/);
   assert.match(source, /if \(still\) continue/);
   assert.match(css(), /\.section-word\s*\{[^}]*position:\s*absolute;[^}]*top:\s*50%;[^}]*calc\(-50% \+ var\(--gy/s);
