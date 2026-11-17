@@ -1,19 +1,1317 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Portfólio de Tiago Santos, desenvolvedor Full Stack — React, Node.js, TypeScript e inteligência artificial.">
-  <meta name="theme-color" content="#050509">
-  <title>Tiago Santos — Desenvolvedor Full Stack</title>
-  <link rel="icon" type="image/svg+xml" href="/assets/projects/favicon.svg">
-  <link rel="preload" href="/assets/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="/assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="/assets/fonts/jetbrains-mono-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <script type="module" crossorigin src="/assets/index-KzQNqU9z.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/index-Bo0kbSCB.css">
-</head>
-<body>
-  <div id="root"></div>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Tiago Santos — Desenvolvedor Full Stack | React, Node.js &amp; IA</title>
+    <meta
+      name="description"
+      content="Portfólio de Tiago Santos, desenvolvedor Full Stack com experiência na Vittal Web. Seis projetos em produção com React, TypeScript, Node.js, Prisma, Firebase e agentes de IA."
+    />
+    <meta name="author" content="Tiago Santos" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="theme-color" content="#f9f9f7" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <link rel="canonical" href="https://portfolio-tiago-kjf4.onrender.com/" />
+
+    <!-- Open Graph / Social -->
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:type" content="profile" />
+    <meta property="og:site_name" content="Tiago Santos" />
+    <meta property="og:title" content="Tiago Santos — Desenvolvedor Full Stack" />
+    <meta
+      property="og:description"
+      content="Seis projetos em produção com React, TypeScript, Node.js, Prisma, Firebase e agentes de IA."
+    />
+    <meta property="og:url" content="https://portfolio-tiago-kjf4.onrender.com/" />
+    <meta
+      property="og:image"
+      content="https://portfolio-tiago-kjf4.onrender.com/assets/perfil.webp"
+    />
+    <meta property="og:image:width" content="640" />
+    <meta property="og:image:height" content="960" />
+    <meta property="og:image:alt" content="Retrato de Tiago Santos, desenvolvedor Full Stack" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Tiago Santos — Desenvolvedor Full Stack" />
+    <meta
+      name="twitter:description"
+      content="React, TypeScript, Node.js, Prisma e agentes de IA — seis projetos em produção."
+    />
+    <meta
+      name="twitter:image"
+      content="https://portfolio-tiago-kjf4.onrender.com/assets/perfil.webp"
+    />
+
+    <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="./assets/favicon.svg" />
+
+    <link
+      rel="preload"
+      href="./assets/fonts/space-grotesk-latin.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="./assets/fonts/inter-latin.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+
+    <style>
+      @font-face {
+        font-family: "Space Grotesk";
+        font-style: normal;
+        font-weight: 300 700;
+        font-display: swap;
+        src: url("./assets/fonts/space-grotesk-latin.woff2") format("woff2");
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+          U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+          U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+      @font-face {
+        font-family: "Inter";
+        font-style: normal;
+        font-weight: 400 600;
+        font-display: swap;
+        src: url("./assets/fonts/inter-latin.woff2") format("woff2");
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+          U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+          U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+      @font-face {
+        font-family: "JetBrains Mono";
+        font-style: normal;
+        font-weight: 400 600;
+        font-display: swap;
+        src: url("./assets/fonts/jetbrains-mono-latin.woff2") format("woff2");
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+          U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+          U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+    </style>
+
+    <script>
+      document.documentElement.classList.add("js");
+    </script>
+
+    <link rel="stylesheet" href="./css/style.css" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Tiago Santos",
+        "jobTitle": "Desenvolvedor Full Stack",
+        "url": "https://portfolio-tiago-kjf4.onrender.com/",
+        "image": "https://portfolio-tiago-kjf4.onrender.com/assets/perfil.webp",
+        "email": "mailto:xlzthyago@gmail.com",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Vitória da Conquista",
+          "addressRegion": "BA",
+          "addressCountry": "BR"
+        },
+        "alumniOf": {
+          "@type": "CollegeOrUniversity",
+          "name": "Centro Universitário de Excelência (Unex)"
+        },
+        "knowsAbout": [
+          "React",
+          "TypeScript",
+          "Node.js",
+          "Next.js",
+          "React Native",
+          "Prisma",
+          "PostgreSQL",
+          "Inteligência Artificial"
+        ],
+        "sameAs": [
+          "https://www.linkedin.com/in/tiago-santos-b10165376/",
+          "https://github.com/Tyago-santos",
+          "https://www.instagram.com/tiago_skywalker/",
+          "https://www.facebook.com/osmon.santos.9"
+        ]
+      }
+    </script>
+  </head>
+
+  <body>
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+    <div class="preloader" data-preloader role="status" aria-live="polite" aria-atomic="true">
+      <div class="preloader__content">
+        <span class="preloader__identity" aria-hidden="true">
+          <span class="preloader__name">
+            <span class="preloader__initial">T</span>
+            <span class="preloader__mid"><span class="preloader__letter" style="--i: 0">I</span
+              ><span class="preloader__letter" style="--i: 1">A</span
+              ><span class="preloader__letter" style="--i: 2">G</span
+              ><span class="preloader__letter" style="--i: 3">O</span
+              ><span class="preloader__space"> </span></span
+            ><span class="preloader__tail"
+              ><span class="preloader__initial">S</span>
+              <span class="preloader__letter" style="--i: 4">A</span
+              ><span class="preloader__letter" style="--i: 5">N</span
+              ><span class="preloader__letter" style="--i: 6">T</span
+              ><span class="preloader__letter" style="--i: 7">O</span
+              ><span class="preloader__letter" style="--i: 8">S</span></span
+            >
+          </span>
+        </span>
+        <span class="preloader__label">Carregando portfólio</span>
+        <span class="preloader__spinner" aria-hidden="true"></span>
+      </div>
+    </div>
+
+    <div class="grain" aria-hidden="true"></div>
+
+    <header class="hud" data-hud>
+      <div class="hud__progress" aria-hidden="true"><span data-scroll-progress></span></div>
+
+      <a class="hud__brand" href="#top" aria-label="Tiago Santos — voltar ao topo">
+        <span class="hud__mark" aria-hidden="true">TS</span>
+        <span class="hud__tag">// TIAGO SANTOS</span>
+      </a>
+
+      <nav class="hud__nav" aria-label="Navegação principal">
+        <a href="#sobre">Sobre</a>
+        <a href="#experiencia">Atuação</a>
+        <a href="#projetos">Projetos</a>
+        <a href="#stack">Stack</a>
+        <a href="#formacao">Formação</a>
+        <a href="#contato">Contato</a>
+      </nav>
+
+      <div class="hud__right">
+        <span class="hud__clock" aria-label="Horário de Vitória da Conquista, UTC-3">
+          <span class="hud__label">VITÓRIA DA CONQUISTA</span>
+          <time data-clock datetime="">--:--:--</time>
+        </span>
+        <button
+          class="hud__menu"
+          type="button"
+          data-menu-toggle
+          aria-expanded="false"
+          aria-controls="menu"
+        >
+          Menu
+        </button>
+      </div>
+    </header>
+
+    <div class="menu" id="menu" data-menu hidden>
+      <nav class="menu__nav" aria-label="Menu mobile">
+        <a href="#sobre"><span>01</span> Sobre</a>
+        <a href="#experiencia"><span>02</span> Atuação</a>
+        <a href="#projetos"><span>03</span> Projetos</a>
+        <a href="#stack"><span>04</span> Stack</a>
+        <a href="#formacao"><span>05</span> Formação</a>
+        <a href="#contato"><span>06</span> Contato</a>
+      </nav>
+      <p class="menu__foot">Vitória da Conquista, BA · Brasil<br />xlzthyago@gmail.com</p>
+    </div>
+
+    <main id="conteudo">
+      <!-- ══════════════════════════════ 00 · HERO ══════════════════════════════ -->
+      <section class="hero" id="top" aria-label="Apresentação de Tiago Santos">
+        <div class="hero__grid" aria-hidden="true"></div>
+        <div class="hero__glow" aria-hidden="true"></div>
+        <div class="hero__spot" aria-hidden="true"></div>
+
+        <p class="hero__coord hero__coord--tl" aria-hidden="true">[ 14°50'48"S 40°50'28"W ]</p>
+        <p class="hero__coord hero__coord--br" aria-hidden="true">[ LATENCY: LOCAL ]</p>
+
+        <div class="hero__stage">
+          <div class="hero__art" aria-hidden="true">
+            <span class="hero__reticle hero__reticle--tl"></span>
+            <span class="hero__reticle hero__reticle--tr"></span>
+            <span class="hero__reticle hero__reticle--bl"></span>
+            <span class="hero__reticle hero__reticle--br"></span>
+          </div>
+
+          <div class="hero__photo" data-parallax="0.06">
+            <img
+              src="./assets/perfil.webp"
+              alt="Retrato de Tiago Santos, desenvolvedor Full Stack, em preto e branco"
+              width="640"
+              height="960"
+              fetchpriority="high"
+              decoding="async"
+            />
+          </div>
+
+          <p class="hero__eyebrow" data-reveal>
+            <span class="tag">// DESENVOLVEDOR FULL STACK</span>
+            <span class="tag tag--muted">VITÓRIA DA CONQUISTA, BA · BRASIL</span>
+          </p>
+
+          <h1 class="hero__title" aria-label="Tiago Santos">
+            <span aria-hidden="true"><span class="ch" style="--i:0">T</span><span class="ch" style="--i:1">I</span><span class="ch" style="--i:2">A</span><span class="ch" style="--i:3">G</span><span class="ch" style="--i:4">O</span> <span class="ch" style="--i:5">S</span><span class="ch" style="--i:6">A</span><span class="ch" style="--i:7">N</span><span class="ch" style="--i:8">T</span><span class="ch" style="--i:9">O</span><span class="ch" style="--i:10">S</span></span>
+          </h1>
+
+          <div class="hero__bottom">
+            <a class="hero__scroll" href="#sobre" aria-label="Rolar para a seção sobre">
+              <span>Scroll</span>
+              <span class="hero__scroll-line" aria-hidden="true"></span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════ 01 · SOBRE ══════════════════════════════ -->
+      <section class="band about" id="sobre" data-section="sobre" aria-label="Sobre Tiago Santos">
+        <div class="art" aria-hidden="true">
+          <span class="art__glow"></span>
+          <span class="art__grid"></span>
+          <span class="art__reticle art__reticle--tl"></span>
+          <span class="art__reticle art__reticle--tr"></span>
+          <span class="art__reticle art__reticle--bl"></span>
+          <span class="art__reticle art__reticle--br"></span>
+        </div>
+
+        <div class="section-word" aria-hidden="true">
+          <span class="section-word__solid">SOBRE</span>
+          <span class="section-word__stroke">SOBRE</span>
+        </div>
+
+        <div class="wrap about__inner">
+          <header class="sec-head">
+            <span class="tag">// 01</span>
+            <span class="tag tag--muted">SOBRE</span>
+            <span class="sec-head__meta">MANIFESTO</span>
+          </header>
+
+          <p class="manifesto" data-manifesto>
+            <span class="w">Construo</span> <span class="w">software</span> <span class="w">de</span>
+            <span class="w">ponta</span> <span class="w">a</span> <span class="w">ponta:</span>
+            <span class="w">interfaces</span> <span class="w">em</span> <span class="w">React</span>
+            <span class="w">e</span> <span class="w">TypeScript,</span> <span class="w">APIs</span>
+            <span class="w">seguras</span> <span class="w">em</span> <span class="w">Node.js,</span>
+            <span class="w">modelagem</span> <span class="w">relacional</span> <span class="w">e</span>
+            <span class="w">agentes</span> <span class="w">de</span> <span class="w">IA</span>
+            <span class="w">que</span> <span class="w">resolvem</span> <span class="w">problemas</span>
+            <span class="w">reais</span> <span class="w">de</span> <span class="w">negócio.</span>
+            <span class="w">Curso</span> <span class="w">Sistemas</span> <span class="w">de</span>
+            <span class="w">Informação</span> <span class="w">e</span> <span class="w">transformo</span>
+            <span class="w">estudo</span> <span class="w">em</span> <span class="w">produto</span>
+            <span class="w">em</span> <span class="w">produção.</span>
+          </p>
+
+          <footer class="about__foot">
+            <p class="tag tag--muted">
+              // 06 PROJETOS PUBLICADOS · 01 SISTEMA EM PRODUÇÃO NA VITTAL WEB
+            </p>
+            <a class="link-arrow" href="#experiencia">
+              Atuação <span aria-hidden="true">→</span>
+            </a>
+          </footer>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════ 02 · ATUAÇÃO ══════════════════════════════ -->
+      <section
+        class="band xp"
+        id="experiencia"
+        data-section="experiencia"
+        aria-label="Atuação profissional e competências"
+      >
+        <div class="art" aria-hidden="true">
+          <span class="art__glow"></span>
+          <span class="art__grid"></span>
+          <span class="art__reticle art__reticle--tl"></span>
+          <span class="art__reticle art__reticle--tr"></span>
+          <span class="art__reticle art__reticle--bl"></span>
+          <span class="art__reticle art__reticle--br"></span>
+        </div>
+
+        <div class="section-word xp__giant" aria-hidden="true">
+          <span class="section-word__solid">EXPERIÊNCIA</span>
+          <span class="section-word__stroke">EXPERIÊNCIA</span>
+        </div>
+
+        <div class="wrap xp__inner">
+          <header class="sec-head">
+            <span class="tag">// 02 — ATUAÇÃO</span>
+            <span class="tag tag--muted">EXPERIÊNCIA</span>
+            <span class="sec-head__meta">CORE // 02</span>
+          </header>
+
+          <div class="xp__meta">
+            <div class="xp__roles">
+              <div class="xp__role">
+                <span class="tag tag--muted">ESTÁGIO CONCLUÍDO</span>
+                <h2>Estagiário de<br />Desenvolvimento</h2>
+                <p>
+                  <strong>Vittal Web</strong> · Setor de Inteligência Artificial, Sistemas e
+                  Automação
+                </p>
+              </div>
+
+              <div class="xp__role">
+                <span class="tag tag--muted">ANTERIOR</span>
+                <h2>Desenvolvedor<br />Freelancer</h2>
+                <p><strong>Vittal Web</strong> · entrega full stack em um mês</p>
+              </div>
+            </div>
+
+            <dl class="xp__specs">
+              <div class="xp__spec">
+                <dt class="tag tag--muted">ESTÁGIO</dt>
+                <dd>Jun/2026 – Nov/2026</dd>
+              </div>
+              <div class="xp__spec">
+                <dt class="tag tag--muted">FREELANCE</dt>
+                <dd>Jun/2026 – Jul/2026</dd>
+              </div>
+              <div class="xp__spec">
+                <dt class="tag tag--muted">ESCOPO</dt>
+                <dd>IA · Automações</dd>
+              </div>
+              <div class="xp__spec">
+                <dt class="tag tag--muted">LOCAL</dt>
+                <dd>Vitória da Conquista, BA · Brasil</dd>
+              </div>
+            </dl>
+          </div>
+
+          <div class="xp__duty">
+            <div class="xp__duty-col">
+              <span class="tag tag--muted">// NO ESTÁGIO — O QUE EU FAZIA</span>
+              <ul class="xp__duty-list">
+                <li>
+                  Desenvolvimento de softwares Full Stack utilizando Node.js, Express e React, desde o
+                  planejamento e construção de interfaces web até a criação de APIs REST e entrega em
+                  produção.
+                </li>
+                <li>
+                  Desenvolvimento de agentes de Inteligência Artificial e automações para otimizar
+                  processos internos, integrar fluxos de trabalho e eliminar tarefas manuais.
+                </li>
+                <li>
+                  Atuação no setor de Inteligência Artificial, Sistemas e Automação sob supervisão
+                  direta, participando da construção, evolução e manutenção de sistemas e soluções
+                  com IA da empresa.
+                </li>
+                <li>
+                  Levantamento de requisitos junto às áreas envolvidas, definição de soluções
+                  técnicas, modelagem de bancos de dados e integração com serviços externos.
+                </li>
+                <li>
+                  Correção de bugs, execução de testes, versionamento em Git/GitHub e acompanhamento
+                  contínuo das demandas junto à equipe.
+                </li>
+              </ul>
+            </div>
+
+            <div class="xp__duty-col">
+              <span class="tag tag--muted">// FREELANCE — O QUE EU FAZIA</span>
+              <ul class="xp__duty-list">
+                <li>
+                  Desenvolvimento Full Stack e entrega de projeto web com Node.js, Express e React em
+                  um mês.
+                </li>
+                <li>
+                  Atuação no ciclo completo de implementação, antes da efetivação no programa de
+                  estágio da equipe.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════ 03 · PROJETOS ══════════════════════════════ -->
+      <section
+        class="band pj"
+        id="projetos"
+        data-section="projetos"
+        aria-label="Projetos em destaque e em produção"
+      >
+        <div class="art" aria-hidden="true">
+          <span class="art__glow"></span>
+          <span class="art__grid"></span>
+        </div>
+
+        <div class="section-word" aria-hidden="true">
+          <span class="section-word__solid">PROJETOS</span>
+          <span class="section-word__stroke">PROJETOS</span>
+        </div>
+
+        <div class="pj__intro" aria-hidden="true">
+          <div class="marquee marquee--outline" data-marquee>
+            <div class="marquee__track">
+              <span>PROJETOS · PROJETOS · PROJETOS · PROJETOS · </span>
+              <span>PROJETOS · PROJETOS · PROJETOS · PROJETOS · </span>
+            </div>
+          </div>
+          <div class="marquee" data-marquee>
+            <div class="marquee__track">
+              <span>EM PRODUÇÃO · EM PRODUÇÃO · EM PRODUÇÃO · EM PRODUÇÃO · </span>
+              <span>EM PRODUÇÃO · EM PRODUÇÃO · EM PRODUÇÃO · EM PRODUÇÃO · </span>
+            </div>
+          </div>
+        </div>
+
+        <article class="case" data-project="featured" aria-labelledby="case-gnosis">
+          <div class="wrap case__inner">
+            <header class="case__top">
+              <span class="tag">// 03 — 01</span>
+              <span class="tag tag--muted">FULL STACK · IA · MOBILE</span>
+              <span class="tag tag--muted">DESTAQUE</span>
+            </header>
+
+            <h2 class="case__name" id="case-gnosis">Gnosis IA</h2>
+
+            <div class="case__body">
+              <div class="case__text">
+                <h3 class="case__headline">Plataforma Full Stack de estudos com IA</h3>
+                <p class="case__desc">
+                  API, web e mobile em um único ecossistema. O app móvel funciona offline com fila
+                  de sincronização, e um agente Gemini usa tool-calling para consultar os dados
+                  reais do usuário e gerar resumos e flashcards sob medida.
+                </p>
+
+                <ul class="case__points">
+                  <li>API REST em Node.js/TypeScript com PostgreSQL via Prisma</li>
+                  <li>App React Native/Expo offline-first com fila de sincronização</li>
+                  <li>Agente Gemini com tool-calling para resumos e flashcards</li>
+                </ul>
+
+                <div class="case__actions">
+                  <a
+                    class="btn btn--solid"
+                    href="https://ia-study-wheat.vercel.app/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Acessar projeto <span aria-hidden="true">↗</span>
+                  </a>
+                  <a
+                    class="btn"
+                    href="https://github.com/Tyago-santos/ia_study"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    GitHub <span aria-hidden="true">↗</span>
+                  </a>
+                </div>
+
+                <dl class="case__specs">
+                  <div class="case__spec">
+                    <dt class="tag tag--muted">ARQUITETURA</dt>
+                    <dd>API + Web + Mobile</dd>
+                  </div>
+                  <div class="case__spec">
+                    <dt class="tag tag--muted">FRONTEND</dt>
+                    <dd>React Native · Expo</dd>
+                  </div>
+                  <div class="case__spec">
+                    <dt class="tag tag--muted">BACKEND &amp; DB</dt>
+                    <dd>Node.js · Prisma · PostgreSQL</dd>
+                  </div>
+                  <div class="case__spec">
+                    <dt class="tag tag--muted">IA &amp; INFRA</dt>
+                    <dd>Gemini · Tool-calling · Docker</dd>
+                  </div>
+                </dl>
+              </div>
+
+            </div>
+
+            <div class="case__tags" aria-label="Tecnologias do projeto">
+              <div class="marquee" data-marquee>
+                <div class="marquee__track">
+                  <span>
+                    React Native <b>✦</b> TypeScript <b>✦</b> Node.js <b>✦</b> Prisma <b>✦</b>
+                    PostgreSQL <b>✦</b> Gemini <b>✦</b> Expo <b>✦</b> Docker <b>✦</b>
+                  </span>
+                  <span aria-hidden="true">
+                    React Native <b>✦</b> TypeScript <b>✦</b> Node.js <b>✦</b> Prisma <b>✦</b>
+                    PostgreSQL <b>✦</b> Gemini <b>✦</b> Expo <b>✦</b> Docker <b>✦</b>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="case" data-project aria-labelledby="case-connect">
+          <div class="wrap case__inner">
+            <header class="case__top">
+              <span class="tag">// 03 — 02</span>
+              <span class="tag tag--muted">FULL STACK · MVC</span>
+              <span class="tag tag--muted">EM PRODUÇÃO</span>
+            </header>
+
+            <h2 class="case__name" id="case-connect">Connect Dev</h2>
+
+            <div class="case__body">
+              <div class="case__text">
+                <h3 class="case__headline">Rede social para quem escreve e compartilha código</h3>
+                <p class="case__desc">
+                  Comunidade de desenvolvedores com publicação de artigos, blocos de código,
+                  comentários e sistema de seguidores. Interface em React sobre uma API em Node.js
+                  separada em camadas.
+                </p>
+
+                <ul class="case__points">
+                  <li>API em Node.js/TypeScript com arquitetura Controller → Service → Repository</li>
+                  <li>Persistência em MySQL com recursos do Supabase e segurança com Helmet</li>
+                  <li>Artigos, comentários, curtidas e sistema de seguidores</li>
+                </ul>
+
+                <div class="case__actions">
+                  <a
+                    class="btn btn--solid"
+                    href="https://connectdev.network/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Acessar projeto <span aria-hidden="true">↗</span>
+                  </a>
+                  <a
+                    class="btn"
+                    href="https://lnkd.in/dzTNA2_x"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Post <span aria-hidden="true">↗</span>
+                  </a>
+                </div>
+
+                <dl class="case__specs">
+                  <div class="case__spec">
+                    <dt class="tag tag--muted">ARQUITETURA</dt>
+                    <dd>API + Web · MVC</dd>
+                  </div>
+                  <div class="case__spec">
+                    <dt class="tag tag--muted">FRONTEND</dt>
+                    <dd>React · TypeScript</dd>
+                  </div>
+                  <div class="case__spec">
+                    <dt class="tag tag--muted">BACKEND &amp; DB</dt>
+                    <dd>Node.js · Express · MySQL · Supabase</dd>
+                  </div>
+                  <div class="case__spec">
+                    <dt class="tag tag--muted">SEGURANÇA</dt>
+                    <dd>Helmet · Camadas isoladas</dd>
+                  </div>
+                </dl>
+              </div>
+
+            </div>
+
+            <div class="case__tags" aria-label="Tecnologias do projeto">
+              <div class="marquee" data-marquee>
+                <div class="marquee__track">
+                  <span>
+                    React <b>✦</b> TypeScript <b>✦</b> Node.js <b>✦</b> Express <b>✦</b>
+                    MySQL <b>✦</b> Supabase <b>✦</b> Helmet <b>✦</b> MVC <b>✦</b>
+                  </span>
+                  <span aria-hidden="true">
+                    React <b>✦</b> TypeScript <b>✦</b> Node.js <b>✦</b> Express <b>✦</b>
+                    MySQL <b>✦</b> Supabase <b>✦</b> Helmet <b>✦</b> MVC <b>✦</b>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="case" data-project aria-labelledby="case-quiz">
+          <div class="wrap case__inner">
+            <header class="case__top">
+              <span class="tag">// 03 — 03</span>
+              <span class="tag tag--muted">NEXT.JS · IA</span>
+              <span class="tag tag--muted">EM PRODUÇÃO</span>
+            </header>
+
+            <h2 class="case__name" id="case-quiz">Pergunta da Igreja SUD</h2>
+
+            <div class="case__body">
+              <div class="case__text">
+                <h3 class="case__headline">Quiz de escrituras com perguntas geradas por IA</h3>
+                <p class="case__desc">
+                  Aplicação de perguntas sobre as escrituras em que o conteúdo é gerado pelo Gemini,
+                  com histórico de respostas em tempo real e rankings gamificados por desempenho.
+                </p>
+
+                <ul class="case__points">
+                  <li>Next.js 14 com React 18 e interface em Tailwind CSS</li>
+                  <li>Gemini API para gerar as perguntas do quiz</li>
+                  <li>Firestore para histórico em tempo real e rankings</li>
+                </ul>
+
+                <div class="case__actions">
+                  <a
+                    class="btn btn--solid"
+                    href="https://projeto-quiz-sud.vercel.app/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Acessar projeto <span aria-hidden="true">↗</span>
+                  </a>
+                  <a
+                    class="btn"
+                    href="https://github.com/Tyago-santos/projeto-quiz-sud"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    GitHub <span aria-hidden="true">↗</span>
+                  </a>
+                </div>
+
+                <dl class="case__specs">
+                  <div class="case__spec">
+                    <dt class="tag tag--muted">ARQUITETURA</dt>
+                    <dd>SPA + API de IA</dd>
+                  </div>
+                  <div class="case__spec">
+                    <dt class="tag tag--muted">FRONTEND</dt>
+                    <dd>Next.js 14 · React 18 · Tailwind</dd>
+                  </div>
+                  <div class="case__spec">
+                    <dt class="tag tag--muted">IA</dt>
+                    <dd>Gemini API</dd>
+                  </div>
+                  <div class="case__spec">
+                    <dt class="tag tag--muted">DADOS</dt>
+                    <dd>Firebase · Firestore</dd>
+                  </div>
+                </dl>
+              </div>
+
+            </div>
+
+            <div class="case__tags" aria-label="Tecnologias do projeto">
+              <div class="marquee" data-marquee>
+                <div class="marquee__track">
+                  <span>
+                    Next.js 14 <b>✦</b> React 18 <b>✦</b> Gemini API <b>✦</b> Firestore
+                    <b>✦</b> Tailwind CSS <b>✦</b> TypeScript <b>✦</b>
+                  </span>
+                  <span aria-hidden="true">
+                    Next.js 14 <b>✦</b> React 18 <b>✦</b> Gemini API <b>✦</b> Firestore
+                    <b>✦</b> Tailwind CSS <b>✦</b> TypeScript <b>✦</b>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="case" data-project aria-labelledby="case-promise">
+          <div class="wrap case__inner">
+            <header class="case__top">
+              <span class="tag">// 03 — 04</span>
+              <span class="tag tag--muted">REACT · NODE.JS</span>
+              <span class="tag tag--muted">EM PRODUÇÃO</span>
+            </header>
+
+            <h2 class="case__name" id="case-promise">Promise</h2>
+
+            <div class="case__body">
+              <div class="case__text">
+                <h3 class="case__headline">Rede social para conectar pessoas da comunidade cristã</h3>
+                <p class="case__desc">
+                  Plataforma social para fazer novas amizades dentro da comunidade cristã, com perfis,
+                  conexões e compressão de imagem feita no próprio navegador antes do envio.
+                </p>
+
+                <ul class="case__points">
+                  <li>API em Node.js/TypeScript com PostgreSQL e Supabase</li>
+                  <li>Estado em Zustand e dados em TanStack Query</li>
+                  <li>Compressão de imagem no browser antes do upload</li>
+                </ul>
+
+                <div class="case__actions">
+                  <a
+                    class="btn btn--solid"
+                    href="https://promise-8s8f.onrender.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Acessar projeto <span aria-hidden="true">↗</span>
+                  </a>
+                  <a
+                    class="btn"
+                    href="https://github.com/tiagomendesdev/promise"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    GitHub <span aria-hidden="true">↗</span>
+                  </a>
+                </div>
+
+                <dl class="case__specs">
+                  <div class="case__spec">
+                    <dt class="tag tag--muted">ARQUITETURA</dt>
+                    <dd>API + Web</dd>
+                  </div>
+                  <div class="case__spec">
+                    <dt class="tag tag--muted">FRONTEND</dt>
+                    <dd>React · TypeScript · Zustand</dd>
+                  </div>
+                  <div class="case__spec">
+                    <dt class="tag tag--muted">BACKEND &amp; DB</dt>
+                    <dd>Node.js · PostgreSQL · Supabase</dd>
+                  </div>
+                  <div class="case__spec">
+                    <dt class="tag tag--muted">ENTREGA</dt>
+                    <dd>TanStack · Deploy no Render</dd>
+                  </div>
+                </dl>
+              </div>
+
+            </div>
+
+            <div class="case__tags" aria-label="Tecnologias do projeto">
+              <div class="marquee" data-marquee>
+                <div class="marquee__track">
+                  <span>
+                    React <b>✦</b> TypeScript <b>✦</b> Node.js <b>✦</b> PostgreSQL <b>✦</b>
+                    Supabase <b>✦</b> Zustand <b>✦</b> TanStack <b>✦</b>
+                  </span>
+                  <span aria-hidden="true">
+                    React <b>✦</b> TypeScript <b>✦</b> Node.js <b>✦</b> PostgreSQL <b>✦</b>
+                    Supabase <b>✦</b> Zustand <b>✦</b> TanStack <b>✦</b>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="case" data-project aria-labelledby="case-polearn">
+          <div class="wrap case__inner">
+            <header class="case__top">
+              <span class="tag">// 03 — 05</span>
+              <span class="tag tag--muted">REACT · IA</span>
+              <span class="tag tag--muted">EM PRODUÇÃO</span>
+            </header>
+
+            <h2 class="case__name" id="case-polearn">Polearn</h2>
+
+            <div class="case__body">
+              <div class="case__text">
+                <h3 class="case__headline">Aprender idiomas com exercícios gerados por IA</h3>
+                <p class="case__desc">
+                  Aplicação interativa para prática de idiomas em que as questões são geradas por
+                  Inteligência Artificial, com interface em Shadcn UI e estado gerenciado no cliente.
+                </p>
+
+                <ul class="case__points">
+                  <li>Geração de questões com Google Studio AI</li>
+                  <li>Interface em React e TypeScript com Shadcn UI</li>
+                  <li>Estado local com Zustand e navegação por painéis</li>
+                </ul>
+
+                <div class="case__actions">
+                  <a
+                    class="btn btn--solid"
+                    href="https://polearn.onrender.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Acessar projeto <span aria-hidden="true">↗</span>
+                  </a>
+                  <a
+                    class="btn"
+                    href="https://github.com/Tyago-santos/polearn"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    GitHub <span aria-hidden="true">↗</span>
+                  </a>
+                </div>
+
+                <dl class="case__specs">
+                  <div class="case__spec">
+                    <dt class="tag tag--muted">ARQUITETURA</dt>
+                    <dd>SPA</dd>
+                  </div>
+                  <div class="case__spec">
+                    <dt class="tag tag--muted">FRONTEND</dt>
+                    <dd>React · TypeScript · Shadcn UI</dd>
+                  </div>
+                  <div class="case__spec">
+                    <dt class="tag tag--muted">IA</dt>
+                    <dd>Google Studio AI</dd>
+                  </div>
+                  <div class="case__spec">
+                    <dt class="tag tag--muted">ESTADO</dt>
+                    <dd>Zustand</dd>
+                  </div>
+                </dl>
+              </div>
+
+            </div>
+
+            <div class="case__tags" aria-label="Tecnologias do projeto">
+              <div class="marquee" data-marquee>
+                <div class="marquee__track">
+                  <span>
+                    React <b>✦</b> TypeScript <b>✦</b> Google Studio AI <b>✦</b>
+                    Shadcn UI <b>✦</b> Zustand <b>✦</b> Tailwind CSS <b>✦</b>
+                  </span>
+                  <span aria-hidden="true">
+                    React <b>✦</b> TypeScript <b>✦</b> Google Studio AI <b>✦</b>
+                    Shadcn UI <b>✦</b> Zustand <b>✦</b> Tailwind CSS <b>✦</b>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="case" data-project aria-labelledby="case-lma">
+          <div class="wrap case__inner">
+            <header class="case__top">
+              <span class="tag">// 03 — 06</span>
+              <span class="tag tag--muted">REACT · FIREBASE</span>
+              <span class="tag tag--muted">EM PRODUÇÃO</span>
+            </header>
+
+            <h2 class="case__name" id="case-lma">Acompanhamento de Pessoas</h2>
+
+            <div class="case__body">
+              <div class="case__text">
+                <h3 class="case__headline">Painel de acompanhamento para missões da Igreja</h3>
+                <p class="case__desc">
+                  Painel usado por missionários de A Igreja de Jesus Cristo dos Santos dos Últimos
+                  Dias para registrar contatos, acompanhar metas semanais e ver a evolução de cada
+                  unidade.
+                </p>
+
+                <ul class="case__points">
+                  <li>Painel em React e TypeScript com Styled Components</li>
+                  <li>Firebase para dados, autenticação e tempo real</li>
+                  <li>Metas semanais e evolução por unidade com Swiper</li>
+                </ul>
+
+                <div class="case__actions">
+                  <a
+                    class="btn btn--solid"
+                    href="https://project-lma-99.onrender.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Acessar projeto <span aria-hidden="true">↗</span>
+                  </a>
+                  <a
+                    class="btn"
+                    href="https://github.com/Tyago-santos/project_lma"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    GitHub <span aria-hidden="true">↗</span>
+                  </a>
+                </div>
+
+                <dl class="case__specs">
+                  <div class="case__spec">
+                    <dt class="tag tag--muted">ARQUITETURA</dt>
+                    <dd>SPA + BaaS</dd>
+                  </div>
+                  <div class="case__spec">
+                    <dt class="tag tag--muted">FRONTEND</dt>
+                    <dd>React · TypeScript · Styled Components</dd>
+                  </div>
+                  <div class="case__spec">
+                    <dt class="tag tag--muted">DADOS</dt>
+                    <dd>Firebase</dd>
+                  </div>
+                  <div class="case__spec">
+                    <dt class="tag tag--muted">RECURSOS</dt>
+                    <dd>Metas semanais · Swiper</dd>
+                  </div>
+                </dl>
+              </div>
+
+            </div>
+
+            <div class="case__tags" aria-label="Tecnologias do projeto">
+              <div class="marquee" data-marquee>
+                <div class="marquee__track">
+                  <span>
+                    React <b>✦</b> TypeScript <b>✦</b> Firebase <b>✦</b> Styled Components
+                    <b>✦</b> Swiper <b>✦</b>
+                  </span>
+                  <span aria-hidden="true">
+                    React <b>✦</b> TypeScript <b>✦</b> Firebase <b>✦</b> Styled Components
+                    <b>✦</b> Swiper <b>✦</b>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <div class="wrap projects">
+          <div class="projects__grid">
+            <a
+              class="project--cta"
+              data-reveal
+              style="--i:5"
+              href="https://github.com/Tyago-santos"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span class="project__num">+ 06 / 06</span>
+              <h3>Mais código<br />no GitHub</h3>
+              <p>Repositórios, experimentos e projetos acadêmicos publicados abertamente.</p>
+            </a>
+          </div>
+
+          <footer class="projects__foot">
+            <p class="tag tag--muted">
+              // CADA PROJETO PASSA POR DESIGN, API ISOLADA, MODELAGEM E DEPLOY
+            </p>
+            <a
+              class="btn"
+              href="https://github.com/Tyago-santos"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Ver todos no GitHub <span aria-hidden="true">↗</span>
+            </a>
+          </footer>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════ 04 · STACK ══════════════════════════════ -->
+      <section
+        class="band st"
+        id="stack"
+        data-section="stack"
+        data-stack
+        aria-label="Arsenal técnico"
+      >
+        <div class="art" aria-hidden="true">
+          <span class="art__glow"></span>
+          <span class="art__grid"></span>
+        </div>
+
+        <div class="section-word" aria-hidden="true">
+          <span class="section-word__solid">STACK</span>
+          <span class="section-word__stroke">STACK</span>
+        </div>
+
+        <div class="st__viewport">
+          <div class="st__track" data-stack-track>
+            <div class="st-panel st-panel--intro">
+              <span class="tag tag--muted">// 04 — ARSENAL TÉCNICO</span>
+              <h2 class="st__title">Stack</h2>
+              <p class="st__lead">
+                Ferramentas escolhidas por confiabilidade, tipagem de ponta a ponta e desempenho em
+                produção. Role para atravessar <span aria-hidden="true">→</span>
+              </p>
+              <span class="tag tag--muted st__count">01 — 05</span>
+            </div>
+
+            <article class="st-panel">
+              <span class="st-panel__num" aria-hidden="true">01</span>
+              <div class="st-panel__body">
+                <span class="tag tag--muted">BACK-END</span>
+                <h3 class="st-panel__title">Back-End &amp; APIs</h3>
+                <p class="st-panel__desc">
+                  Serviços desacoplados, contratos estritos de API REST e autenticação resiliente.
+                </p>
+                <ul class="st-panel__techs">
+                  <li class="st-chip">Node.js</li>
+                  <li class="st-chip">Express</li>
+                  <li class="st-chip">Prisma</li>
+                  <li class="st-chip">JWT</li>
+                  <li class="st-chip">Zod</li>
+                  <li class="st-chip">REST</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="st-panel">
+              <span class="st-panel__num" aria-hidden="true">02</span>
+              <div class="st-panel__body">
+                <span class="tag tag--muted">FRONT-END</span>
+                <h3 class="st-panel__title">Interfaces &amp; Web</h3>
+                <p class="st-panel__desc">
+                  SPAs com componentes modulares, tipagem estrita e micro-interações fluidas.
+                </p>
+                <ul class="st-panel__techs">
+                  <li class="st-chip">React</li>
+                  <li class="st-chip">TypeScript</li>
+                  <li class="st-chip">Next.js</li>
+                  <li class="st-chip">Tailwind CSS</li>
+                  <li class="st-chip">JavaScript</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="st-panel">
+              <span class="st-panel__num" aria-hidden="true">03</span>
+              <div class="st-panel__body">
+                <span class="tag tag--muted">MOBILE &amp; IA</span>
+                <h3 class="st-panel__title">Mobile &amp; Inteligência Artificial</h3>
+                <p class="st-panel__desc">
+                  Apps nativos offline-first e integração de LLMs com tool-calling sobre dados reais.
+                </p>
+                <ul class="st-panel__techs">
+                  <li class="st-chip">React Native</li>
+                  <li class="st-chip">Expo</li>
+                  <li class="st-chip">Gemini</li>
+                  <li class="st-chip">Tool-calling</li>
+                  <li class="st-chip">LangChain</li>
+                  <li class="st-chip">RAG</li>
+                  <li class="st-chip">Prompt Engineering</li>
+                  <li class="st-chip">Offline-First</li>
+                  <li class="st-chip">OCR</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="st-panel">
+              <span class="st-panel__num" aria-hidden="true">04</span>
+              <div class="st-panel__body">
+                <span class="tag tag--muted">DADOS &amp; INFRA</span>
+                <h3 class="st-panel__title">Dados &amp; Infraestrutura</h3>
+                <p class="st-panel__desc">
+                  Persistência confiável, containers e deploy contínuo com versionamento rigoroso.
+                </p>
+                <ul class="st-panel__techs">
+                  <li class="st-chip">PostgreSQL</li>
+                  <li class="st-chip">MySQL</li>
+                  <li class="st-chip">Redis</li>
+                  <li class="st-chip">Supabase</li>
+                  <li class="st-chip">Firebase</li>
+                  <li class="st-chip">Docker</li>
+                  <li class="st-chip">Dokploy</li>
+                  <li class="st-chip">Cloudflare</li>
+                  <li class="st-chip">Git</li>
+                  <li class="st-chip">GitHub</li>
+                  <li class="st-chip">Vercel</li>
+                  <li class="st-chip">Render</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="st-panel">
+              <span class="st-panel__num" aria-hidden="true">05</span>
+              <div class="st-panel__body">
+                <span class="tag tag--muted">AGENTES DE IA</span>
+                <h3 class="st-panel__title">Agentes &amp; Automação</h3>
+                <p class="st-panel__desc">
+                  Agentes de código e protocolos de contexto para construir, revisar e automatizar
+                  com IA dentro do fluxo real de trabalho.
+                </p>
+                <ul class="st-panel__techs">
+                  <li class="st-chip">OpenCode</li>
+                  <li class="st-chip">Claude Code</li>
+                  <li class="st-chip">Codex</li>
+                  <li class="st-chip">MCP</li>
+                  <li class="st-chip">Skills</li>
+                  <li class="st-chip">Hooks</li>
+                  <li class="st-chip">Plugins</li>
+                </ul>
+              </div>
+            </article>
+
+            <div class="st-panel st-panel--outro">
+              <span class="tag tag--muted">// PRÓXIMO PASSO</span>
+              <h3 class="st-panel__title">Sempre<br />aprendendo.</h3>
+              <p class="st-panel__desc">
+                Estudante de Sistemas de Informação, em busca de estágio ou posição júnior para
+                construir software com impacto real.
+              </p>
+              <a class="btn" href="#contato">Falar comigo <span aria-hidden="true">↗</span></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="st__progress" aria-hidden="true"><span data-stack-progress></span></div>
+      </section>
+
+      <!-- ══════════════════════════════ 05 · FORMAÇÃO ══════════════════════════════ -->
+      <section
+        class="cr"
+        id="formacao"
+        data-section="formacao"
+        aria-label="Formação acadêmica e resumo profissional"
+      >
+        <div class="section-word section-word--light" aria-hidden="true">
+          <span class="section-word__solid">FORMAÇÃO</span>
+          <span class="section-word__stroke">FORMAÇÃO</span>
+        </div>
+
+        <div class="wrap cr__sheet">
+          <header class="sec-head sec-head--light">
+            <span class="tag">// 05</span>
+            <span class="tag tag--muted">FORMAÇÃO &amp; TRAJETÓRIA</span>
+            <span class="sec-head__meta">DOSSIER</span>
+          </header>
+
+          <div class="cr__grid">
+            <div class="cr__edu">
+              <span class="tag tag--muted">// FORMAÇÃO ACADÊMICA</span>
+
+              <div class="edu">
+                <div class="edu__brand" aria-hidden="true">UNEX</div>
+                <div class="edu__main">
+                  <span class="tag tag--muted">EM ANDAMENTO · 1º SEMESTRE</span>
+                  <h2>Sistemas de<br />Informação</h2>
+                  <p>Centro Universitário de Excelência (Unex)</p>
+                  <p class="edu__local">Vitória da Conquista, BA · Brasil</p>
+                </div>
+              </div>
+
+              <div class="cr__resume">
+                <div>
+                  <span class="tag tag--muted">// CURRÍCULO</span>
+                  <h3>Versão completa em PDF</h3>
+                  <p>Formação, experiência, stack e projetos detalhados em uma página.</p>
+                </div>
+                <a class="btn btn--dark" href="./assets/curriculo_tiago_dev.pdf" download>
+                  Baixar PDF <span aria-hidden="true">↗</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="cr__summary">
+              <span class="tag tag--muted">// RESUMO PROFISSIONAL</span>
+              <p>
+                Desenvolvedor Full Stack e estudante de Sistemas de Informação, com experiência
+                prática na construção e manutenção de sistemas web, APIs REST e soluções de
+                Inteligência Artificial e automação. Trabalho com React, TypeScript e Node.js
+                para otimizar processos e entregar software em produção.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════ 06 · CONTATO ══════════════════════════════ -->
+      <footer
+        class="band ct"
+        id="contato"
+        data-section="contato"
+        aria-label="Redes, contato e encerramento"
+      >
+        <div class="art" aria-hidden="true">
+          <span class="art__glow"></span>
+          <span class="art__grid"></span>
+          <span class="art__reticle art__reticle--tl"></span>
+          <span class="art__reticle art__reticle--tr"></span>
+          <span class="art__reticle art__reticle--bl"></span>
+          <span class="art__reticle art__reticle--br"></span>
+        </div>
+
+        <div class="section-word" aria-hidden="true">
+          <span class="section-word__solid">CONTATO</span>
+          <span class="section-word__stroke">CONTATO</span>
+        </div>
+
+        <div class="wrap ct__inner">
+          <header class="sec-head">
+            <span class="tag">// 06</span>
+            <span class="tag tag--muted">CONEXÃO &amp; REDES</span>
+            <span class="sec-head__meta">VITÓRIA DA CONQUISTA · BA</span>
+          </header>
+
+          <p class="ct__lead" data-reveal>Vamos construir<br />algo juntos?</p>
+
+          <nav class="ct__links" aria-label="Redes e contato">
+            <a
+              class="ct-link"
+              data-reveal
+              style="--i:0"
+              href="https://www.linkedin.com/in/tiago-santos-b10165376/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span class="ct-link__fill" aria-hidden="true"></span>
+              <span class="tag tag--muted ct-link__meta">01 // REDE PROFISSIONAL</span>
+              <span class="ct-link__name">LinkedIn</span>
+              <span class="ct-link__arrow" aria-hidden="true">↗</span>
+            </a>
+
+            <a
+              class="ct-link"
+              data-reveal
+              style="--i:1"
+              href="https://github.com/Tyago-santos"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span class="ct-link__fill" aria-hidden="true"></span>
+              <span class="tag tag--muted ct-link__meta">02 // REPOSITÓRIOS &amp; CÓDIGO</span>
+              <span class="ct-link__name">GitHub</span>
+              <span class="ct-link__arrow" aria-hidden="true">↗</span>
+            </a>
+
+            <a
+              class="ct-link"
+              data-reveal
+              style="--i:2"
+              href="https://www.instagram.com/tiago_skywalker/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span class="ct-link__fill" aria-hidden="true"></span>
+              <span class="tag tag--muted ct-link__meta">03 // CANAL SOCIAL</span>
+              <span class="ct-link__name">Instagram</span>
+              <span class="ct-link__arrow" aria-hidden="true">↗</span>
+            </a>
+
+            <a class="ct-link" href="mailto:xlzthyago@gmail.com" data-reveal style="--i:3">
+              <span class="ct-link__fill" aria-hidden="true"></span>
+              <span class="tag tag--muted ct-link__meta">04 // MENSAGEM DIRETA</span>
+              <span class="ct-link__name">E-mail</span>
+              <span class="ct-link__arrow" aria-hidden="true">↗</span>
+            </a>
+
+            <a class="ct-link" href="tel:+5577981583269" data-reveal style="--i:4">
+              <span class="ct-link__fill" aria-hidden="true"></span>
+              <span class="tag tag--muted ct-link__meta">05 // TELEFONE DIRETO</span>
+              <span class="ct-link__name">(77) 98158-3269</span>
+              <span class="ct-link__arrow" aria-hidden="true">↗</span>
+            </a>
+          </nav>
+
+          <div class="ct__bottom">
+            <div class="ct__col">
+              <span class="tag tag--muted">VITÓRIA DA CONQUISTA, BA · BRASIL</span>
+              <span class="tag tag--muted"><time data-clock datetime="">--:--:--</time> [UTC-3]</span>
+            </div>
+
+            <div class="ct__col ct__col--center">
+              <p class="ct__sign">TIAGO SANTOS</p>
+              <p class="tag tag--muted">DESENVOLVEDOR FULL STACK · 2026</p>
+            </div>
+
+            <div class="ct__col ct__col--end">
+              <a class="ct__top" href="#top">
+                Voltar ao topo <span aria-hidden="true">↑</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="ct__fine">
+            <span class="tag tag--muted">HTML · CSS · JAVASCRIPT VANILLA</span>
+            <a
+              class="tag tag--muted"
+              href="https://www.facebook.com/osmon.santos.9"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              FACEBOOK ↗
+            </a>
+          </div>
+        </div>
+      </footer>
+    </main>
+
+    <script src="./js/script.js" defer></script>
+  </body>
 </html>
